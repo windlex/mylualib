@@ -1,0 +1,13 @@
+CombatD = {}
+
+-- A攻击B 1次
+function CombatD:Attack(A, B)
+	local action = A:queryAction("attack", B);
+	if not action then
+		return debug("No Action", A);
+	end
+	-- 闪避，招架，命中 轮盘
+	local dodge = B:queryDodge();
+	local parry = B:queryParry();
+
+end

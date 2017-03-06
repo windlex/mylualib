@@ -1,0 +1,12 @@
+Componentor = {
+	_components = {},
+	AddComponent = function (self, key, tcomp)
+		self._component[key] = tcomp;
+	end,
+	GetComponent = function (self, key)
+		return self._component[key];
+	end,
+	GetAllComponents = function (self)
+		return self._components;
+	end,
+}

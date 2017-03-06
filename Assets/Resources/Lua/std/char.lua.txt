@@ -1,0 +1,7 @@
+Char = class(Componentor, {
+	name = "Char",
+	desc = "this is a Char",
+	init = function (self)
+		self:AddComponent("skill");
+	end,
+})
