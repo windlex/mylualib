@@ -15,21 +15,22 @@ end
 
 function onLoadGame()
 	pl("<color=blue>暂未实装!!</color>");
-	Wait();
+	wait();
 	pl("");
 	pl("");
 	pl("");
 	title();
 end
 function title()
+	cls();
 	pl("UniEro");
 	pl("Ver 0.000001");
 	pl("");
-	Wait();
+	wait();
 	pl("[balbalblablablalb]");
 	pl("邪恶正在蔓延...");
-	CMD("New Game", onNewGame);
-	CMD("Load Game", onLoadGame);
+	cmd("New Game", "onNewGame");
+	cmd("Load Game", "onLoadGame");
 end
 
 start(title)

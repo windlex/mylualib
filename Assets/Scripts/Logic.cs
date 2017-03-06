@@ -38,6 +38,10 @@ public class Logic : MonoBehaviour {
     {
         cmdList.AddButton(cmd, onCmd);
     }
+    public void AddCommand(string label, string cmd)
+    {
+        cmdList.AddButton(cmd, () => L.DoString(string.Format("start({0})", cmd)));
+    }
     public void ClearCommand()
     {
         cmdList.Clear();

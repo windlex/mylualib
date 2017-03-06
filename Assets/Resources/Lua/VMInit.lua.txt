@@ -1,33 +1,39 @@
-Logic = CS.Logic.Instance;
+VM = {
+	Logic = CS.Logic.Instance,
+	waiting = false,
+}
+function VM.pl(str)
+	VM.Logic:AddText(str.."\n");
+end
+function VM.cmd(str, cb)
+	VM.Logic:AddCommand(str, cb)
+end
 
-function startup()
-	mainf()
-end
-co = coroutine.wrap(startup)
-
-function PL(str)
-	Logic:AddText(str.."\n");
-end
-function CMD(str, cb)
-	Logic:AddCommand(str, cb)
-end
-waiting = false;
-function Wait()
-	waiting = true;
+function VM.wait()
+	self = VM;
+	self.waiting = true;
 	coroutine.yield();
-	waiting = false;
+	self.waiting = false;
 end
 
-pl = PL
-cmd = CMD
-
-function start(f)
-	mainf = f
-	co();
+function VM.start(f)
+	VM.co = coroutine.wrap(f)
+	VM.co();
 end
 
 function OnClick()
-	if waiting then
-		co();
+	if VM.waiting then
+		VM.co();
 	end
 end
+
+function VM.cls()
+	VM.Logic:ClearText()
+end
+
+-------------------------------------------------------
+pl = VM.pl
+cmd = VM.cmd
+start = VM.start
+cls = VM.cls
+wait = VM.wait
