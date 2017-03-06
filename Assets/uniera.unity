@@ -280,22 +280,22 @@ Prefab:
     - target: {fileID: 224000010707334596, guid: 93e42ec42541191428bb9ba3d27dd1e2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 285
+      value: 518
       objectReference: {fileID: 0}
     - target: {fileID: 224000010707334596, guid: 93e42ec42541191428bb9ba3d27dd1e2,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 46
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 224000010707334596, guid: 93e42ec42541191428bb9ba3d27dd1e2,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: -570
+      value: -1036
       objectReference: {fileID: 0}
     - target: {fileID: 224000010707334596, guid: 93e42ec42541191428bb9ba3d27dd1e2,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: -93
+      value: -120
       objectReference: {fileID: 0}
     - target: {fileID: 224000010707334596, guid: 93e42ec42541191428bb9ba3d27dd1e2,
         type: 2}
@@ -340,7 +340,7 @@ Prefab:
     - target: {fileID: 224000012477520514, guid: 93e42ec42541191428bb9ba3d27dd1e2,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: -452
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224000010347782948, guid: 93e42ec42541191428bb9ba3d27dd1e2,
         type: 2}
@@ -584,6 +584,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 896635131}
     m_Modifications:
+    - target: {fileID: 114000013609439372, guid: 1772489a4f2cd7644857e4910ce2349a,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 224000012446775268, guid: 1772489a4f2cd7644857e4910ce2349a,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -677,7 +682,7 @@ Prefab:
     - target: {fileID: 224000010367264876, guid: 1772489a4f2cd7644857e4910ce2349a,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0.74649477
+      value: 0.7148349
       objectReference: {fileID: 0}
     - target: {fileID: 224000010367264876, guid: 1772489a4f2cd7644857e4910ce2349a,
         type: 2}
@@ -692,27 +697,27 @@ Prefab:
     - target: {fileID: 224000011748407490, guid: 1772489a4f2cd7644857e4910ce2349a,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224000011748407490, guid: 1772489a4f2cd7644857e4910ce2349a,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224000011748407490, guid: 1772489a4f2cd7644857e4910ce2349a,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 513
       objectReference: {fileID: 0}
     - target: {fileID: 224000011748407490, guid: 1772489a4f2cd7644857e4910ce2349a,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -1105.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000011748407490, guid: 1772489a4f2cd7644857e4910ce2349a,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 1010
       objectReference: {fileID: 0}
     - target: {fileID: 224000011748407490, guid: 1772489a4f2cd7644857e4910ce2349a,
         type: 2}
@@ -722,7 +727,7 @@ Prefab:
     - target: {fileID: 224000010874755868, guid: 1772489a4f2cd7644857e4910ce2349a,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 1650.5
+      value: 1580.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000010257044468, guid: 1772489a4f2cd7644857e4910ce2349a,
         type: 2}
@@ -777,6 +782,31 @@ Prefab:
         type: 2}
       propertyPath: m_Color.a
       value: 0.861
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013609439372, guid: 1772489a4f2cd7644857e4910ce2349a,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013609439372, guid: 1772489a4f2cd7644857e4910ce2349a,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013609439372, guid: 1772489a4f2cd7644857e4910ce2349a,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 468709733}
+    - target: {fileID: 114000013609439372, guid: 1772489a4f2cd7644857e4910ce2349a,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013609439372, guid: 1772489a4f2cd7644857e4910ce2349a,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1772489a4f2cd7644857e4910ce2349a, type: 2}
@@ -1064,6 +1094,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 0}
   scrollbar: {fileID: 0}
+--- !u!114 &2120341836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2120341833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 468709733}
+          m_MethodName: OnClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &2138786858
 GameObject:
   m_ObjectHideFlags: 0

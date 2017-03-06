@@ -1,21 +1,35 @@
+require "Lua.VMInit"
+
 print("Lua Main");
 
-print(CS.Logic.Instance)
-Logic = CS.Logic.Instance;
-
-function PL(str)
-	Logic:AddText(str);
-end
-function CMD(str, cb)
-	Logic:AddCommand(str, cb)
-end
-
-print(PL);
+print(pl);
 print(CMD);
 
-PL("blablalbalb")
-function onCmd()
-	PL("mcdmcmdcmdcmd");
+function onNewGame()
+	pl("<color=red>也暂未实装!!</color>");
+	pl("");
+	pl("");
+	pl("");
+	title();
 end
 
-CMD("hehehe", onCmd)
+function onLoadGame()
+	pl("<color=blue>暂未实装!!</color>");
+	Wait();
+	pl("");
+	pl("");
+	pl("");
+	title();
+end
+function title()
+	pl("UniEro");
+	pl("Ver 0.000001");
+	pl("");
+	Wait();
+	pl("[balbalblablablalb]");
+	pl("邪恶正在蔓延...");
+	CMD("New Game", onNewGame);
+	CMD("Load Game", onLoadGame);
+end
+
+start(title)

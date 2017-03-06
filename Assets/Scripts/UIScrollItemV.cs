@@ -11,7 +11,7 @@ public class UIScrollItemV : MonoBehaviour
     private GameObject goBtnPrefab;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         goContent = transform.Find("view/content").gameObject;
         goBtnPrefab = transform.Find("view/btn_Prefab").gameObject;
     }
@@ -34,6 +34,7 @@ public class UIScrollItemV : MonoBehaviour
         GameObject goBtn = Instantiate(goBtnPrefab, goContent.transform) as GameObject;
         goBtn.SetActive(true);
         goBtn.GetComponentInChildren<Text>().text = strBtn;
+		goBtn.GetComponent<Button>().onClick.AddListener(Clear);
         goBtn.GetComponent<Button>().onClick.AddListener(onClick);
     }
 }

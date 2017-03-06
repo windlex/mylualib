@@ -42,10 +42,24 @@ public class Logic : MonoBehaviour {
     {
         cmdList.Clear();
     }
+
+	public void ClearText()
+	{
+		textList.SetText("");
+	}
     public void AddText(string text)
     {
         textList.AppendText(text);
     }
+
+	public void Wait()
+	{
+
+	}
+	public void OnClick()
+	{
+		L.DoString("OnClick()");
+	}
 
     public void test()
     {

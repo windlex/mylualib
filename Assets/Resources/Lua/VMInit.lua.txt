@@ -1,0 +1,33 @@
+Logic = CS.Logic.Instance;
+
+function startup()
+	mainf()
+end
+co = coroutine.wrap(startup)
+
+function PL(str)
+	Logic:AddText(str.."\n");
+end
+function CMD(str, cb)
+	Logic:AddCommand(str, cb)
+end
+waiting = false;
+function Wait()
+	waiting = true;
+	coroutine.yield();
+	waiting = false;
+end
+
+pl = PL
+cmd = CMD
+
+function start(f)
+	mainf = f
+	co();
+end
+
+function OnClick()
+	if waiting then
+		co();
+	end
+end
