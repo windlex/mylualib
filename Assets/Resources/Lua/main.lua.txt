@@ -1,1 +1,21 @@
 print("Lua Main");
+
+print(CS.Logic.Instance)
+Logic = CS.Logic.Instance;
+
+function PL(str)
+	Logic:AddText(str);
+end
+function CMD(str, cb)
+	Logic:AddCommand(str, cb)
+end
+
+print(PL);
+print(CMD);
+
+PL("blablalbalb")
+function onCmd()
+	PL("mcdmcmdcmdcmd");
+end
+
+CMD("hehehe", onCmd)
