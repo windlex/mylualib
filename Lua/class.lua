@@ -1,47 +1,65 @@
 --------------------------------------------------------------------------------
 --
---  FileName    : \script\class\class.lua
+--  FileName    : \script\class.lua
 --  Creator     : Windle
---  Create Date : 2013/01/04   17:34:53
---  Version     : 1.3
---  Comment     : inherit		¼òµ¥ÒýÓÃ¼Ì³Ð, Ê¹ÓÃ±Ø°ü°Ñ»ùÀàÒýÓÃµ½upvalueÖÐ
---				: superInherit 	´øsuperµÄÒýÓÃ¼Ì³Ð,»ùÀàÒýÓÃµ½self.getmetatable()._superÖÐ
---				: class			¼òµ¥copy¼Ì³Ð, ËùÓÐ»ùÀàµÄ³ÉÔ±¶¼copyµ½µ±Ç°table
---				: superClass	´øsuperµÄcopy¼Ì³Ð, ËùÓÐ»ùÀàµÄ³ÉÔ±¶¼copyµ½self._superÖÐ
+--  Create Date : 2017/2/24 10:36:39
+--  Version     : 0.1
+--  Comment     : inherit	 	��super�����ü̳�,�������õ�self.getmetatable()._super��
+--				: class			��copy�̳�, ���л���ĳ�Ա��copy����ǰtable
 --				: 
---				: ½â¾öÑ­»·ÒýÓÃÎÊÌâ
+--				: ���ѭ����������
 --				:
 --	Usage		: A = inherit {...};  a = A:new();
 --				: B = A {...}
 --				: C = inherit(A, B, {...})
---				: A:super():f();							µ÷ÓÃ»ùÀàµÄº¯ÊýÍ¬Ê±Ê¹ÓÃ»ùÀàµÄ±äÁ¿
---				: A:super().f(A); self:super().f(self);		µ÷ÓÃ»ùÀàµÄº¯ÊýÍ¬Ê±Ê¹ÓÃÅÉÉúÀàµÄ±äÁ¿
---
+--				: B:super():f();							���û���ĺ���ͬʱʹ�û���ı���
+--				: B:super().f(B); self:super().f(self);		���û���ĺ���ͬʱʹ��������ı���
+--				:
+--	Todo		: RTTI
 --------------------------------------------------------------------------------
+if __class_file_flag__ then return end
+__class_file_flag__ = 1
+
+require "global"
 
 gt_CLASS_NAMESPACE = {
 	baseClass = {
-		new = function(self)
-			return gt_CLASS_NAMESPACE:newClass(self);
+		new = function(self, ...)
+			local t = gt_CLASS_NAMESPACE:newClass(self);
+			if type(t.init) == 'function' then
+				t.init(...)
+			end
+			return t;
 		end,
 	},
 	_classMap = {},
-	classCopy = function(self, super, derive)
-		for k,v in super do
-			if type(v) == "table" then
-				local tablekey = tostring(v);
-				if not self._classMap[tablekey] then	-- for turn copy
-					self._classMap[tablekey] = {};
-					self:classCopy(v, self._classMap[tablekey]);
+	classCopy = function(self, base, derive)
+		debug.log('classCopy--------------->');
+		debug.log('self', Val2Str(self))
+		debug.log('base', Val2Str(base))
+		debug.log('derive',Val2Str(derive))
+		debug.log('classCopy---------------<');
+		for k,v in pairs(base) do
+			if not derive[k] then
+				if type(v) == "table" then
+					local tablekey = tostring(v);
+					if not self._classMap[tablekey] then	-- for turn copy
+						self._classMap[tablekey] = {};
+						self:classCopy(v, self._classMap[tablekey]);
+					end
+					derive[k] = self._classMap[tablekey];
+				else
+					derive[k] = v;
 				end
-				derive[k] = self._classMap[tablekey];
-			else
-				derive[k] = v;
 			end
 		end
 		return derive;
 	end,
 	newClass = function(self, ...)
+		debug.log('newClass--------------->');
+		debug.log('self', Val2Str(self))
+		debug.log('arg', Val2Str(arg))
+		debug.log('newClass---------------<');
 		self._classMap = {};
 		local derive, tBase = {}, arg;
 		table.insert(tBase, 1, self.baseClass);
@@ -63,20 +81,23 @@ end
 --TEST Class----------------------------------------------------
 --print("--TEST Class----------------------------------------------------")
 --S = {name="S"}
---S.s = S;
+----S.s = S;
 --A = class(S, {name="A"});
 --print("A",Val2Str(A))
 --b = A:new();
 --print("b",Val2Str(b))
+--
 --A.a = A;
 --B = A {};
 --print("B",Val2Str(B))
+--
 --A = {}
 --B = {}
 --A.b = B;
 --B.a = A;
 --c = class (A, B)
 --print("c", Val2Str(c));
+--
 --tBase = class {
 --	a = 1,
 --	f = function(self)
@@ -127,8 +148,12 @@ end
 --Inherit----------------------------------------------------
 gt_INHERIT_NAMESPACE = {
 	baseClass = {
-		new = function(self)
-			return gt_INHERIT_NAMESPACE.inherit(self, {});
+		new = function(self, ...)
+			local t = gt_INHERIT_NAMESPACE.inherit(self);
+			if type(t.init) == 'function' then
+				t.init(...)
+			end
+			return t;
 		end,
 		super = function(self)
 			local metatable = getmetatable(self);
@@ -148,12 +173,13 @@ gt_INHERIT_NAMESPACE = {
 	index = function(self, key)
 		return gt_INHERIT_NAMESPACE.baseClass.super(self)[key];
 	end,
-	inherit = function(self, ...)
-		local derive = arg[#arg];
-		arg[#arg] = nil;
+	inherit = function(...)
+		self = gt_INHERIT_NAMESPACE;
+		local derive = {};
 		local super = arg;
+		table.insert(super, self.baseClass)
 		local mt_super = {
-			__index = gt_INHERIT_NAMESPACE.indexSuper,
+			__index = self.indexSuper,
 		}
 		setmetatable(super, mt_super);
 
@@ -165,8 +191,8 @@ gt_INHERIT_NAMESPACE = {
 					end
 				end
 			end,
-			__call = gt_INHERIT_NAMESPACE.inherit,
-			_super = super;
+			__call = self.inherit,
+			_super = super,
 		}
 		setmetatable(derive, inherit_metatable);
 		return derive;
@@ -174,18 +200,19 @@ gt_INHERIT_NAMESPACE = {
 }
 
 function inherit(...)
-	return gt_INHERIT_NAMESPACE:inherit(arg);
+	return gt_INHERIT_NAMESPACE.inherit(...);
 end
 
---TEST superInherit----------------------------------------------------
---print("--TEST superInherit----------------------------------------------------")
---tBase = superInherit {
+--TEST inherit----------------------------------------------------
+--print("--TEST inherit----------------------------------------------------")
+--tBase = inherit {
 --	a = 1,
 --	f = function(self)
 --		print("base", self.a);
 --	end,
 --}
 --print("tBase",Val2Str(tBase));
+--print("tBase.mt", Val2Str(getmetatable(tBase)));
 --tBase:f()
 --
 --tBase2 = tBase:new();
@@ -197,7 +224,12 @@ end
 --}
 --print("tDrive",Val2Str(tDrive));
 --tDrive:f()
+--print("tDrive.mt", Val2Str(getmetatable(tDrive)));
 --
+--tdd = tDrive { b = 3 }
+--print("tdd",Val2Str(tdd));
+--print("tdd.mt", Val2Str(getmetatable(tdd)));
+--print(tdd.a, tdd.b)
 --tDrive2 = tDrive {
 --	f = function(self)
 --		print("tDrive2", self.a);
@@ -210,12 +242,12 @@ end
 --print("tDrive3",Val2Str(tDrive3));
 --tDrive3:f()
 --
---tBaseB = superInherit {
+--tBaseB = inherit {
 --	b = 1,
 --}
 --print("tBaseB",Val2Str(tBaseB));
 --
---tDriveB = superInherit(tBase, tBaseB, {c = 1,})
+--tDriveB = inherit(tBase, tBaseB, {c = 1,})
 --print("tDriveB",Val2Str(tDriveB));
 --tDriveB:f()
 --print(tDriveB.a, tDriveB.b, tDriveB.c, tDriveB.f)
@@ -225,14 +257,14 @@ end
 ----tBaseBB:f()
 --print(tBaseBB.a, tBaseBB.b, tBaseBB.c, tBaseBB.f)
 --
---A = superInherit { a = 1, 
+--A = inherit { a = 1, 
 --	f3 = function(self) print("A", self.a) end,
 --	f4 = function(self) print("4", self.a) end,
 --}
 --print("A", Val2Str(A));
---B = superInherit { a = 2 }
+--B = inherit { a = 2 }
 --print("B", Val2Str(B));
---ab = superInherit(A, B, {
+--ab = inherit(A, B, {
 --	f3 = function(self) print("C", self.a) end,
 --	});
 --print("ab", Val2Str(ab));
@@ -247,14 +279,14 @@ end
 --ab:super():f3();
 --ab:super().f3(ab);
 --
---A = superInherit { a = 1 }
+--A = inherit { a = 1 }
 --a = A {};
 --print(a.a);
 --A.a = 2;
 --print(a.a);
 --
 --
---A = superInherit { a = 1, 
+--A = inherit { a = 1, 
 --	f = function(self) print("A", self.a) end,
 --	f4 = function(self) print("4", self.b) end, 
 --};
