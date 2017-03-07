@@ -34,13 +34,17 @@ public class Logic : MonoBehaviour {
         }
 	
 	}
+	void FixedUpdate()
+	{
+
+	}
     public void AddCommand(string cmd, UnityEngine.Events.UnityAction onCmd)
     {
         cmdList.AddButton(cmd, onCmd);
     }
     public void AddCommand(string label, string cmd)
     {
-        cmdList.AddButton(cmd, () => L.DoString(string.Format("start({0})", cmd)));
+        cmdList.AddButton(label, () => L.DoString(string.Format("start({0})", cmd)));
     }
     public void ClearCommand()
     {
@@ -67,12 +71,11 @@ public class Logic : MonoBehaviour {
 
     public void test()
     {
-        Logic.Instance.AddCommand("1", () => Logic.Instance.AddText("OnClick 1\n"));
-        Logic.Instance.AddText("1\n");
-        Logic.Instance.AddCommand("2", () => Logic.Instance.AddText("OnClick 2\n"));
-        Logic.Instance.AddText("2\n");
-        Logic.Instance.AddCommand("3", () => Logic.Instance.AddText("OnClick 3\n"));
-        Logic.Instance.AddText("3\n");
-    }
+        ClearCommand();
+		ClearText();
+		L.Dispose();
+		L = new XLua.LuaEnv();
+		L.DoString("require ('Lua.Main')");
+	}
 
 }

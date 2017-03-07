@@ -20,23 +20,16 @@
 if __class_file_flag__ then return end
 __class_file_flag__ = 1
 
+local _debug = nothing
+
 gt_CLASS_NAMESPACE = {
-	baseClass = {
-		new = function(self, ...)
-			local t = gt_CLASS_NAMESPACE:newClass(self);
-			if type(t.init) == 'function' then
-				t.init(...)
-			end
-			return t;
-		end,
-	},
 	_classMap = {},
 	classCopy = function(self, base, derive)
-		debug.log('classCopy--------------->');
-		debug.log('self', Val2Str(self))
-		debug.log('base', Val2Str(base))
-		debug.log('derive',Val2Str(derive))
-		debug.log('classCopy---------------<');
+		_debug('classCopy--------------->');
+		_debug('self', Val2Str(self))
+		_debug('base', Val2Str(base))
+		_debug('derive',Val2Str(derive))
+		_debug('classCopy---------------<');
 		for k,v in pairs(base) do
 			if not derive[k] then
 				if type(v) == "table" then
@@ -54,14 +47,13 @@ gt_CLASS_NAMESPACE = {
 		return derive;
 	end,
 	newClass = function(self, ...)
-		debug.log('newClass--------------->');
-		debug.log('self', Val2Str(self))
-		debug.log('arg', Val2Str(arg))
-		debug.log('newClass---------------<');
+		_debug('newClass--------------->');
+		_debug('self', Val2Str(self))
+		_debug('arg', Val2Str(arg))
+		_debug('newClass---------------<');
 		self._classMap = {};
-		local derive, tBase = {}, arg;
-		table.insert(tBase, 1, self.baseClass);
-		for i = getn(tBase), 1, -1 do
+		local derive, tBase = {}, table.pack(...);
+		for i = #tBase, 1, -1 do
 			self:classCopy(tBase[i], derive);
 		end
 		local class_metatable = {
@@ -69,6 +61,9 @@ gt_CLASS_NAMESPACE = {
 		}
 		setmetatable(derive, class_metatable);
 		self._classMap = {};
+		if type(derive.init) == 'function' then
+			derive:init(...)
+		end
 		return derive;
 	end
 }
@@ -149,7 +144,7 @@ gt_INHERIT_NAMESPACE = {
 		new = function(self, ...)
 			local t = gt_INHERIT_NAMESPACE.inherit(self);
 			if type(t.init) == 'function' then
-				t.init(...)
+				t:init(...)
 			end
 			return t;
 		end,

@@ -235,7 +235,8 @@ namespace XLua
                         LuaAPI.lua_setfenv(_L, -2);
                     }
 
-                    if (LuaAPI.lua_pcall(_L, 0, -1, errFunc) == 0)
+                    //if (LuaAPI.lua_pcall(_L, 0, -1, errFunc) == 0)
+					if (LuaAPI.lua_pcall(_L, 0, -1, 0) == 0)
                     {
                         LuaAPI.lua_remove(_L, errFunc);
                         return translator.popValues(_L, oldTop);

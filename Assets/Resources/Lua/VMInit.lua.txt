@@ -2,11 +2,24 @@ VM = {
 	Logic = CS.Logic.Instance,
 	waiting = false,
 }
-function VM.pl(str)
+function VM.pl(...)
+	local arg = table.pack(...)
+	local str = "";
+	for k,v in ipairs(arg) do
+		str = str .. v;
+	end
 	VM.Logic:AddText(str.."\n");
 end
-function VM.cmd(str, cb)
-	VM.Logic:AddCommand(str, cb)
+function VM.cmd(str, cb, ...)
+	if type(cb) == 'string' then
+		VM.Logic:AddCommand(str, cb)
+	elseif type(cb) == 'function' then
+		VM.Logic:AddCommand(str, callout(VM.start, cb, ...))
+	--elseif type(cb) == 'table' then
+	--	VM.Logic:AddCommand(str, callout(VM.start, 
+	else
+		print("[Error Cmd]", str, cb);
+	end
 end
 
 function VM.wait()
@@ -16,9 +29,9 @@ function VM.wait()
 	self.waiting = false;
 end
 
-function VM.start(f)
+function VM.start(f, ...)
 	VM.co = coroutine.wrap(f)
-	VM.co();
+	VM.co(...);
 end
 
 function OnClick()
@@ -37,3 +50,6 @@ cmd = VM.cmd
 start = VM.start
 cls = VM.cls
 wait = VM.wait
+print = VM.pl
+format = string.format
+random = math.random
