@@ -1,3 +1,0 @@
-require "class"
-
-BT = Class(

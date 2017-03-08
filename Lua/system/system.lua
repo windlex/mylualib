@@ -1,0 +1,1 @@
+require "Lua.system.combatd"
