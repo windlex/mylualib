@@ -6,7 +6,7 @@ function VM.pl(...)
 	local arg = table.pack(...)
 	local str = "";
 	for k,v in ipairs(arg) do
-		str = str .. v;
+		str = str .. tostring(v);
 	end
 	VM.Logic:AddText(str.."\n");
 end

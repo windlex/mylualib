@@ -5,7 +5,7 @@
 --  Create Date : 2017/2/24 10:36:39
 --  Version     : 0.1
 --  Comment     : inherit	 	带super的引用继承,基类引用到self.getmetatable()._super中
---				: class			简单copy继承, 所有基类的成员都copy到当前table
+--				: class			copy继承, 所有基类的成员都copy到当前metatable
 --				: 
 --				: 解决循环引用问题
 --				:
@@ -24,47 +24,45 @@ local _debug = nothing
 
 gt_CLASS_NAMESPACE = {
 	_classMap = {},
-	classCopy = function(self, base, derive)
-		_debug('classCopy--------------->');
-		_debug('self', Val2Str(self))
-		_debug('base', Val2Str(base))
-		_debug('derive',Val2Str(derive))
-		_debug('classCopy---------------<');
-		for k,v in pairs(base) do
-			if not derive[k] then
+	classCopy = function(self, from, to)
+		if not from or not to then return end
+		for k,v in pairs(from) do
+			if not to[k] then
 				if type(v) == "table" then
 					local tablekey = tostring(v);
-					if not self._classMap[tablekey] then	-- for turn copy
+					if not self._classMap[tablekey] then	-- 循环引用
 						self._classMap[tablekey] = {};
 						self:classCopy(v, self._classMap[tablekey]);
 					end
-					derive[k] = self._classMap[tablekey];
+					to[k] = self._classMap[tablekey];
 				else
-					derive[k] = v;
+					to[k] = v;
 				end
 			end
 		end
-		return derive;
+		return to;
 	end,
 	newClass = function(self, ...)
-		_debug('newClass--------------->');
-		_debug('self', Val2Str(self))
-		_debug('arg', Val2Str(arg))
-		_debug('newClass---------------<');
 		self._classMap = {};
-		local derive, tBase = {}, table.pack(...);
-		for i = #tBase, 1, -1 do
-			self:classCopy(tBase[i], derive);
+		local c, tBase = {}, table.pack(...);
+		print(Val2Str(tBase))
+		for i = 1, #tBase do
+			self:classCopy(tBase[i], c);
 		end
+		c.__index = c;
 		local class_metatable = {
-			__call = class;
+			__call = function(...)
+				local k = {};
+				setmetatable(k, c);
+				if c._ctor then
+					c._ctor(k, ...)
+				end
+				return k;
+			end,
 		}
-		setmetatable(derive, class_metatable);
+		setmetatable(c, class_metatable);
 		self._classMap = {};
-		if type(derive.init) == 'function' then
-			derive:init(...)
-		end
-		return derive;
+		return c;
 	end
 }
 function class(...)

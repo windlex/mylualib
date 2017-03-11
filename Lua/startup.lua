@@ -4,19 +4,22 @@ require "Lua.base.global"
 require "Lua.base.class"
 require "Lua.base.component"
 require "Lua.system.system"
-
+require "Lua.std.actor"
 require "Lua.std.char"
+
+require "Lua.asset"
 
 player = Char({name = "player"});
 enemy  = Char({name = "enemy"});
 player.action.flag="balblalba";
 
-print("player=", Val2Str(player));
-print("player.meta=", Val2Str(getmetatable(player)));
-print("enemy=", Val2Str(enemy));
+--print("player=", Val2Str(player));
+--print("player.meta=", Val2Str(getmetatable(player)));
+--print("enemy=", Val2Str(enemy));
 
-print("Lua Main");
-
+--print("Lua Main");
+--print(Val2Str(VM.Logic.cmdList))
+--print("Lua Main");
 --CombatD:fight(player, enemy)
 
 function onNewGame()
