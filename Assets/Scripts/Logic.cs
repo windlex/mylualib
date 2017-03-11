@@ -77,5 +77,4 @@ public class Logic : MonoBehaviour {
 		L = new XLua.LuaEnv();
 		L.DoString("require ('Lua.Main')");
 	}
-
 }
