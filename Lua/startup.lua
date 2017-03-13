@@ -1,5 +1,5 @@
 require "Lua.VMInit"
-require "Lua.base.global"
+require "Lua.config"
 require "Lua.base.global"
 require "Lua.base.class"
 require "Lua.base.component"
@@ -9,18 +9,22 @@ require "Lua.std.char"
 
 require "Lua.asset"
 
-player = Char({name = "player"});
-enemy  = Char({name = "enemy"});
+player = Char("player");
+enemy  = Char("enemy");
+
+print("player=", Val2Str(player));
+print("player.meta=", Val2Str(getmetatable(player)));
+
 player.action.flag="balblalba";
 
---print("player=", Val2Str(player));
---print("player.meta=", Val2Str(getmetatable(player)));
---print("enemy=", Val2Str(enemy));
+print("player=", Val2Str(player));
+print("player.meta=", Val2Str(getmetatable(player)));
+print("enemy=", Val2Str(enemy));
 
---print("Lua Main");
---print(Val2Str(VM.Logic.cmdList))
---print("Lua Main");
---CombatD:fight(player, enemy)
+print("Lua Main");
+print(Val2Str(VM.Logic.cmdList))
+print("Lua Main");
+CombatD:fight(player, enemy)
 
 function onNewGame()
 	pl("<color=red>也暂未实装!!</color>");

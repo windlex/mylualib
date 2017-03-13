@@ -2,12 +2,19 @@ CombatD = {}
 
 -- A攻击B 1次
 function CombatD:Attack(A, B)
-	local action = A.action.queryAction("attack", B);
+	local action = A.action:queryAction("attack", B);
 	if not action then
 		return debug("No Action", A);
 	end
-
-	local msg = action.msg:gsub("$A", A.name):gsub("$B", B.name);
+	--print(Val2Str(action));
+	local msg = action.action:gsub("#A", A.name)
+		:gsub("#B", B.name)
+		:gsub("#HIR#", "<color=red>")
+		:gsub("#HIC#", "<color=pink>")
+		:gsub("#HIG#", "<color=green>")
+		:gsub("#HIB#", "<color=blue>")
+		:gsub("#HIW#", "<color=yellow>")
+		:gsub("#NOR#", "</color>")
 	pl(msg);
 
 	-- 闪避，招架，命中 轮盘

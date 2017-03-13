@@ -45,13 +45,12 @@ gt_CLASS_NAMESPACE = {
 	newClass = function(self, ...)
 		self._classMap = {};
 		local c, tBase = {}, table.pack(...);
-		print(Val2Str(tBase))
-		for i = 1, #tBase do
+		for i = #tBase, 1, -1 do
 			self:classCopy(tBase[i], c);
 		end
 		c.__index = c;
 		local class_metatable = {
-			__call = function(...)
+			__call = function(self, ...)
 				local k = {};
 				setmetatable(k, c);
 				if c._ctor then

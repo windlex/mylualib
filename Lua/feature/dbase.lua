@@ -15,4 +15,8 @@ local dbase = class {
 	per = 10,
 }
 
+function dbase:_ctor(actor)
+	self.actor = actor;
+end
+
 return dbase;

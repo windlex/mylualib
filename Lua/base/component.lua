@@ -2,16 +2,15 @@ Componentor = {
 	_components = {},
 	AddComponent = function (self, key, tcomp)
 		if tcomp == nil then
-			tcomp = require("Lua.feature."..key);
-			tcomp = tcomp();
+			tcomp = require(FEATURE_DIR.."."..key);
 		end
 		if tcomp == nil then
 			debug.error("[Error] no feature named ".. key);
 			return
 		end
-		self._components[key] = tcomp;
-		tcomp._self = self;
-		return tcomp;
+		local _comp = tcomp(self);
+		self._components[key] = _comp;
+		return _comp;
 	end,
 	GetComponent = function (self, key)
 		return self._components[key];

@@ -1,11 +1,13 @@
 Char = class(Actor, {
 	name = "Char",
 	desc = "this is a Char",
-	init = function (self)
+	_ctor = function (self, name)
+		self.name = name;
+		print("Char:_ctor")
 		Actor._ctor(self);
-		self.skill = self:AddComponent("skill");
-		self.action = self:AddComponent("action");
 		self.dbase = self:AddComponent("dbase");
+		self.skill_list = self:AddComponent("skill_list");
+		self.action = self:AddComponent("action");
 	end,
 })
 
