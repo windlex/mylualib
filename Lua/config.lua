@@ -2,4 +2,4 @@
 
 -- dirs
 FEATURE_DIR 	= "Lua.feature"
-SKILL_DIR 		= "std.skill"
+SKILL_DIR 		= "Lua.std.skill"

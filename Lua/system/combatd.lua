@@ -14,6 +14,7 @@ function CombatD:Attack(A, B)
 		:gsub("#HIG#", "<color=green>")
 		:gsub("#HIB#", "<color=blue>")
 		:gsub("#HIW#", "<color=yellow>")
+		:gsub("#HIY#", "<color=yellow>")
 		:gsub("#NOR#", "</color>")
 	pl(msg);
 
