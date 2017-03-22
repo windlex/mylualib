@@ -8,7 +8,7 @@ function VM.pl(...)
 	for k,v in ipairs(arg) do
 		str = str .. tostring(v);
 	end
-	VM.Logic:AddText(str.."\n");
+	VM.Logic:AddText(str);
 end
 function VM.cmd(str, cb, ...)
 	if type(cb) == 'string' then

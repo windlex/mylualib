@@ -24,7 +24,10 @@ print("enemy=", Val2Str(enemy));
 print("Lua Main");
 print(Val2Str(VM.Logic.cmdList))
 print("Lua Main");
-CombatD:fight(player, enemy)
+--CombatD:fight(player, enemy)
+print("请立即装备<quad act=blalba a=[木剑] width=3 />  <quad img=xb_b size=250 width=1 />武器")
+print("test Image <quad img=xb_b size=40 width=1 />test Imagetest Image <quad img=xb_a size=40 width=1 />test Imagetest Image <quad img=xb_b size=40 width=1 />test Imagetest Image <quad img=xb_a size=40 width=1 />test Imagetest Image <quad img=xb_b size=40 width=1 />test Imagetest Image <quad img=xb_a size=40 width=1 />test Image")
+print("<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a111<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a<quad width=0><quad act=blalba a=[木剑] width=3 />a")
 
 function onNewGame()
 	pl("<color=red>也暂未实装!!</color>");
