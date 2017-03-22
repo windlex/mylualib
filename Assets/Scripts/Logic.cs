@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Logic : MonoBehaviour {
     public static Logic Instance {get; private set;}
@@ -53,7 +55,7 @@ public class Logic : MonoBehaviour {
 
 	public void ClearText()
 	{
-		textList.SetText("");
+		textList.Clear();
 	}
     public void AddText(string text)
     {
@@ -69,6 +71,10 @@ public class Logic : MonoBehaviour {
 		L.DoString("OnClick()");
 	}
 
+	public void OnHrefEvent(string str)
+	{
+		Debug.Log("OnHrefEvent: " + str);
+	}
     public void test()
     {
         ClearCommand();
@@ -76,5 +82,79 @@ public class Logic : MonoBehaviour {
 		L.Dispose();
 		L = new XLua.LuaEnv();
 		L.DoString("require ('Lua.Main')");
+	}
+}
+
+public class TimerItem
+{
+	///
+	/// 当前时间
+	///
+	public float currentTime;
+	///
+	/// 延迟时间
+	///
+	public float delayTime;
+	///
+	/// 回调函数
+	///
+	public Action callback;
+	public TimerItem(float time, float delayTime, Action callback)
+	{
+		this.currentTime = time;
+		this.delayTime = delayTime;
+		this.callback = callback;
+	}
+	public void Run(float time)
+	{
+		// 计算差值
+		float offsetTime = time - this.currentTime;
+		// 如果差值大等于延迟时间
+		if (offsetTime >= this.delayTime)
+		{
+			float count = offsetTime / this.delayTime - 1;
+			float mod = offsetTime % this.delayTime;
+			for (int index = 0; index < count; index++)
+			{
+				this.callback();
+			}
+			this.currentTime = time - mod;
+		}
+	}
+}
+///
+/// 移动管理
+///
+public class TimerManager
+{
+	public static float time;
+	public static Dictionary<object, TimerItem> timerList = new Dictionary<object, TimerItem>();
+	public static void Run()
+	{
+		// 设置时间值
+		TimerManager.time = Time.time;
+		TimerItem[] objectList = new TimerItem[timerList.Values.Count];
+		timerList.Values.CopyTo(objectList, 0);
+		// 锁定
+		foreach(TimerItem timerItem in objectList)
+		{
+			if(timerItem != null) 
+				timerItem.Run(TimerManager.time);
+		}
+	}
+	public static void Register(object objectItem, float delayTime, Action callback)
+	{
+		if(!timerList.ContainsKey(objectItem))
+		{
+			TimerItem timerItem = new TimerItem(TimerManager.time, delayTime, callback);
+			timerList.Add(objectItem, timerItem);
+		}
+	}
+	public static void UnRegister(object objectItem)
+	{
+		if(timerList.ContainsKey(objectItem))
+		{
+			timerList.Remove(objectItem);
+		}
 	}
 }

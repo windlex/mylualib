@@ -58,16 +58,18 @@ public class LinkImageText : Text, IPointerClickHandler
 	/// 正则取出所需要的属性
 	/// </summary>
 	private static readonly Regex s_ImageRegex =
-		new Regex(@"<quad name=(.+?) size=(\d*\.?\d+%?) width=(\d*\.?\d+%?) />", RegexOptions.Singleline);
+		new Regex(@"<quad img=(.+?) size=(\d*\.?\d+%?) width=(\d*\.?\d+%?) />", RegexOptions.Singleline);
 	/// <summary>
 	/// 超链接正则
 	/// </summary>
 	private static readonly Regex s_HrefRegex =
-		new Regex(@"<a href=([^>\n\s]+)>(.*?)(</a>)", RegexOptions.Singleline);
+		//new Regex(@"<a href=([^>\n\s]+)>(.*?)(</a>)", RegexOptions.Singleline);
+		new Regex(@"<quad act=([^>\n\s]+) a=(.*?) width=\d*\.?\d+%? />", RegexOptions.Singleline);
 	/// <summary>
 	/// 加载精灵图片方法
 	/// </summary>
 	public static Func<string, Sprite> funLoadSprite;
+
 	public override void SetVerticesDirty()
 	{
 		base.SetVerticesDirty();
