@@ -74,6 +74,7 @@ public class Logic : MonoBehaviour {
 	public void OnHrefEvent(string str)
 	{
 		Debug.Log("OnHrefEvent: " + str);
+		L.DoString(string.Format("start({0})", str));
 	}
     public void test()
     {
