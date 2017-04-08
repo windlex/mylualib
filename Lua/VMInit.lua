@@ -30,8 +30,10 @@ function VM.wait()
 end
 
 function VM.start(f, ...)
-	VM.co = coroutine.wrap(f)
-	VM.co(...);
+	if type(f) == 'function' then
+		VM.co = coroutine.wrap(f)
+		VM.co(...);
+	end
 end
 
 function OnClick()
@@ -42,6 +44,9 @@ end
 
 function VM.cls()
 	VM.Logic:ClearText()
+end
+function link(name, cmd)
+	return format("<quad act=%s a=[%s] width=%d />", cmd, name, #name);
 end
 
 -------------------------------------------------------
