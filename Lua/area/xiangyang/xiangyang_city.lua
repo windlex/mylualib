@@ -6,6 +6,7 @@ function this:setup()
 	self:AddComponent("room.city");
 
 	self:addFacility("bank")
+	self:addFacility("house")
 
 	self:addChar(CharD:loadChar("girl"))
 

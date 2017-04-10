@@ -27,6 +27,9 @@ end
 function room:addFacility(name)
 	self.facilitys[name] = self:AddComponent("room."..name)
 end
+function room:getFacility(name)
+	return self.facilitys[name]
+end
 function room:removeFacility(name)
 	self.facilitys[name] = nil;
 	self:RemoveComponent(name);
@@ -34,9 +37,16 @@ end
 function room:lookFacility()
 	local msg = "\n这里的设施有:\n";
 	for k, fac in pairs(self.facilitys) do
-		msg = msg .. fac.name.. ", "
+		msg = msg .. link(fac.name, format("room_onFacility('%s')", k)) .. ", "
 	end
 	return msg;
+end
+function room_onFacility(name)
+	local room = player:getCurrentRoom();
+	room:onFacility(name)
+end
+function room:onFacility(name)
+	self.facilitys[name]:onActivity(player);
 end
 
 function room:addExit(exit, path)

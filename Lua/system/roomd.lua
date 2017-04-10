@@ -12,9 +12,9 @@ function RoomD:loadRoom(roompath)
 	local room = self.path2room[roompath];
 	if not room then
 		room = require("Lua.area."..roompath);
+		self.path2room[roompath] = room;
 		room:setup()
 		room.path = roompath;
-		self.path2room[roompath] = room;
 	end
 	return room;
 end

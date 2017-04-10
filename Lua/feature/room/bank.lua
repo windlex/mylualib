@@ -11,4 +11,8 @@ function bank:setup()
 
 end
 
+function bank:onActivity(char)
+	print("bank:onActivity")
+end
+
 return bank;

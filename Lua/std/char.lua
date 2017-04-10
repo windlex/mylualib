@@ -40,3 +40,9 @@ function Char_onTalk(id)
 	local char = ActorMgr:Get(id)
 	char:onTalk();
 end
+
+function Char:setHouse(roompath)
+	local room = RoomD:loadRoom(roompath);
+	local house = room:getFacility("house");
+	--house:addHouse(self);
+end

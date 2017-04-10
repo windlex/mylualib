@@ -4,6 +4,7 @@ local girl = Char();
 
 function girl:setup()
 	self.name = "美女";
+	self:setHouse("xiangyang.xiangyang_city");
 end
 
 function girl:onTalk()
