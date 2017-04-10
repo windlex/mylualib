@@ -1,11 +1,3 @@
-require "Lua.VMInit"
-require "Lua.config"
-require "Lua.base.global"
-require "Lua.base.class"
-require "Lua.base.component"
-require "Lua.system.system"
-require "Lua.std.actor"
-require "Lua.std.char"
 
 require "Lua.asset"
 
@@ -94,8 +86,13 @@ end
 
 room = require("Lua.std.area.xiangyang");
 room:setup()
-RoomD:setCurrentRoom(room)
+RoomD:setCurrentRoomPath(room)
 RoomD:showAction(room);
+
+ActionD:addAction('env', 'test', function () print("test") end)
+ActionD:addAction('cmd', 'test2', callout(print, 'test2'));
+ActionD:addAction('sys', 'test3', "test3");
+ActionD:showAction();
 
 function onMap(l)
 	print(format("你来到了%s！", tRoom[l]));

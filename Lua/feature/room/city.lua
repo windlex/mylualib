@@ -27,13 +27,13 @@ function actionSheshi()
 	print("actionSheshi----------------------------")
 	local room = RoomD:getCurrentRoom();
 	print(Val2Str(room))
-	if not room.facilitys or #room.facilitys == 0 then
+	print(Val2Str(room.facilitys))
+	if not room.facilitys then
 		return pl("");
 	end
-	print(Val2Str(room.facilitys))
 
 	local msg = ""
-	for k,v in pairs(self.facilitys) do
+	for k,v in pairs(room.facilitys) do
 		msg = msg .. link(v.name, v.action) .. "\n";
 	end
 	pl(msg);

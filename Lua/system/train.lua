@@ -1,8 +1,16 @@
 --train
-traind = {
+Traind = {
 	cmds = {},
 }
 
-function addCommand(name, cmd)
+function Traind:addCommand(name, cmd)
 	self.cmds[name] = cmd;
+end
+
+function Traind:showCommands()
+	for name, cmd in pairs(self.cmds) do
+		if cmd:check() then
+
+		end
+	end
 end

@@ -45,7 +45,9 @@ end
 function VM.cls()
 	VM.Logic:ClearText()
 end
+
 function link(name, cmd)
+	print(name, cmd)
 	return format("<quad act=%s a=[%s] width=%d />", cmd, name, #name);
 end
 
