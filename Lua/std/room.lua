@@ -5,9 +5,8 @@ room = class(Componentor, {
 	_ctor = function(self, name)
 		self.name = name;
 		RoomD:addRoom(self);
+		self:AddComponent("room.placement");
 		self.facilitys = {};
-		self.exits = {};
-		self.chars = {};
 	end,
 })
 
@@ -25,7 +24,8 @@ function room:queryAction()
 end
 
 function room:addFacility(name)
-	self.facilitys[name] = self:AddComponent("room."..name)
+	local facility = require("Lua.std.room."..name);
+	self.facilitys[name] = facility();
 end
 function room:getFacility(name)
 	return self.facilitys[name]
@@ -46,52 +46,17 @@ function room_onFacility(name)
 	room:onFacility(name)
 end
 function room:onFacility(name)
-	self.facilitys[name]:onActivity(player);
-end
-
-function room:addExit(exit, path)
-	self.exits[exit] = path;
-end
-function room:removeExit(exit)
-end
-function room:lookExits()
-	if not self.exits then return "这里没有明显的出口..." end
-	local msg = "这里的出口有:"
-	for exit, path in pairs(self.exits) do
-		msg = msg .. link(exit, format("room_onExit('%s')", exit)) .. ","
-	end
-	return msg;
-end
-function room:onExit(exit)
-	if not self.exits[exit] then
-		print("并不能去"..exit.."...")
-		return
-	end
-	player:move(self.exits[exit]);
-end
-function room_onExit(exit)
-	local room = player:getCurrentRoom();
-	room:onExit(exit)
-end
-function room:addChar(char)
-	self.chars[char.name] = char;
-end
-function room:removeChar(char)
-	self.chars[char.name] = nil;
+	player:move(self.facilitys[name]);
+	--self.facilitys[name]:onActivity(player);
 end
 
 function room:onLook(char)
 	local msg = "这里是"..self.name;
 	msg = msg .. "\n".. self.desc;
 
-	msg = msg .. "\n这里有:\n"
-	for k, char in pairs(self.chars) do
-		msg = msg .. char:link().. ", "
-	end
+	msg = msg .. self.placement:onLook();
 
 	msg = msg .. self:lookFacility();
-
-	msg = msg .."\n" .. self:lookExits();
 	
 	return msg;
 end
@@ -101,10 +66,9 @@ area = class (room, {
 	name = "area",
 	desc = "here is a area",
 	_ctor = function (self, name)
+		room._ctor(self)
 		self.name = name;
 		self.facilitys = {};
-		self.exits = {};
-		self.chars = {};
 	end,
 })
 

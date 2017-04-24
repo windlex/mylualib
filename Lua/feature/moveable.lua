@@ -14,7 +14,7 @@ function moveable:move(room)
 		end
 	end
 	self.currentRoomPath = room.path;
-	room:addChar(self)
+	room.placement:addChar(self)
 	self:look();
 end
 

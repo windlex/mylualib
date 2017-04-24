@@ -5,7 +5,6 @@ Char = class(Actor, {
 	desc = "this is a Char",
 	_ctor = function (self, name)
 		self.name = name;
-		print("Char:_ctor")
 		Actor._ctor(self);
 		self.dbase = self:AddComponent("dbase");
 		self.skill_list = self:AddComponent("skill_list");
