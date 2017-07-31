@@ -11,6 +11,7 @@ Char = class(Actor, {
 		self.action = self:AddComponent("action");
 		self:AddComponent("moveable");
 		self:AddComponent("interactive")
+		self:AddComponent("trainable")
 	end,
 })
 

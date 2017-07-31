@@ -24,7 +24,7 @@ function room:queryAction()
 end
 
 function room:addFacility(name)
-	local facility = require("Lua.std.room."..name);
+	local facility = require("Lua.feature.room."..name);
 	self.facilitys[name] = facility();
 end
 function room:getFacility(name)
@@ -46,7 +46,7 @@ function room_onFacility(name)
 	room:onFacility(name)
 end
 function room:onFacility(name)
-	player:move(self.facilitys[name]);
+	self.facilitys[name]:onActivity(player);
 	--self.facilitys[name]:onActivity(player);
 end
 

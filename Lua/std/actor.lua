@@ -29,3 +29,10 @@ Actor = class(Componentor, {
 		ActorMgr:Add(self);
 	end,
 })
+
+function Actor:addMethod(name, method)
+	if self.name then
+		error()
+	end
+	self.name = method;
+end

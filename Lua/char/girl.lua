@@ -1,4 +1,4 @@
-require "Lua.std.char"
+local slave = require "Lua.std.char"
 
 local girl = Char();
 

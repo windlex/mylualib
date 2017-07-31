@@ -3,6 +3,7 @@ require "Lua.config"
 require "Lua.base.global"
 require "Lua.base.class"
 require "Lua.base.component"
+print('加载System')
 require "Lua.system.system"
 require "Lua.std.actor"
 require "Lua.std.char"
