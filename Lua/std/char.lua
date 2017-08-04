@@ -4,14 +4,20 @@ Char = class(Actor, {
 	name = "Char",
 	desc = "this is a Char",
 	_ctor = function (self, name)
+		print("Create Char1", name)
 		self.name = name;
 		Actor._ctor(self);
+		print("Create Char2", name)
 		self.dbase = self:AddComponent("dbase");
 		self.skill_list = self:AddComponent("skill_list");
 		self.action = self:AddComponent("action");
+		print("Create Char21", name)
 		self:AddComponent("moveable");
+		print("Create Char22", name)
 		self:AddComponent("interactive")
+		print("Create Char3", name)
 		self:AddComponent("trainable")
+		print("Create Char4", name)
 	end,
 })
 

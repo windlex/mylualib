@@ -3,6 +3,7 @@ CharD = {
 }
 
 function CharD:loadChar(path)
+	print("CharD:loadChar", path)
 	local char = self.path2char[path];
 	if not char then
 		char = require ("Lua.char."..path);

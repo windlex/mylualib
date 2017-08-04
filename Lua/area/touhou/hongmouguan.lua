@@ -1,93 +1,60 @@
-PRINTL 紅魔館 ===================================================
-PRINTL ■■■■■■■■■■■■■■■■■■■■■■■■■■■　二階
-PRINT ■　　　　　　　　　　　　
-CALL GETMAP(306)
-PRINT 　　　　　　　　　　│
-CALL GETMAP(305)
-PRINTL ■　■■■■■■■■■■■■■■■■■■
-PRINT ■　　　　　　　　　　　　　　　　　　　　　　　■■■　■
-CALL GETMAP(321)
-PRINT ■
-CALL GETMAP(320)
-PRINT ■　 >　　 
-CALL GETMAP(317)
-PRINTL 　 　< 　■∧■
-PRINT ■　　　■■■■■■■■■―■■■■■■■■■　　　■　■―■―■　l￣￣】↓【￣￣l　■
-CALL GETMAP(325)
-PRINTL ■
-PRINT ■　　■　　　│　　
-CALL GETMAP(313)
-PRINT 　　　■■■< 
-CALL GETMAP(318)
-PRINT ■
-CALL GETMAP(311)
-PRINT ■
-CALL GETMAP(312)
-PRINT ■　　■　■　
-CALL GETMAP(319)
-PRINTL 　　　￣￣￣￣￣￣￣￣　　　■
-PRINT ■　　■　
-CALL GETMAP(314)
-PRINTL 　■―■■■■■■■■■　■―■―■　　■　■―■―■■■―■――■―■■■■
-PRINT ■　　■　　　■　l>　　　
-CALL GETMAP(317)
-PRINT 　　　<l　■　　　■　　■　■
-CALL GETMAP(322)
-PRINT ■
-CALL GETMAP(323)
-PRINT ■　ll　　 
-CALL GETMAP(324)
-PRINTL  　　ll
-PRINTL ■　　■　　　■　￣￣￣】↑【￣￣￣　■　　　■　　■　■■■■■　ll　　　　　　ll
-PRINTL ■　　■■―■■　　　　　　　　　　　■　　　■　　■　　　　　　　■＝＝＝＝＝＝■
-PRINT ■　　■　　　　　　　　　
-CALL GETMAP(309)
-PRINT 　　　　　│　
-CALL GETMAP(310)
-PRINTL 　■　　■
-PRINTL ■　　■―■■―■■■■■―■■■■■■　　　■　　■　三階　　　　　　　　地下
-PRINT ■　　■
-CALL GETMAP(316)
-PRINT ■　
-CALL GETMAP(315)
-PRINTL ■＿＿　　　　　＿＿■　　　　■　　■　■■■■■■■■■　■■■■■■■■■■
-PRINT ■　　■■■　　■　∥　木　木　∥　■　　　　■　　■　■　　　　　│
-CALL GETMAP(325)
-PRINT ■　■
-CALL GETMAP(331)
-PRINT ■
-CALL GETMAP(330)
-PRINT ■
-CALL GETMAP(329)
-PRINT ■
-CALL GETMAP(318)
-PRINTL  <■
-PRINT ■　　　　■　　■
-CALL GETMAP(308)
-PRINT ∥　木
-CALL GETMAP(302)
-PRINT 木　∥
-CALL GETMAP(307)
-PRINT ■　　　　■　　■　■　　
-CALL GETMAP(326)
-PRINTL 　　■　■　■＝■―■―■　■■
-PRINT ■　　　　■　　■　∥　木　木　∥　■　　　　■　　■　■　　　　　■■■　■　　　
-CALL GETMAP(328)
-PRINTL 　　　　■
-PRINTL ■　　　　■■■■￣￣　木　木　￣￣■■■■■　　　■　■■■―■■■    　■■■■■■■■―■
-PRINT ■■■　　　　　　　　　木　木　　　　　　　　　■■■　　ll　
-CALL GETMAP(327)
-PRINTL 　ll　      ■　　　　　　■　■
-PRINT ■
-CALL GETMAP(303)
-PRINT │　　　　　　　　　　　　　　　　　　　　　│
-CALL GETMAP(304)
-PRINT ■　　■＝＝＝■      　■　　　
-CALL GETMAP(333)
-PRINT 　　│
-CALL GETMAP(332)
-PRINTL ■
-PRINT ■■■■■■■■■■■■●
-CALL GETMAP(301)
-PRINTL ●■■■■■■■■■■■■　　　　　　　　　　　■■■■■■■■■■
-PRINTL 
+map = [[
+紅魔館 ===============================================
+■■■■■■■■■■■■■■■■■■■■■■■■■■■
+■　　　　　　　　　　　　[6] 　　　　　　　　│ [5]■
+■　　　　　　　　　　　　　　　　　　　　　　■■■■
+■　　　　　　　　　　　　　　　　　　　　　　　　　■
+■　　■■■■■■■■■■―■■■■■■■■■■　　■
+■　　■　　　│　 [13]　　 ■■<[18] ■ [11] ■　　■
+■　　■ [14] ■―■■■■■■■■■　■―■―■　　■
+■　　■　　　■　l>　　 [17] 　　<l　■　　　■　　■
+■　　■　　　│　￣￣￣】↑【￣￣￣　■　　　■　　■
+■　　■■■■■　　　　　　　　　　　■　　　■　　■
+■　　■[16]│　　　　　　[9] 　　　　│ [10] ■　　■
+■　　■■■■―■■■■■―■■■■■■　　　■　　■
+■　　　　■[15]■＿＿　　　　　  ＿＿■　　　■　　■
+■　　　　■　　■　 ∥ 木　 木　∥　 ■―■―■　　■
+■　　　　■　　■[8]∥ 木[2]木　∥[7]■ [12] ■　　■
+■　　　　■■■■　 ∥ 木　 木　∥　 ■■■■■　　■
+■　　　　　　　　￣￣　木　 木   ￣￣　　　　　　　■
+■■■■　　　　　　　　木　 木 　　　　　　　■■■■
+■ [3]│　　　　　　　　　　　 　　　　　　 　│[4] ■
+■■■■■■■■■■■●  [1] ●■■■■■■■■■■■
+
+]]
+--print(map)
+map = gsub(map, "%[(%d+)%]", function(id) 
+	local s = string.format("<quad act=onMap(%s) a=[%s] width=%d />", id, id, #id)
+	--print(s);
+	return s;
+end)
+--print(map);
+tRoom = {
+	[1]  = "正門 ",
+	[2]  = "庭 ",
+	[3]  = "守衛小屋 ",
+	[4]  = "空的小屋 ",
+	[5]  = "仓库 ",
+	[6]  = "裏庭 ",
+	[7]  = "東侧阳台 ",
+	[8]  = "西侧阳台 ",
+	[9]  = "大厅 ",
+	[10] = "図書館 ",
+	[11] = "帕秋莉私室 ",
+	[12] = "小悪魔私室 ",
+	[13] = "厨房 ",
+	[14] = "食堂 ",
+	[15] = "応接間 ",
+	[16] = "一階厕所 ",
+	[17] = "大楼梯 ",
+	[18] = "地下楼梯 ",
+}
+msg = ""
+for i = 1, #tRoom do
+	local btn = format("%2d : %-10s", i, tRoom[i])
+	msg = msg .. format("<quad act=onMap(%d) a=[%s] width=%d />", i, btn, 1);
+	if math.fmod(i, 4) == 0 then
+		msg = msg .. "\n"
+	end
+end
+--print(msg);

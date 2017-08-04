@@ -2,8 +2,10 @@ local moveable = class {}
 
 function moveable:_ctor(actor)
 	actor.move = self.move;
-	actor:addMethod('getCurrentRoom', self.getCurrentRoom);
+	actor.getCurrentRoom = self.getCurrentRoom;
+	--actor.setCurrentRoomPath = self.setCurrentRoomPath;
 	actor:addMethod('setCurrentRoomPath', self.setCurrentRoomPath);
+
 end
 
 function moveable:move(room)

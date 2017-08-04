@@ -1,11 +1,9 @@
 require "Lua.std.room"
 
-local c = room("襄阳") 
+local c = area("东方幻想乡") 
 
 function c:setup()
-	self:AddComponent("room.city");
-	self:addFacility("bank")
+	self.placement:addExit("红魔馆", "touhou.hongmouguan");
 end
 
-print(Val2Str(c))
 return c;

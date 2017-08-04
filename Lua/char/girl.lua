@@ -1,6 +1,8 @@
-local slave = require "Lua.std.char"
-
-local girl = Char();
+print("girl1")
+require "Lua.std.char"
+print("girl2")
+local girl = Char("美女");
+print("girl3")
 
 function girl:setup()
 	self.name = "美女";

@@ -31,8 +31,9 @@ Actor = class(Componentor, {
 })
 
 function Actor:addMethod(name, method)
-	if self.name then
-		error()
+	print("Actor:addMethod",name, method)
+	if self[name] then
+		error11()
 	end
-	self.name = method;
+	self[name] = method;
 end

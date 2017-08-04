@@ -1,3 +1,5 @@
+if SIM_DEBUG then return end
+
 VM = {
 	Logic = CS.Logic.Instance,
 	waiting = false,
