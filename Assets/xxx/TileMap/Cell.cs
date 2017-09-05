@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum eTileType
 {
+	ETT_WATER,
 	ETT_GROUND,
 	ETT_ROAD,
 	ETT_BUILDING,
