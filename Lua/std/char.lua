@@ -4,9 +4,9 @@ Char = class(Actor, {
 	name = "Char",
 	desc = "this is a Char",
 	_ctor = function (self, name)
-		print("Create Char1", name)
-		self.name = name;
 		Actor._ctor(self);
+		
+		self.name = name;
 		print("Create Char2", name)
 		self.dbase = self:AddComponent("dbase");
 		self.skill_list = self:AddComponent("skill_list");
@@ -30,6 +30,7 @@ function Char:look()
 end
 
 function Char:lookRoom()
+print(Val2Str(self))
 	local room = self:getCurrentRoom();
 	local msg = room:onLook(self)
 	print(msg);
@@ -43,7 +44,7 @@ function Char:onTalk()
 	print("基本对话");
 end
 function Char_onTalk(id)
-	local char = ActorMgr:Get(id)
+	local char = EntityMgr:get(id)
 	char:onTalk();
 end
 

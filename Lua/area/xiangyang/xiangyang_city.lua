@@ -1,6 +1,6 @@
 require "Lua.std.room"
 
-local this = room("襄阳") 
+local this = Room("襄阳") 
 
 function this:setup()
 	--self:AddComponent("room.city");

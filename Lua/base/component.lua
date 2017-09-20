@@ -1,4 +1,7 @@
 Componentor = {
+	_ctor = function (self)
+		self._components = {}
+	end,
 	AddComponent = function (self, key, tcomp)
 		if tcomp == nil then
 			tcomp = require(FEATURE_DIR.."."..key);
@@ -8,7 +11,6 @@ Componentor = {
 			return
 		end
 		self._components = self._components or {}
-
 		local _comp = tcomp(self);
 		self._components[key] = _comp;
 		return _comp;

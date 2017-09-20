@@ -15,9 +15,9 @@ function CombatD:Attack(A, B)
 		:gsub("#HIB#", "<color=blue>")
 		:gsub("#HIW#", "<color=yellow>")
 		:gsub("#HIY#", "<color=yellow>")
-		:gsub("#NOR#", "</color>")
+		:gsub("#NO R#", "</color>")
 	pl(msg);
-
+	
 	-- 闪避，招架，命中 轮盘
 	local attack = A.action:queryAttack()
 	local dodge = B.action:queryDodge();

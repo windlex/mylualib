@@ -1,3 +1,16 @@
+if not CS then
+	CS = {}
+	CS.Logic = {}
+	CS.Logic.Instance = {}
+	table.pack = function (...)
+		return {...}
+	end
+	CS.Logic.Instance.AddText = print
+	Debug=print
+	CS.Debug = {}
+	CS.Debug.LogError = print
+end
+
 if SIM_DEBUG then return end
 
 VM = {
@@ -8,7 +21,7 @@ function VM.pl(...)
 	local arg = table.pack(...)
 	local str = "";
 	for k,v in ipairs(arg) do
-		str = str .. tostring(v);
+		str = str .. tostring(v) .. "\t" ;
 	end
 	VM.Logic:AddText(str);
 end
@@ -62,3 +75,5 @@ wait = VM.wait
 print = VM.pl
 format = string.format
 random = math.random
+logError = CS.Debug.LogError
+warn = CS.Debug.LogWarn

@@ -1,8 +1,8 @@
 require "Lua.std.room"
 
-local house = class(room, {
+local house = class(Room, {
 	_ctor = function (self)
-		room._ctor(self)
+		Room._ctor(self)
 		self.name = "府邸";
 		self.residents = {};
 	end,	

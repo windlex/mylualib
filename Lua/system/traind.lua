@@ -3,23 +3,13 @@ Traind = {
 	cmds = {},
 }
 
-function Traind:addCmdGroup(stype)
-	if self.cmds[stype] then return end
-	self.cmds[stype] = {
-		enable = true,
-		
-	}
+function Traind:addCommand(name, cmd)
+	self.cmds[name] = cmd;
 end
 
-function Traind:addCommand(stype, name, cmd)
-	if not self.cmds[stype] then
-	end
-	self.cmds[stype][name] = cmd;
-end
-
-function Traind:showCommands(me, target, assister)
+function Traind:showCommands()
 	for name, cmd in pairs(self.cmds) do
-		if cmd:check(me, target, assister) then
+		if cmd:check() then
 
 		end
 	end

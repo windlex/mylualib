@@ -38,6 +38,8 @@ gt_CLASS_NAMESPACE = {
 				else
 					to[k] = v;
 				end
+			else
+				--print(string.format("[classCopy] [Key Conflict] [Key=%s]", k));
 			end
 		end
 		return to;

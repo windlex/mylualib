@@ -1,6 +1,6 @@
 require "Lua.std.room"
 
-local this = room("虚无之间") 
+local this = Room("虚无之间") 
 
 function this:setup()
 

@@ -1,8 +1,6 @@
-print("girl1")
 require "Lua.std.char"
-print("girl2")
-local girl = Char("美女");
-print("girl3")
+
+local girl = Char("girl");
 
 function girl:setup()
 	self.name = "美女";
