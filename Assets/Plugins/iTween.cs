@@ -7064,10 +7064,10 @@ public class iTween : MonoBehaviour{
 			if (tweenArguments[callbackType].GetType() == typeof(System.String)) {
 				target.SendMessage((string)tweenArguments[callbackType],(object)tweenArguments[callbackType+"params"],SendMessageOptions.DontRequireReceiver);
 			} 
-			else if (tweenArguments[callbackType].GetType is Action) {
+			else if (tweenArguments[callbackType].GetType() == typeof( Action)) {
 				((Action)tweenArguments[callbackType]).Invoke();
 			}
-			else if (tweenArguments[callbackType].GetType is Action<System.Object>) {
+			else if (tweenArguments[callbackType].GetType() == typeof( Action<System.Object>)) {
 				((Action<System.Object>)tweenArguments[callbackType]).Invoke(target);
 			}else{
 				Debug.LogError("iTween Error: Callback method references must be passed as a String!");

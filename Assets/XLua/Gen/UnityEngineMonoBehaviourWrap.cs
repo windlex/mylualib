@@ -20,14 +20,13 @@ namespace XLua.CSObjectWrap
         public static void __Register(RealStatePtr L)
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-			Utils.BeginObjectRegister(typeof(UnityEngine.MonoBehaviour), L, translator, 0, 8, 1, 1);
+			Utils.BeginObjectRegister(typeof(UnityEngine.MonoBehaviour), L, translator, 0, 7, 1, 1);
 			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Invoke", _m_Invoke);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "InvokeRepeating", _m_InvokeRepeating);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CancelInvoke", _m_CancelInvoke);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "IsInvoking", _m_IsInvoking);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "StartCoroutine", _m_StartCoroutine);
-			Utils.RegisterFunc(L, Utils.METHOD_IDX, "StartCoroutine_Auto", _m_StartCoroutine_Auto);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "StopCoroutine", _m_StopCoroutine);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "StopAllCoroutines", _m_StopAllCoroutines);
 			
@@ -275,35 +274,6 @@ namespace XLua.CSObjectWrap
             }
             
             return LuaAPI.luaL_error(L, "invalid arguments to UnityEngine.MonoBehaviour.StartCoroutine!");
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_StartCoroutine_Auto(RealStatePtr L)
-        {
-            
-            ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-            UnityEngine.MonoBehaviour __cl_gen_to_be_invoked = (UnityEngine.MonoBehaviour)translator.FastGetCSObj(L, 1);
-            
-            
-            try {
-                
-                {
-                    System.Collections.IEnumerator routine = (System.Collections.IEnumerator)translator.GetObject(L, 2, typeof(System.Collections.IEnumerator));
-                    
-                        UnityEngine.Coroutine __cl_gen_ret = __cl_gen_to_be_invoked.StartCoroutine_Auto( routine );
-                        translator.Push(L, __cl_gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                
-            } catch(System.Exception __gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
-            }
             
         }
         

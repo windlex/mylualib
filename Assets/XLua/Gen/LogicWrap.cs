@@ -20,7 +20,7 @@ namespace XLua.CSObjectWrap
         public static void __Register(RealStatePtr L)
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-			Utils.BeginObjectRegister(typeof(Logic), L, translator, 0, 7, 2, 2);
+			Utils.BeginObjectRegister(typeof(Logic), L, translator, 0, 8, 2, 2);
 			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "AddCommand", _m_AddCommand);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ClearCommand", _m_ClearCommand);
@@ -28,6 +28,7 @@ namespace XLua.CSObjectWrap
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "AddText", _m_AddText);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Wait", _m_Wait);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnClick", _m_OnClick);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnHrefEvent", _m_OnHrefEvent);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "test", _m_test);
 			
 			
@@ -250,6 +251,34 @@ namespace XLua.CSObjectWrap
                 {
                     
                     __cl_gen_to_be_invoked.OnClick(  );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_OnHrefEvent(RealStatePtr L)
+        {
+            
+            ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+            Logic __cl_gen_to_be_invoked = (Logic)translator.FastGetCSObj(L, 1);
+            
+            
+            try {
+                
+                {
+                    string str = LuaAPI.lua_tostring(L, 2);
+                    
+                    __cl_gen_to_be_invoked.OnHrefEvent( str );
                     
                     
                     

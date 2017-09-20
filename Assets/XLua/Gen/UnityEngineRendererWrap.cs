@@ -41,7 +41,7 @@ namespace XLua.CSObjectWrap
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "lightmapIndex", _g_get_lightmapIndex);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "realtimeLightmapIndex", _g_get_realtimeLightmapIndex);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "lightmapScaleOffset", _g_get_lightmapScaleOffset);
-            Utils.RegisterFunc(L, Utils.GETTER_IDX, "motionVectors", _g_get_motionVectors);
+            Utils.RegisterFunc(L, Utils.GETTER_IDX, "motionVectorGenerationMode", _g_get_motionVectorGenerationMode);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "realtimeLightmapScaleOffset", _g_get_realtimeLightmapScaleOffset);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "isVisible", _g_get_isVisible);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "lightProbeUsage", _g_get_lightProbeUsage);
@@ -62,7 +62,7 @@ namespace XLua.CSObjectWrap
             Utils.RegisterFunc(L, Utils.SETTER_IDX, "lightmapIndex", _s_set_lightmapIndex);
             Utils.RegisterFunc(L, Utils.SETTER_IDX, "realtimeLightmapIndex", _s_set_realtimeLightmapIndex);
             Utils.RegisterFunc(L, Utils.SETTER_IDX, "lightmapScaleOffset", _s_set_lightmapScaleOffset);
-            Utils.RegisterFunc(L, Utils.SETTER_IDX, "motionVectors", _s_set_motionVectors);
+            Utils.RegisterFunc(L, Utils.SETTER_IDX, "motionVectorGenerationMode", _s_set_motionVectorGenerationMode);
             Utils.RegisterFunc(L, Utils.SETTER_IDX, "realtimeLightmapScaleOffset", _s_set_realtimeLightmapScaleOffset);
             Utils.RegisterFunc(L, Utils.SETTER_IDX, "lightProbeUsage", _s_set_lightProbeUsage);
             Utils.RegisterFunc(L, Utils.SETTER_IDX, "lightProbeProxyVolumeOverride", _s_set_lightProbeProxyVolumeOverride);
@@ -398,13 +398,13 @@ namespace XLua.CSObjectWrap
         }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _g_get_motionVectors(RealStatePtr L)
+        static int _g_get_motionVectorGenerationMode(RealStatePtr L)
         {
             ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
             try {
 			
                 UnityEngine.Renderer __cl_gen_to_be_invoked = (UnityEngine.Renderer)translator.FastGetCSObj(L, 1);
-                LuaAPI.lua_pushboolean(L, __cl_gen_to_be_invoked.motionVectors);
+                translator.Push(L, __cl_gen_to_be_invoked.motionVectorGenerationMode);
             } catch(System.Exception __gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
             }
@@ -692,13 +692,14 @@ namespace XLua.CSObjectWrap
         }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _s_set_motionVectors(RealStatePtr L)
+        static int _s_set_motionVectorGenerationMode(RealStatePtr L)
         {
             ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
             try {
 			
                 UnityEngine.Renderer __cl_gen_to_be_invoked = (UnityEngine.Renderer)translator.FastGetCSObj(L, 1);
-                __cl_gen_to_be_invoked.motionVectors = LuaAPI.lua_toboolean(L, 2);
+                UnityEngine.MotionVectorGenerationMode __cl_gen_value;translator.Get(L, 2, out __cl_gen_value);
+				__cl_gen_to_be_invoked.motionVectorGenerationMode = __cl_gen_value;
             
             } catch(System.Exception __gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);

@@ -381,9 +381,9 @@ namespace XLua.CSObjectWrap
             try {
                 
                 {
-                    object o = translator.GetObject(L, 2, typeof(object));
+                    object other = translator.GetObject(L, 2, typeof(object));
                     
-                        bool __cl_gen_ret = __cl_gen_to_be_invoked.Equals( o );
+                        bool __cl_gen_ret = __cl_gen_to_be_invoked.Equals( other );
                         LuaAPI.lua_pushboolean(L, __cl_gen_ret);
                     
                     
@@ -442,6 +442,31 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
+                if(__gen_param_count == 2&& translator.Assignable<UnityEngine.Object>(L, 1)&& translator.Assignable<UnityEngine.Transform>(L, 2)) 
+                {
+                    UnityEngine.Object original = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
+                    UnityEngine.Transform parent = (UnityEngine.Transform)translator.GetObject(L, 2, typeof(UnityEngine.Transform));
+                    
+                        UnityEngine.Object __cl_gen_ret = UnityEngine.Object.Instantiate( original, parent );
+                        translator.Push(L, __cl_gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                if(__gen_param_count == 3&& translator.Assignable<UnityEngine.Object>(L, 1)&& translator.Assignable<UnityEngine.Transform>(L, 2)&& LuaTypes.LUA_TBOOLEAN == LuaAPI.lua_type(L, 3)) 
+                {
+                    UnityEngine.Object original = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
+                    UnityEngine.Transform parent = (UnityEngine.Transform)translator.GetObject(L, 2, typeof(UnityEngine.Transform));
+                    bool instantiateInWorldSpace = LuaAPI.lua_toboolean(L, 3);
+                    
+                        UnityEngine.Object __cl_gen_ret = UnityEngine.Object.Instantiate( original, parent, instantiateInWorldSpace );
+                        translator.Push(L, __cl_gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
                 if(__gen_param_count == 3&& translator.Assignable<UnityEngine.Object>(L, 1)&& translator.Assignable<UnityEngine.Transform>(L, 2)&& LuaTypes.LUA_TBOOLEAN == LuaAPI.lua_type(L, 3)) 
                 {
                     UnityEngine.Object original = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
@@ -462,6 +487,33 @@ namespace XLua.CSObjectWrap
                     UnityEngine.Quaternion rotation;translator.Get(L, 3, out rotation);
                     
                         UnityEngine.Object __cl_gen_ret = UnityEngine.Object.Instantiate( original, position, rotation );
+                        translator.Push(L, __cl_gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                if(__gen_param_count == 3&& translator.Assignable<UnityEngine.Object>(L, 1)&& translator.Assignable<UnityEngine.Vector3>(L, 2)&& translator.Assignable<UnityEngine.Quaternion>(L, 3)) 
+                {
+                    UnityEngine.Object original = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
+                    UnityEngine.Vector3 position;translator.Get(L, 2, out position);
+                    UnityEngine.Quaternion rotation;translator.Get(L, 3, out rotation);
+                    
+                        UnityEngine.Object __cl_gen_ret = UnityEngine.Object.Instantiate( original, position, rotation );
+                        translator.Push(L, __cl_gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                if(__gen_param_count == 4&& translator.Assignable<UnityEngine.Object>(L, 1)&& translator.Assignable<UnityEngine.Vector3>(L, 2)&& translator.Assignable<UnityEngine.Quaternion>(L, 3)&& translator.Assignable<UnityEngine.Transform>(L, 4)) 
+                {
+                    UnityEngine.Object original = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
+                    UnityEngine.Vector3 position;translator.Get(L, 2, out position);
+                    UnityEngine.Quaternion rotation;translator.Get(L, 3, out rotation);
+                    UnityEngine.Transform parent = (UnityEngine.Transform)translator.GetObject(L, 4, typeof(UnityEngine.Transform));
+                    
+                        UnityEngine.Object __cl_gen_ret = UnityEngine.Object.Instantiate( original, position, rotation, parent );
                         translator.Push(L, __cl_gen_ret);
                     
                     
