@@ -9,6 +9,7 @@ end
 
 function girl:onTalk()
 	print("girl对话");
+	Char.onTalk(self)
 end
 
 return girl;

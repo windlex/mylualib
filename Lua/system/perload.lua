@@ -3,5 +3,5 @@ print("VOIDROOM  loaded")
 
 WorldD:loadArea("xiangyang_area");
 print("xiangyang_area  loaded")
-STARTROOM = RoomD:loadRoom("xiangyang.xiangyang_city")
+STARTROOM = RoomD:loadRoom("admin.main_room")
 print("STARTROOM  loaded")

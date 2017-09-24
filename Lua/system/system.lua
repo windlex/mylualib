@@ -13,5 +13,7 @@ print("actiond loaded")
 require "Lua.system.chard"
 print("chard loaded")
 
+require("Lua.system.traded")
+
 require "Lua.system.perload"
-print("skilld loaded")
+print("perload loaded")

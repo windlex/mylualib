@@ -10,20 +10,38 @@ Room = class(Entity, {
 		RoomD:addRoom(self);
 		self:AddComponent("room.placement");
 		self.facilitys = {};
+		self._actions = {}
 	end,
 })
 
-function Room:queryAction()
-	local actions = {};
+room.isRoom = true;
+
+function room:addAction(name, method)
+	self._actions[name] = method;
+end
+function room:onAction(act)
+	if self.actions[act] then
+		self.actions[act]()
+	end
+end
+function room:resetAction()
+	local actions = table.copy(self._actions);
+print(Val2Str(self._actions))
+print(Val2Str(actions))
+
 	local comps = self:GetAllComponents();
 
 	for k, v in pairs(comps) do
 		if type(v.queryAction) == 'function' then
 			print("get action:", Val2Str(v))
-			actions = v:queryAction();
+			actions = table.merge(actions, v:queryAction());
 		end
 	end
+	self.actions = actions;
 	return actions;
+end
+function room:queryAction()
+	return self.actions;
 end
 
 function Room:addFacility(name)
@@ -38,6 +56,7 @@ function Room:removeFacility(name)
 	--self:RemoveComponent(name);
 end
 function Room:lookFacility()
+	if not self.facilitys or #self.facilitys == 0 then return "" end
 	local msg = "\n这里的设施有:\n";
 	for k, fac in pairs(self.facilitys) do
 		msg = msg .. link(fac.name, format("Room_onFacility('%s')", k)) .. ", "
@@ -54,13 +73,14 @@ function Room:onFacility(name)
 end
 
 function Room:onLook(char)
-	local msg = "这里是"..self.name;
+	local msg = "[" .. self.name .. ']';
 	msg = msg .. "\n".. self.desc;
 
 	msg = msg .. self.placement:onLook();
 
 	msg = msg .. self:lookFacility();
 	
+	msg = msg .. RoomD:showAction(self);
 	return msg;
 end
 

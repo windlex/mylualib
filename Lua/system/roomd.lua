@@ -14,6 +14,7 @@ function RoomD:loadRoom(roompath)
 		room = require("Lua.area."..roompath);
 		self.path2room[roompath] = room;
 		room:setup()
+		room:resetAction();
 		room.path = roompath;
 	end
 	return room;
@@ -23,12 +24,23 @@ end
 function RoomD:showAction(room)
 	print("RoomD:showAction")
 	local tActions = room:queryAction();
-	local msg = format("%-10s ==============%s\n", room.name, os.date());
+	print(Val2Str(tActions))
+	local msg = "\n你可以在这里执行：\n";
 
 	if not tActions then return end
 
+	local bResult = false;
 	for k,v in pairs(tActions) do
-		msg = msg .. link(k, v) .. "\n";
+		msg = msg .. link(k, format("Room_onAction('%s')", k))  .. "\n";
+		bResult = true;
 	end
+	if not bResult then return "" end
+	
 	pl(msg);
+	return msg
+end
+
+function Room_onAction(act)
+	local room = player:getCurrentRoom();
+	room:onAction(act)
 end

@@ -75,5 +75,7 @@ wait = VM.wait
 print = VM.pl
 format = string.format
 random = math.random
+notify_fail = print
 logError = CS.Debug.LogError
 warn = CS.Debug.LogWarn
+

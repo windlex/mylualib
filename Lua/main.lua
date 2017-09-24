@@ -1,8 +1,11 @@
+STD_ROOM = "Lua.std.room"
+
 require "Lua.VMInit"
 require "Lua.config"
 require "Lua.base.global"
 require "Lua.base.class"
 require "Lua.base.component"
+require "Lua.base.table"
 require "Lua.base.tag"
 print('加载System')
 require "Lua.system.system"
