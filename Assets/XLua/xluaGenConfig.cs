@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using XLua;
+using CreativeSpore.RpgMapEditor;
 
 //配置的详细介绍请看Doc下《XLua的配置.doc》
 public static class xLuaGenConfig
@@ -88,5 +89,6 @@ public static class xLuaGenConfig
         typeof(Logic),
         typeof(UIScrollItemV),
         typeof(UIScrollText),
+        typeof(AutoTileMap),
     };
 }
