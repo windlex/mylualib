@@ -1,6 +1,6 @@
 require(STD_ROOM);
 
-local this = room("主神空间")
+local this = Room("主神空间")
 
 function this:setup()
 	self.desc = [[

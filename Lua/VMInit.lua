@@ -16,6 +16,7 @@ if SIM_DEBUG then return end
 VM = {
 	Logic = CS.Logic.Instance,
 	waiting = false,
+	TileMap = CS.CreativeSpore.RpgMapEditor.AutoTileMap,
 }
 function VM.pl(...)
 	local arg = table.pack(...)

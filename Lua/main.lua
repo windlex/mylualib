@@ -30,3 +30,7 @@ print(Val2Str(getmetatable(player)))
 print(Val2Str(STARTROOM))
 player:move(STARTROOM)
 --player:move("admin.void_room")
+
+print(VM.TileMap)
+print(VM.TileMap.Instance:SetAutoTile(1,1,-1,1))
+print(VM.TileMap.Instance:SetAutoTile(1,1,-1,0))

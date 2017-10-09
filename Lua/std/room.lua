@@ -14,17 +14,17 @@ Room = class(Entity, {
 	end,
 })
 
-room.isRoom = true;
+Room.isRoom = true;
 
-function room:addAction(name, method)
+function Room:addAction(name, method)
 	self._actions[name] = method;
 end
-function room:onAction(act)
+function Room:onAction(act)
 	if self.actions[act] then
 		self.actions[act]()
 	end
 end
-function room:resetAction()
+function Room:resetAction()
 	local actions = table.copy(self._actions);
 print(Val2Str(self._actions))
 print(Val2Str(actions))
@@ -40,7 +40,7 @@ print(Val2Str(actions))
 	self.actions = actions;
 	return actions;
 end
-function room:queryAction()
+function Room:queryAction()
 	return self.actions;
 end
 
