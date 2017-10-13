@@ -1,6 +1,6 @@
 require "Lua.ECSBase.system_mgr"
 
-MoveSys = System()
+MoveSys = System("移动系统")
 
 function MoveSys:update()
 end
@@ -22,7 +22,7 @@ end
 
 function MoveSys:consideRoom(room)
 	if type(room) == 'string' then
-		room = RoomD:loadRoom(room);
+		room = RoomSys:loadRoom(room);
 		if not room then
 			assert()
 		end
@@ -39,13 +39,13 @@ function MoveSys:leavePlace(entityActor, place)
 end
 
 
-
-
-function MoveSys:addExit(exit, path)
-	self.exits[exit] = path;
+function MoveSys:addExit(place, exit, path)
+	place.exits[exit] = path;
 end
-function MoveSys:removeExit(exit)
+function MoveSys:removeExit(place, exit)
+	place.exits[exit] = nil;
 end
+
 function MoveSys:lookExits(place)
 	if not place.exits then return "这里没有明显的出口..." end
 	local msg = "这里的出口有:"
@@ -54,18 +54,14 @@ function MoveSys:lookExits(place)
 	end
 	return msg;
 end
-function MoveSys:onExit(exit)
-	if not self.exits[exit] then
-		print("并不能去"..exit.."...")
+function MoveSys:onExit(en, exit)
+	local position = en:GetComponent("position");
+	local place = position.place;
+	if not place.exits[exit] then
+		print("没有["..exit.."]这个出口...")
 		return
 	end
-	player:move(self.exits[exit]);
-end
-
-function MoveSys_onExit(exit)
-	local place = player:getCurrentRoom();
-	local this = room:GetComponent("room.MoveSys");
-	this:onExit(exit)
+	self:move(en, self.exits[exit]);
 end
 
 function MoveSys:onLook(place)
@@ -77,3 +73,5 @@ function MoveSys:onLook(place)
 	msg = msg .."\n" .. self:lookExits(place);
 	return msg;
 end
+
+return MoveSys;

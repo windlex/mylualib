@@ -86,8 +86,8 @@ end
 
 room1 = require("Lua.std.area.xiangyang");
 room1:setup()
-RoomD:setCurrentRoomPath(room1)
-RoomD:showAction(room1);
+RoomSys:setCurrentRoomPath(room1)
+RoomSys:showAction(room1);
 
 ActionD:addAction('env', 'test', function () print("test") end)
 ActionD:addAction('cmd', 'test2', callout(print, 'test2'));

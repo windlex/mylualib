@@ -1,4 +1,5 @@
-CharSys = System({})
+CharSys = System()
+CharSys.name = "角色系统";
 
 function CharSys:setupChar(entity)
 	entity.dbase = entity:AddComponent("dbase");
@@ -8,3 +9,5 @@ function CharSys:setupChar(entity)
 	entity:AddComponent("interactive")
 	entity:AddComponent("trainable")
 end
+
+return CharSys;

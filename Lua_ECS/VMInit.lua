@@ -74,6 +74,10 @@ end
 function OnStart()
 	SystemMgr:start();
 end
+function OnCommand(cmdtype, cmdparam)
+	local cmd = player:GetComponent("command");
+	CmdSys:addCommand(cmd,cmdtype,cmdparam)
+end
 -------------------------------------------------------
 pl = VM.pl
 cmd = VM.cmd

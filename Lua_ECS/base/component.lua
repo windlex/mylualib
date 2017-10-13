@@ -13,6 +13,7 @@ Componentor = {
 		self._components = self._components or {}
 		local _comp = tcomp(self);
 		self._components[key] = _comp;
+		SystemMgr:onAddComponent(self, key, _comp)
 		return _comp;
 	end,
 	GetComponent = function (self, key)

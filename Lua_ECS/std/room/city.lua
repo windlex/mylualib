@@ -14,7 +14,7 @@ actionForce = {
 }
 
 function actionFuDi()
-	local room = RoomD:getCurrentRoom();
+	local room = RoomSys:getCurrentRoom();
 	if not room.heros or #room.heros == 0 then
 		return pl("这里没有任何出色的人物...")
 	end
@@ -25,7 +25,7 @@ end
 
 function actionSheshi()
 	print("actionSheshi----------------------------")
-	local room = RoomD:getCurrentRoom();
+	local room = RoomSys:getCurrentRoom();
 	print(Val2Str(room))
 	print(Val2Str(room.facilitys))
 	if not room.facilitys then
