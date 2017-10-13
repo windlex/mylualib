@@ -1,0 +1,10 @@
+ECS
+
+Base:
+	✔ Entity @done (2017-10-13 16:56:55)
+	☐ Component
+	☐ System
+
+Systems:
+	☐ Move
+	☐ Char
