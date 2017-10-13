@@ -19,7 +19,8 @@ public class Logic : MonoBehaviour {
         {
             L = new XLua.LuaEnv();
             L.DoString("require ('Lua.Main')");
-        }
+			L.DoString("OnStart()");
+		}
 	}
 
     void OnDestroy()
@@ -38,7 +39,7 @@ public class Logic : MonoBehaviour {
 	}
 	void FixedUpdate()
 	{
-
+		L.DoString("OnUpdate()");
 	}
     public void AddCommand(string cmd, UnityEngine.Events.UnityAction onCmd)
     {
@@ -83,6 +84,7 @@ public class Logic : MonoBehaviour {
 		L.Dispose();
 		L = new XLua.LuaEnv();
 		L.DoString("require ('Lua.Main')");
+		L.DoString("OnStart()");
 	}
 }
 
