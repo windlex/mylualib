@@ -18,7 +18,7 @@ public class Logic : MonoBehaviour {
         if (L == null)
         {
             L = new XLua.LuaEnv();
-            L.DoString("require ('Lua.Main')");
+            L.DoString("require ('Lua_ECS.Main')");
 			L.DoString("OnStart()");
 		}
 	}
@@ -83,7 +83,7 @@ public class Logic : MonoBehaviour {
 		ClearText();
 		L.Dispose();
 		L = new XLua.LuaEnv();
-		L.DoString("require ('Lua.Main')");
+		L.DoString("require ('Lua_ECS.Main')");
 		L.DoString("OnStart()");
 	}
 }
