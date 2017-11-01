@@ -1,19 +1,19 @@
-require "Lua.system.combatd"
+require "system.combatd"
 print("combatd loaded")
-require "Lua.system.skilld"
+require "system.skilld"
 print("skilld loaded")
-require "Lua.system.traind"
+require "system.traind"
 print("traind loaded")
-require "Lua.system.roomd"
+require "system.roomd"
 print("roomd loaded")
-require "Lua.system.worldd"
+require "system.worldd"
 print("worldd loaded")
-require "Lua.system.actiond"
+require "system.actiond"
 print("actiond loaded")
-require "Lua.system.chard"
+require "system.chard"
 print("chard loaded")
 
-require("Lua.system.traded")
+require("system.traded")
 
-require "Lua.system.perload"
+require "system.perload"
 print("perload loaded")

@@ -1,5 +1,5 @@
-require "Lua.base.component"
-require "Lua.base.tag"
+require "base.component"
+require "base.tag"
 
 
 EntityMgr = {

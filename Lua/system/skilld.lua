@@ -1,4 +1,4 @@
-require "Lua.std.skill"
+require "std.skill"
 
 SkillD = {
 	skills = {},

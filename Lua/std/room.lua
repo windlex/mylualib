@@ -1,4 +1,4 @@
-require "ECSBase.entity"
+require "std.entity"
 
 Room = class(Entity, {
 	name = "room",

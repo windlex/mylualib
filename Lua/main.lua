@@ -1,9 +1,7 @@
 if not package._path then
-package._path = package.path
-package.path = package.path .. ";Lua/?.lua;"
+	package._path = package.path
+	package.path = package.path .. ";Lua_ECS/?.lua;"
 end
-
-STD_ROOM = "std.room"
 
 require "VMInit"
 require "config"
