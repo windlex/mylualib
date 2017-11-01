@@ -6,7 +6,7 @@ using System.Text;
 
 public class Manager : SingletonMono<Manager>
 {
-	public List<Daemon> m_DaemonList;
+	public List<Daemon> m_DaemonList = new List<Daemon>();
 	public void AddDaemon(Daemon daemon)
 	{
 		m_DaemonList.Add(daemon);
@@ -23,6 +23,11 @@ public class Manager : SingletonMono<Manager>
 		AddDaemon(daemon);
 		return daemon;
 	}
+	public void RemoveAllDaemon()
+	{
+		m_DaemonList.Clear ();
+	}
+
 	// public void RemoveDaemon(Daemon d)
 	public T GetDaemon<T>() where T : Daemon
 	{
@@ -39,5 +44,26 @@ public class Manager : SingletonMono<Manager>
 		{
 			d.FixedUpdate();
 		}
+	}
+
+
+	public Dictionary<int, Entity> entityMap;
+	static int entityIdSeed = 1234;
+	public Entity CreateEntity()
+	{
+		Entity entity = new Entity();
+		entity.uuid = entityIdSeed++;
+		entityMap.Add(entity.uuid, entity);
+		return entity;
+	}
+	public void DestoryEntity(int uuid)
+	{
+		entityMap.Remove(uuid);
+	}
+	public Entity GetEntity(int uuid)
+	{
+		Entity entity;
+		entityMap.TryGetValue(uuid, out entity);
+		return entity;
 	}
 }

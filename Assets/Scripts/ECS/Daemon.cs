@@ -32,17 +32,17 @@ public class ScriptDaemon : Daemon
 	}
 	public override int Init()
 	{
-		L.DoString(string.Format("CallDaemonInit('{0}')", daemonName));
+		Logic.L.DoString(string.Format("CallDaemonInit('{0}')", daemonName));
 		// todo: get return
 		return 1;
 	}
 	public override void UnInit()
 	{
-		L.DoString(string.Format("CallDaemonUnInit('{0}')", daemonName));
+		Logic.L.DoString(string.Format("CallDaemonUnInit('{0}')", daemonName));
 	}
 	public override int FixedUpdate()
 	{
-		L.DoString(string.Format("CallDaemonFixedUpdate('{0}')", daemonName));
+		Logic.L.DoString(string.Format("CallDaemonFixedUpdate('{0}')", daemonName));
 		// todo: get return
 		return 1;
 	}

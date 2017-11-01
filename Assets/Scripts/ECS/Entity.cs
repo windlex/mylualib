@@ -10,7 +10,7 @@ enum CONFIG
 	ERROR_UUID = 0,
 }
 
-public class Entity : MonoBehaviour
+public class Entity
 {
 	public int uuid = (int)CONFIG.ERROR_UUID;
 
