@@ -11,7 +11,7 @@ public class Manager : SingletonMono<Manager>
 	{
 		m_DaemonList.Add(daemon);
 	}
-	public T AddDaemon<T>() where T : Daemon
+	public T AddDaemon<T>() where T : Daemon, new()
 	{
 		T t = new T();
 		m_DaemonList.Add(t);
@@ -28,8 +28,10 @@ public class Manager : SingletonMono<Manager>
 	{
 		foreach (Daemon d in m_DaemonList)
 		{
-			// todo: if ()
+			if (d.GetType() == typeof(T))
+				return d as T;
 		}
+		return null;
 	}
 	public void FixedUpdate()
 	{

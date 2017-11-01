@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Daemon : ScriptableObject
+[System.Serializable]
+public class Daemon
 {
 	public virtual int Init(){
 		return 0;
@@ -29,17 +30,17 @@ public class ScriptDaemon : Daemon
 	{
 		this.daemonName = daemonName;
 	}
-	public int Init()
+	public override int Init()
 	{
 		L.DoString(string.Format("CallDaemonInit('{0}')", daemonName));
 		// todo: get return
 		return 1;
 	}
-	public void UnInit()
+	public override void UnInit()
 	{
 		L.DoString(string.Format("CallDaemonUnInit('{0}')", daemonName));
 	}
-	public int FixedUpdate()
+	public override int FixedUpdate()
 	{
 		L.DoString(string.Format("CallDaemonFixedUpdate('{0}')", daemonName));
 		// todo: get return

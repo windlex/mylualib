@@ -12,11 +12,11 @@ enum CONFIG
 
 public class Entity : MonoBehaviour
 {
-	public int uuid = CONFIG.ERROR_UUID;
+	public int uuid = (int)CONFIG.ERROR_UUID;
 
 	//--------------------------------------------
 	protected List<Feature> m_FeatureList;
-	public T AddFeature<T>() where T : Feature
+	public T AddFeature<T>() where T : Feature, new()
 	{
 		T t = new T();	// todo: 使用对象池优化
 		m_FeatureList.Add(t);
@@ -24,6 +24,11 @@ public class Entity : MonoBehaviour
 	}
 	public T GetFeature<T>() where T : Feature
 	{
-		
+		foreach (Feature f in m_FeatureList)
+		{
+			if (f.GetType() == typeof(T))
+				return f as T;
+		}
+		return null;
 	}
 }

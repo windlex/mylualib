@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Feature : ScriptableObject
+[System.Serializable]
+public class Feature
 {
 	public Entity m_Owner;
 
