@@ -16,7 +16,9 @@ if SIM_DEBUG then return end
 VM = {
 	Logic = CS.Logic.Instance,
 	waiting = false,
-	TileMap = CS.CreativeSpore.RpgMapEditor.AutoTileMap,
+	TileMap = CS.CreativeSpore.RpgMapEditor.AutoTileMap.Instance,
+	RpgMapHelper = CS.CreativeSpore.RpgMapEditor.RpgMapHelper,
+	PlayerInst = CS.GameMgr.Instance.Player;
 }
 function VM.pl(...)
 	local arg = table.pack(...)
@@ -66,7 +68,16 @@ function link(name, cmd)
 	--print(name, cmd)
 	return format("<quad act=%s a=[%s] width=%d />", cmd, name, #name);
 end
-
+function OnUpdate()
+	SystemMgr:update();
+end
+function OnStart()
+	SystemMgr:start();
+end
+function OnCommand(cmdtype, cmdparam)
+	local cmd = player:GetComponent("command");
+	CmdSys:addCommand(cmd,cmdtype,cmdparam)
+end
 -------------------------------------------------------
 pl = VM.pl
 cmd = VM.cmd
@@ -79,4 +90,4 @@ random = math.random
 notify_fail = print
 logError = CS.Debug.LogError
 warn = CS.Debug.LogWarn
-
+PlayerInst = VM.PlayerInst

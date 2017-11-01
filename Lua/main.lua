@@ -1,36 +1,32 @@
-STD_ROOM = "Lua.std.room"
+if not package._path then
+package._path = package.path
+package.path = package.path .. ";Lua/?.lua;"
+end
 
-require "Lua.VMInit"
-require "Lua.config"
-require "Lua.base.global"
-require "Lua.base.class"
-require "Lua.base.component"
-require "Lua.base.table"
-require "Lua.base.tag"
+STD_ROOM = "std.room"
+
+require "VMInit"
+require "config"
+require "base.global"
+
+require "base.class"
+require "base.component"
+require "base.table"
+require "base.tag"
+
 print('加载System')
-require "Lua.system.system"
+require "ECSBase.system_mgr"
 
-require "Lua.std.entity"
-require "Lua.std.actor"
-require "Lua.std.char"
-require "Lua.std.user"
 
---require "Lua.startup"
+-- print(VM.TileMap)
+-- print(VM.TileMap:SetAutoTile(1,1,-1,1))
+-- print(VM.TileMap:SetAutoTile(1,1,-1,0))
 
-user = User();
-player = Char();
-user:link(player)
-
-print(Val2Str(user))
-print(Val2Str(getmetatable(user)))
-
-print(Val2Str(player))
-print(Val2Str(getmetatable(player)))
-
-print(Val2Str(STARTROOM))
-player:move(STARTROOM)
---player:move("admin.void_room")
-
-print(VM.TileMap)
-print(VM.TileMap.Instance:SetAutoTile(1,1,-1,1))
-print(VM.TileMap.Instance:SetAutoTile(1,1,-1,0))
+-- print(VM.TileMap)
+-- print(PlayerInst)
+-- pos = PlayerInst.transform.position;
+-- print(pos)
+-- print(VM.RpgMapHelper)
+-- print(VM.RpgMapHelper.GetTileIdxByPosition(pos))
+-- print(VM.RpgMapHelper.GetAutoTileByPosition(pos, 0).Id)
+-- print(VM.RpgMapHelper.SetAutoTileByPosition(pos, 3, 0))

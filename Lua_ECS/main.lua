@@ -1,27 +1,19 @@
-STD_ROOM = "Lua.std.room"
+if not _path then
+package.path = package.path .. ";Lua_ECS/?.lua"
+_path = 1
+end
 
-require "Lua.VMInit"
-require "Lua.config"
-require "Lua.base.global"
+require "VMInit"
+require "config"
 
-require "Lua.base.class"
-require "Lua.base.component"
-require "Lua.base.table"
-require "Lua.base.tag"
+require "base.global"
+require "base.class"
+require "base.component"
+require "base.table"
+require "base.tag"
+require "base.callback"
 
 print('加载System')
-require "Lua.ECSBase.system_mgr"
+require "daemons.system_mgr"
+print("CharSys3", CharSys)
 
-
--- print(VM.TileMap)
--- print(VM.TileMap:SetAutoTile(1,1,-1,1))
--- print(VM.TileMap:SetAutoTile(1,1,-1,0))
-
--- print(VM.TileMap)
--- print(PlayerInst)
--- pos = PlayerInst.transform.position;
--- print(pos)
--- print(VM.RpgMapHelper)
--- print(VM.RpgMapHelper.GetTileIdxByPosition(pos))
--- print(VM.RpgMapHelper.GetAutoTileByPosition(pos, 0).Id)
--- print(VM.RpgMapHelper.SetAutoTileByPosition(pos, 3, 0))

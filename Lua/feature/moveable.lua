@@ -4,13 +4,13 @@ function moveable:_ctor(actor)
 	actor.move = self.move;
 	actor.getCurrentRoom = self.getCurrentRoom;
 	--actor.setCurrentRoomPath = self.setCurrentRoomPath;
-	actor:addMethod('setCurrentRoomPath', self.setCurrentRoomPath);
+	--actor:addMethod('setCurrentRoomPath', self.setCurrentRoomPath);
 
 end
 
 function moveable:move(room)
 	if type(room) == 'string' then
-		room = RoomD:loadRoom(room);
+		room = RoomSys:loadRoom(room);
 		if not room then
 			assert()
 		end

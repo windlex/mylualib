@@ -1,4 +1,4 @@
-require "Lua.std.entity"
+require "ECSBase.entity"
 
 --------------------------------------------------------------------
 Actor = class(Entity, {

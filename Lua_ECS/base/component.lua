@@ -13,6 +13,7 @@ Componentor = {
 		self._components = self._components or {}
 		local _comp = tcomp(self);
 		self._components[key] = _comp;
+		_comp.actor = self;
 		SystemMgr:onAddComponent(self, key, _comp)
 		return _comp;
 	end,

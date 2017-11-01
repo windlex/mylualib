@@ -1,5 +1,7 @@
 -- config
 
 -- dirs
-FEATURE_DIR 	= "Lua.feature"
-SKILL_DIR 		= "Lua.std.skill"
+FEATURE_DIR 	= "component"
+SKILL_DIR 		= "std.skill"
+
+STARTROOM		= "admin.main_room"

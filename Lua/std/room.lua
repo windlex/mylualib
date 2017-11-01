@@ -1,4 +1,4 @@
-require "Lua.std.entity"
+require "ECSBase.entity"
 
 Room = class(Entity, {
 	name = "room",
@@ -7,7 +7,7 @@ Room = class(Entity, {
 		Entity._ctor(self)
 
 		self.name = name;
-		RoomD:addRoom(self);
+		RoomSys:addRoom(self);
 		self:AddComponent("room.placement");
 		self.facilitys = {};
 		self._actions = {}
@@ -45,7 +45,7 @@ function Room:queryAction()
 end
 
 function Room:addFacility(name)
-	local facility = require("Lua.feature.room."..name);
+	local facility = require("feature.room."..name);
 	self.facilitys[name] = facility();
 end
 function Room:getFacility(name)
@@ -80,7 +80,7 @@ function Room:onLook(char)
 
 	msg = msg .. self:lookFacility();
 	
-	msg = msg .. RoomD:showAction(self);
+	msg = msg .. RoomSys:showAction(self);
 	return msg;
 end
 

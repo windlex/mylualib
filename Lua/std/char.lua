@@ -1,4 +1,4 @@
-require "Lua.std.actor"
+require "std.actor"
 
 Char = class(Actor, {
 	name = "Char",
@@ -49,7 +49,7 @@ function Char_onTalk(id)
 end
 
 function Char:setHouse(roompath)
-	local room = RoomD:loadRoom(roompath);
+	local room = RoomSys:loadRoom(roompath);
 	local house = room:getFacility("house");
 	--house:addHouse(self);
 end

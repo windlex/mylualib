@@ -1,4 +1,4 @@
-require "Lua.std.room"
+require "std.room"
 
 local this = area("襄阳地区") 
 

@@ -73,7 +73,10 @@ function OnUpdate()
 end
 function OnStart()
 	SystemMgr:start();
+	SystemMgr:addSystem("perload_d")
+	require "del.test"
 end
+
 function OnCommand(cmdtype, cmdparam)
 	local cmd = player:GetComponent("command");
 	CmdSys:addCommand(cmd,cmdtype,cmdparam)
