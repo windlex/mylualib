@@ -75,7 +75,8 @@ function OnUpdate()
 end
 function OnStart()
 	--SystemMgr:start();
-	Manager:AddScriptDaemon("test_daemon") 
+	Manager:AddScriptDaemon("test_daemon")
+	Manager:AddScriptDaemon("combat_d")
 end
 function OnCommand(cmdtype, cmdparam)
 	local cmd = player:GetComponent("command");
@@ -111,4 +112,3 @@ notify_fail = print
 logError = CS.Debug.LogError
 warn = CS.Debug.LogWarn
 PlayerInst = VM.PlayerInst
-Manager = VM.Manager

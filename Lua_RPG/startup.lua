@@ -10,3 +10,4 @@ require "base.table"
 require "base.tag"
 require "base.callback"
 
+require "object.daemon_base"

@@ -4,6 +4,9 @@ local daemon = {
 }
 function daemon:Init()
 	print("test_Daemon Init ")
+	local a = CreateEntity("npc");
+	local b = CreateEntity("npc");
+	fight(a, b);
 end
 function daemon:UnInit()
 	print("test_Daemon UnInit  ")
