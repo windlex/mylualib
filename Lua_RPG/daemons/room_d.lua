@@ -1,17 +1,14 @@
-local room_d = {
-	name = "test_Daemon",
-	t=0,
-}
+local room_d = daemon_base("房间管理精灵")
+ 
 function room_d:Init()
-	print("test_Daemon Init ")
+	self:loadRoomConfig();
 end
-function room_d:UnInit()
-	print("test_Daemon UnInit  ")
+
+function room_d:loadRoomConfig()
 end
-function room_d:FixedUpdate()
-end
-function room_d:Update()
-	print("test_Daemon Update  ")
+
+function room_d:loadArea(path)
+
 end
 
 function room_d:loadRoom(path)
