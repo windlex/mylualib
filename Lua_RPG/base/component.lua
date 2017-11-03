@@ -10,21 +10,19 @@ Componentor = {
 			debug.error("[Error] no feature named ".. key);
 			return
 		end
-		self._components = self._components or {}
 		local _comp = tcomp(self);
 		self._components[key] = _comp;
-		SystemMgr:onAddComponent(self, key, _comp)
+		Manager:onAddComponent(self, key, _comp)
 		return _comp;
 	end,
 	GetComponent = function (self, key)
-		self._components = self._components or {}
 		return self._components[key];
 	end,
 	GetAllComponents = function (self)
 		return self._components;
 	end,
 	RemoveComponent = function (self, key)
-		self._components = self._components or {}
 		self._components[key] = nil;
+		Manager:onRemoveComponent(self, key);
 	end,
 }

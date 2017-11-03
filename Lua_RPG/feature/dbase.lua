@@ -1,6 +1,4 @@
 local dbase = class {
-	hp = 100,
-	maxhp = 100,
 	mp = 100,
 	maxmp = 100,
 	sp = 100,

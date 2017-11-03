@@ -9,12 +9,14 @@ function perfab_d:loadPerfabs()
 end
 
 function perfab_d:spawnPerfab(name)
-	local entity = Manager:CreateEntity();
+	local actor = Manager:CreateActor();
 	local perfab = require("perfab."..name)
 	if not perfab then
 		error("no perfab named "..name)
 		return
 	end
-	return perfab:create(entity);
+
+	return perfab:create(actor);
 end
 
+return perfab_d;

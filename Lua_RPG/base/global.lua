@@ -4,11 +4,21 @@ __global_file_flag__ = 1
 
 nothing = function() end
 
-debug = {
+Debug = {
+	_error = error,
 	active = false,
-	log = print,
+	log = CS.Debug.LogWarning,
+	warning = CS.Debug.LogWarning,
 	error = CS.Debug.LogError,
 }
+debug = Debug.warning or debug;
+error = Debug.error or error;
+function toname(t)
+	if type(t) == "table" then
+		return t.name or tostring(t);
+	end
+	return tostring(t);
+end
 
 pairs = pairs or function(t) return t end
 strsub = strsub or string.sub
@@ -48,12 +58,5 @@ function Val2Str(value, ind, tVMap)
 		return '"'..tostring(value)..'"';
 	else
 		return tostring(value);
-	end
-end
-
-function callout(f, ...)
-	local arg = table.pack(...)
-	return function()
-		pcall(f, table.unpack(arg));
 	end
 end

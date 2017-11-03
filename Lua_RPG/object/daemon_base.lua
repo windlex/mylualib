@@ -1,5 +1,5 @@
 daemon_base = class ({
-	_ctor = function(name)
+	_ctor = function(self, name)
 		self.name = name;
 	end,
 })

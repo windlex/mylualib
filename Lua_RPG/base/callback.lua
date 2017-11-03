@@ -1,7 +1,7 @@
 function callback(fn, ...)
-	local arg = table.pack(...);
+	local _arg = pack(...);
 	return function(...)
-		fn(table.unpack(table.combine(arg, table.pack(...))));
+		fn(unpack(table.combine(_arg, pack(...))));
 	end
 end
 

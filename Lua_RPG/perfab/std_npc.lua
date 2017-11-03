@@ -1,5 +1,5 @@
-local std_npc = Entity ({
-	name = "npc",
+local std_npc = class ({
+	name = "std_npc",
 	_ctor = function(self, name, inst)
 		self.inst = inst;
 		self.name = name;
@@ -7,11 +7,13 @@ local std_npc = Entity ({
 	end,
 })
 
-function std_npc:create(entity)
-	entity:AddComponent("damageable");
-	entity:AddComponent("skills");
-	entity:AddComponent("dbase")
-	return entity;
+function std_npc:create(actor)
+	local dbase = actor:AddComponent("dbase")
+	local health = actor:AddComponent("health")
+	health:setMaxHealth(500);
+	local fighting = actor:AddComponent("fighting");
+	fighting:setAction({"unarmed"})
+	return actor;
 end
 
 return std_npc;

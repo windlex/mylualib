@@ -1,14 +1,17 @@
+_print = print
+
 if not CS then
+	SIM = true
 	CS = {}
 	CS.Logic = {}
 	CS.Logic.Instance = {}
-	table.pack = function (...)
-		return {...}
-	end
 	CS.Logic.Instance.AddText = print
 	Debug=print
 	CS.Debug = {}
 	CS.Debug.LogError = print
+	CS.CreativeSpore = {RpgMapEditor={AutoTileMap={}}}
+	CS.GameMgr= {Instance={}}
+	require "SIM"
 end
 
 if SIM_DEBUG then return end
@@ -75,8 +78,8 @@ function OnUpdate()
 end
 function OnStart()
 	--SystemMgr:start();
-	Manager:AddScriptDaemon("test_daemon")
-	Manager:AddScriptDaemon("combat_d")
+	Manager:AddDaemon("test_daemon")
+	Manager:AddDaemon("combat_d")
 end
 function OnCommand(cmdtype, cmdparam)
 	local cmd = player:GetComponent("command");
@@ -112,3 +115,8 @@ notify_fail = print
 logError = CS.Debug.LogError
 warn = CS.Debug.LogWarn
 PlayerInst = VM.PlayerInst
+
+if SIM then
+	pl = _print
+	print = _print
+end

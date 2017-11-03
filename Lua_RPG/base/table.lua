@@ -1,3 +1,13 @@
+pack = function (...)
+	return {...}
+end
+table.pack = pack
+if unpack then
+	table.unpack = unpack
+else
+	unpack = table.unpack
+end
+
 table = table or {}
 
 function table.merge(...)
@@ -12,6 +22,7 @@ end
 function table.combine(...)
 	local t, arg = {}, table.pack(...)
 	for i = 1, #arg do
+		print(arg[i])
 		for k, v in ipairs(arg[i]) do
 			table.insert(t, v);
 		end
@@ -24,4 +35,7 @@ function table.copy(tb)
 		tt[k] = v;
 	end
 	return tt;
+end
+function table.random(t)
+	return t[random(#t)];
 end
