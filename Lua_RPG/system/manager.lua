@@ -7,6 +7,12 @@ Manager = {
 	actorCount = 0,
 }
 
+function Manager:OnStart()
+	print("Manager:OnStart")
+	Manager:AddDaemon("world_d")
+	Manager:AddDaemon("test_daemon")
+	Manager:AddDaemon("combat_d")
+end
 function Manager:AddDaemon(name)
 	self.inst:AddScriptDaemon(name);
 end
@@ -42,4 +48,5 @@ function Manager:getAllComponent(compName)
 	return self.comps[compName] or {};
 end
 
+Manager:OnStart();
 print("Manager Loaded!!!!")

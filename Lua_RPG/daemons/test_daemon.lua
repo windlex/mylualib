@@ -4,9 +4,9 @@ local daemon = {
 }
 function daemon:Init()
 	print("test_Daemon Init ")
-	local a = PERFAB_D:spawnPerfab("std_npc");
-	print(Val2Str(a))
-	local b = PERFAB_D:spawnPerfab("std_npc");
+	local a = PERFAB_D:spawnPerfab("std_npc", "A");
+	local b = PERFAB_D:spawnPerfab("std_npc", "B");
+	
 	COMBAT_D:MakeEnemy(a, b);
 end
 function daemon:UnInit()

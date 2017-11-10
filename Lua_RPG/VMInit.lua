@@ -1,5 +1,6 @@
 _print = print
-
+--print("Text",CS.Text.Encoding.UTF8)
+--print("Text",CS.Text.Encoding.GetEncoding("GBK"))
 if not CS then
 	SIM = true
 	CS = {}
@@ -23,6 +24,7 @@ VM = {
 	RpgMapHelper = CS.CreativeSpore.RpgMapEditor.RpgMapHelper,
 	PlayerInst = CS.GameMgr.Instance.Player;
 	Manager = CS.Manager.Instance;
+	Convert = CS.MyUtils.Convert
 }
 
 function VM.pl(...)
@@ -77,9 +79,8 @@ function OnUpdate()
 	--SystemMgr:update();
 end
 function OnStart()
-	--SystemMgr:start();
-	Manager:AddDaemon("test_daemon")
-	Manager:AddDaemon("combat_d")
+	print("OnStart");
+	Manager:OnStart();
 end
 function OnCommand(cmdtype, cmdparam)
 	local cmd = player:GetComponent("command");
@@ -115,6 +116,7 @@ notify_fail = print
 logError = CS.Debug.LogError
 warn = CS.Debug.LogWarn
 PlayerInst = VM.PlayerInst
+gbk2utf8 = callback(VM.Convert, "GBK")
 
 if SIM then
 	pl = _print

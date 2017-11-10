@@ -1,5 +1,5 @@
 --unarmed
-local skill = skill({
+local skill = class ({
 	id = "unarmed",
 	name = "基本拳脚",
 })

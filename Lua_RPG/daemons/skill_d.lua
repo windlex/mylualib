@@ -14,7 +14,7 @@ end
 function skill_d:loadSkill(skillname)
 	local skill = self.skills[skillname];
 	if not skill then
-		skill = require("skill." .. skillname)
+		skill = require("skills." .. skillname)
 		if not skill then
 			return error("Load Skill Error!"..skillname);
 		end

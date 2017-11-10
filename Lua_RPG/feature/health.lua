@@ -6,23 +6,23 @@ health = class {
 	end,
 }
 
-function health:setup(actor)
-
+function health:_ctor(actor)
+	self.actor = actor
 end
 
 function health:setMaxHealth(nMax)
 	self.health_max = nMax;
 end
 
-function health:recvDamag(damage)
+function health:recvDamage(damage)
 	if damage < 0 then
 		return notify("没有造成任何伤害!")
 	end
 	self.health_cur = self.health_cur - damage;
+	pl(format("%s受到了%d点伤害!", self.actor.name, damage));
 	if self.health_cur < 0 then
 		self:die();
 	end
-	pl(format("%s受到了%d点伤害!", self.actor.name, damage));
 	return damage;
 end
 
@@ -35,7 +35,8 @@ function health:recvHeal(heal)
 end
 
 function health:die()
-	pl(format("%s SHI掉了!", self.actor.name));
+	pl(format("%s 死掉了!", self.actor.name));
+	COMBAT_D:removeAllEnemy(self.actor);
 end
 
 return health;

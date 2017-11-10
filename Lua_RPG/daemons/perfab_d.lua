@@ -8,15 +8,16 @@ function perfab_d:loadPerfabs()
 
 end
 
-function perfab_d:spawnPerfab(name)
+function perfab_d:spawnPerfab(perfabName, name)
 	local actor = Manager:CreateActor();
-	local perfab = require("perfab."..name)
+	local perfab = require("perfab."..perfabName)
 	if not perfab then
-		error("no perfab named "..name)
+		error("no perfab perfabNamed "..perfabName)
 		return
 	end
 
-	return perfab:create(actor);
+	perfab:create(actor, name);
+	return actor;
 end
 
 return perfab_d;

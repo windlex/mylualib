@@ -7,7 +7,8 @@ local std_npc = class ({
 	end,
 })
 
-function std_npc:create(actor)
+function std_npc:create(actor, name)
+	actor.name = name
 	local dbase = actor:AddComponent("dbase")
 	local health = actor:AddComponent("health")
 	health:setMaxHealth(500);

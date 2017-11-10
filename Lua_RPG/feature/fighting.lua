@@ -1,11 +1,10 @@
 fighting = class({
-	enemys = {},
 	_ctor = function(self, actor, enemys)
 		self.actor = actor;
-		self.enemys = enemys;
+		self.enemys = enemys or {};
+		self.actions = {};
+		self.cur_action = 1;
 	end,
-	actions = {},
-	cur_action = 1,
 })
 
 -- Combat Data
@@ -27,6 +26,16 @@ function fighting:addEnemy(enemy)
 	-- 	return print("can't attack target " .. toname(enemy))
 	-- end
 	table.insert(self.enemys, enemy);
+end
+function fighting:removeEnemy(enemy )
+	for k, v in pairs(self.enemys) do
+		if v == enemy then
+			table.remove(self.enemys, k);
+		end
+	end
+end
+function fighting:removeAllEnemy()
+	self.enemys = {}
 end
 
 function fighting:setAction(actions)
