@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="01.Entity">
+      <UniqueIdentifier>{73a9a63c-c801-4ec1-bb6f-81cdbf2dd561}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Component">
+      <UniqueIdentifier>{9acdbf25-f241-4d76-b124-961730569575}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.System|Processer">
+      <UniqueIdentifier>{db26e881-c25a-4109-bc9b-6b3d54e08cfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Base">
+      <UniqueIdentifier>{b343d360-9de5-40ce-8758-7a6ba35d8fae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="s2.Network">
+      <UniqueIdentifier>{2276c55d-3305-4757-99c5-a20da545bfe4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="s0.Framework">
+      <UniqueIdentifier>{c8520bc2-9395-47ab-969c-8eeb5511409d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="s2.Network\base">
+      <UniqueIdentifier>{44a6ef95-77ea-4c56-b489-b064781b5644}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Utils">
+      <UniqueIdentifier>{db18ab40-4589-4804-90e9-6c4871d13418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="s3.room">
+      <UniqueIdentifier>{564b62e6-72de-4cb2-8198-3a396af5887a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="s4.Unit">
+      <UniqueIdentifier>{6dda9391-8596-434c-8864-bc0d162a40ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="s5.MagicAttr">
+      <UniqueIdentifier>{568d9327-cca5-4bb4-a242-d1faae10fecd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="s5.Player">
+      <UniqueIdentifier>{2163e30f-1363-453e-9ad2-c15ccb59351d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="s10.Timeline">
+      <UniqueIdentifier>{7fde7119-a895-426c-9240-ef99666c0aa0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ECS.h">
+      <Filter>00.Base</Filter>
+    </ClInclude>
+    <ClInclude Include="01.Entity\Entity.h">
+      <Filter>01.Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="03.System\SystemBase.h">
+      <Filter>03.System|Processer</Filter>
+    </ClInclude>
+    <ClInclude Include="network\SessionComponent.h">
+      <Filter>s2.Network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\SysNetwork.h">
+      <Filter>s2.Network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\K_GSnC_Protocol.h">
+      <Filter>s2.Network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\KSession.h">
+      <Filter>s2.Network\base</Filter>
+    </ClInclude>
+    <ClInclude Include="network\KProtocolHandler.h">
+      <Filter>s2.Network\base</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Utils.h">
+      <Filter>04.Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="02.Component\CompDef.h">
+      <Filter>02.Component</Filter>
+    </ClInclude>
+    <ClInclude Include="room\room_d.h">
+      <Filter>s3.room</Filter>
+    </ClInclude>
+    <ClInclude Include="room\room_data.h">
+      <Filter>s3.room</Filter>
+    </ClInclude>
+    <ClInclude Include="ecs_stdafx.h">
+      <Filter>s0.Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="room\comp_joinroom.h">
+      <Filter>s3.room</Filter>
+    </ClInclude>
+    <ClInclude Include="03.System\SysMovement.h">
+      <Filter>s4.Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="02.Component\CompMove.h">
+      <Filter>s4.Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="02.Component\CompDisp.h">
+      <Filter>s4.Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="02.Component\CompAttr.h">
+      <Filter>s4.Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="magicattr\MagicAttrD.h">
+      <Filter>s5.MagicAttr</Filter>
+    </ClInclude>
+    <ClInclude Include="magicattr\CompMagicAttr.h">
+      <Filter>s5.MagicAttr</Filter>
+    </ClInclude>
+    <ClInclude Include="player\CompSave.h">
+      <Filter>s5.Player</Filter>
+    </ClInclude>
+    <ClInclude Include="player\PlayerSaveLoadD.h">
+      <Filter>s5.Player</Filter>
+    </ClInclude>
+    <ClInclude Include="02.Component\Component.h">
+      <Filter>02.Component</Filter>
+    </ClInclude>
+    <ClInclude Include="02.Component\SerializeComponent.h">
+      <Filter>02.Component</Filter>
+    </ClInclude>
+    <ClInclude Include="timeline\CompTimer.h">
+      <Filter>s10.Timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="timeline\TimelineD.h">
+      <Filter>s10.Timeline</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ECS.cpp">
+      <Filter>00.Base</Filter>
+    </ClCompile>
+    <ClCompile Include="network\SysNetwork.cpp">
+      <Filter>s2.Network</Filter>
+    </ClCompile>
+    <ClCompile Include="setup.cpp">
+      <Filter>s0.Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="network\KSession.cpp">
+      <Filter>s2.Network\base</Filter>
+    </ClCompile>
+    <ClCompile Include="network\KProtocolHandler.cpp">
+      <Filter>s2.Network\base</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\Utils.cpp">
+      <Filter>04.Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="room\room_d.cpp">
+      <Filter>s3.room</Filter>
+    </ClCompile>
+    <ClCompile Include="ecs_stdafx.cpp">
+      <Filter>s0.Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="03.System\SysMovement.cpp">
+      <Filter>s4.Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="magicattr\MagicAttrD.cpp">
+      <Filter>s5.MagicAttr</Filter>
+    </ClCompile>
+    <ClCompile Include="player\PlayerSaveLoadD.cpp">
+      <Filter>s5.Player</Filter>
+    </ClCompile>
+    <ClCompile Include="timeline\TimelineD.cpp">
+      <Filter>s10.Timeline</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
