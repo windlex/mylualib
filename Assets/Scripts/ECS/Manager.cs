@@ -6,10 +6,12 @@ using System.Text;
 
 public class Manager : SingletonMono<Manager>
 {
+	public bool Activate = true;
 	public List<Daemon> m_DaemonList = new List<Daemon>();
 	public void AddDaemon(Daemon daemon)
 	{
 		m_DaemonList.Add(daemon);
+		daemon.Init();
 	}
 	public T AddDaemon<T>() where T : Daemon, new()
 	{
@@ -40,6 +42,8 @@ public class Manager : SingletonMono<Manager>
 	}
 	public void FixedUpdate()
 	{
+		if (!Activate)
+			return;
 		foreach (Daemon d in m_DaemonList)
 		{
 			d.FixedUpdate();
@@ -47,7 +51,7 @@ public class Manager : SingletonMono<Manager>
 	}
 
 
-	public Dictionary<int, Entity> entityMap;
+	public Dictionary<int, Entity> entityMap = new Dictionary<int,Entity>();
 	static int entityIdSeed = 1234;
 	public Entity CreateEntity()
 	{
