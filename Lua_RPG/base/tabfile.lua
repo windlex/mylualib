@@ -11,7 +11,6 @@ tinsert = table.insert
 
 TabFile = {}
 function TabFile.open(filename, spe)
-	print("spe4", spe)
 	--local filename1 = __DBGLIB:getBasePath().."\\服务端配置文件\\GameSvr"..filename;
 	--local filename2 = __DBGLIB:getBasePath().."\\设定文件"..filename;
 	spe = spe or "\t"
@@ -39,7 +38,6 @@ function TabFile.open(filename, spe)
 end
 
 function TabFile.Load(filename, spe)
-	print("spe", spe)
 	if not g_TabFiles[filename] then
 		g_TabFiles.filename = TabFile.open(filename, spe);
 	end
@@ -76,13 +74,11 @@ end
 
 KTabFile = class {
 	_ctor = function(self, filename, spe)
-	print("spe", spe)
 		return self:load(filename, spe);
 	end,
 	__encodeType = 0,
 
 	load = function(self,filename, spe)
-	print("spe", spe)
 		self.__filename = filename
 		if(TabFile.Load(filename, spe) ==0) then
 			return nil
@@ -201,7 +197,6 @@ end;
 
 --以表头字符作为索引
 function ff_GetTabFileTableEx(szFilePath,nDataStartLine,handles, lineHandler, spe)
-	print("spe", spe)
 	handles = handles or {}
 	nDataStartLine = nDataStartLine or 2;
 	--szFilePath = sf_RemoveEndSpace(szFilePath)

@@ -14,6 +14,7 @@ function std_npc:create(actor, name)
 	health:setMaxHealth(500);
 	local fighting = actor:AddComponent("fighting");
 	fighting:setAction({"unarmed"})
+	actor:AddComponent("place")
 	return actor;
 end
 

@@ -30,14 +30,14 @@ require "system.manager"
 player = PERFAB_D:spawnPerfab("player", "player");
 ppt(Manager)
 ppt(player)
-local room = WORLD_D:loadRoom(STARTROOM)
-WORLD_D:move(player, room)
+WORLD_D:move(player, STARTROOM)
 
-if SIM then
-	print(SIM)
-	OnStart()
+-- print("SIM", SIM )
+-- if SIM then
+-- 	print(SIM)
+-- 	OnStart()
 
-	for i=1,10 do
-		--_Manager:FixedUpdate()
-	end
-end
+-- 	for i=1,10 do
+-- 		--_Manager:FixedUpdate()
+-- 	end
+-- end

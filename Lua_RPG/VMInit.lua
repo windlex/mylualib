@@ -39,9 +39,9 @@ function VM.cmd(str, cb, ...)
 	if type(cb) == 'string' then
 		VM.Logic:AddCommand(str, cb)
 	elseif type(cb) == 'function' then
-		VM.Logic:AddCommand(str, callout(VM.start, cb, ...))
+		VM.Logic:AddCommand(str, callback(VM.start, cb, ...))
 	--elseif type(cb) == 'table' then
-	--	VM.Logic:AddCommand(str, callout(VM.start, 
+	--	VM.Logic:AddCommand(str, callback(VM.start, 
 	else
 		print("[Error Cmd]", str, cb);
 	end
@@ -80,7 +80,7 @@ function OnUpdate()
 end
 function OnStart()
 	print("OnStart");
-	Manager:OnStart();
+	--Manager:OnStart();
 end
 function OnCommand(cmdtype, cmdparam)
 	local cmd = player:GetComponent("command");
