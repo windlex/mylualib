@@ -164,7 +164,7 @@ public class UITextEx : Text, IPointerClickHandler
 		foreach (Match match in s_HrefRegex.Matches(outputText))
 		{
 			s_TextBuilder.Append(outputText.Substring(indexText, match.Index - indexText));
-			s_TextBuilder.Append("<color=blue>");  // 超链接颜色
+			s_TextBuilder.Append("<color=aqua>");  // 超链接颜色
 			var group = match.Groups[1];
 			var hrefInfo = new HrefInfo
 			{
@@ -174,7 +174,7 @@ public class UITextEx : Text, IPointerClickHandler
 			};
 			m_HrefInfos.Add(hrefInfo);
 			s_TextBuilder.Append(match.Groups[2].Value);
-			s_TextBuilder.Append("</color>");
+			s_TextBuilder.Append("</ color>");
 			indexText = match.Index + match.Length;
 		}
 		s_TextBuilder.Append(outputText.Substring(indexText, outputText.Length - indexText));

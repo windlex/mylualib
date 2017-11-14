@@ -205,7 +205,7 @@ public class LinkImageText : Text, IPointerClickHandler
 		foreach (Match match in s_HrefRegex.Matches(outputText))
 		{
 			s_TextBuilder.Append(outputText.Substring(indexText, match.Index - indexText));
-			s_TextBuilder.Append("<color=blue>");  // 超链接颜色
+			s_TextBuilder.Append("<color=#00ffffff>");  // 超链接颜色
 			var group = match.Groups[1];
 			var hrefInfo = new HrefInfo
 			{
