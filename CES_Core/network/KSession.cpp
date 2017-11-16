@@ -195,9 +195,9 @@ KSession	* KSessionMgr::Connect(const char *szIp, int nPort, KProtocolHandler *p
 	KSession *session = NULL;
 	KG_SocketConnector *pConn = new KG_SocketConnector;
 	nRet = pConn->Bind(bindIp, bindPort);
-	KG_PROCESS_ERROR(nRet);
+	KGLOG_PROCESS_ERROR(nRet);
 	IKG_SocketStream *pss = pConn->ConnectSecurity(szIp, nPort, KSG_ENCODE_DECODE);
-	KG_PROCESS_ERROR(pss);
+	KGLOG_PROCESS_ERROR(pss);
 	session = new KSession(pss);
 	session->SetHandler(pHandler);
 	KG_PROCESS_ERROR(session);

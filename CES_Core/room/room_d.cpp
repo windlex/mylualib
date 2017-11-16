@@ -1,7 +1,6 @@
 #include "ecs_stdafx.h"
 #include "..\network\SessionComponent.h"
 #include "room_d.h"
-#include "comp_joinroom.h"
 #include "room_data.h"
 #include "..\network\K_GSnC_Protocol.h"
 #include "..\02.Component\CompDisp.h"
@@ -112,6 +111,7 @@ namespace ECS
 			for (Entity *e : roomData->m_entityList)
 			{
 				CompPosition *pos = e->GetComponent<CompPosition>();
+				CompMove *move = e->GetComponent<CompMove>();
 				if (pos->bUpdate)
 				{
 					pos->bUpdate = FALSE;
@@ -121,8 +121,16 @@ namespace ECS
 					sSync.y = pos->pos.y;
 					sSync.z = pos->pos.z;
 					sSync.dir = pos->ndir;
-					sSync.moveX = pos->moveX;
-					sSync.moveZ = pos->moveZ;
+					if (move)
+					{
+						sSync.moveX = move->moveX;
+						sSync.moveZ = move->moveZ;
+					}
+					else
+					{
+						sSync.moveX = 0;
+						sSync.moveZ = 0;
+					}
 					SendToRoom(roomData, e, (char*)&sSync, sizeof(sSync), true);
 				}
 				CompRoleData *roleData = e->GetComponent<CompRoleData>();

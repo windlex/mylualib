@@ -1,5 +1,7 @@
 #include "ecs_stdafx.h"
 #include "TimelineD.h"
+#include "CompTimer.h"
+#include <time.inl>
 
 namespace ECS {
 	int TimelineD::FixedUpdate()
@@ -8,11 +10,12 @@ namespace ECS {
 		for (CompTimer *m : group)
 		{
 		}
+		return TRUE;
 	}
 
 	uint32 TimelineD::now()
 	{
-
+		return time(NULL);
 	}
 
 };

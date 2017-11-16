@@ -3,6 +3,11 @@
 #include "room_d.h"
 
 namespace ECS {
+	class CompJoinRoom : public Component
+	{
+	public:
+		int		nRoomId;
+	};
 	class Comp_RoomData : public Component
 	{
 	public:

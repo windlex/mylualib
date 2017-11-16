@@ -105,10 +105,18 @@ copy $(SolutionDir)\build_temp\$(ProjectName)_$(Configuration)\*.lib $(SolutionD
     <ClInclude Include="02.Component\SerializeComponent.h" />
     <ClInclude Include="03.System\SysMovement.h" />
     <ClInclude Include="03.System\SystemBase.h" />
+    <ClInclude Include="battle\CollidingD.h" />
+    <ClInclude Include="battle\CompCollider.h" />
     <ClInclude Include="ECS.h" />
     <ClInclude Include="ecs_stdafx.h" />
+    <ClInclude Include="hall\HallComp.h" />
+    <ClInclude Include="hall\HallD.h" />
     <ClInclude Include="magicattr\CompMagicAttr.h" />
     <ClInclude Include="magicattr\MagicAttrD.h" />
+    <ClInclude Include="network\KClientHandler.h" />
+    <ClInclude Include="network\KGameCenterHandler.h" />
+    <ClInclude Include="network\KGoddessHandler.h" />
+    <ClInclude Include="network\KLoginHandler.h" />
     <ClInclude Include="network\KProtocolHandler.h" />
     <ClInclude Include="network\KSession.h" />
     <ClInclude Include="network\K_GSnC_Protocol.h" />
@@ -116,7 +124,6 @@ copy $(SolutionDir)\build_temp\$(ProjectName)_$(Configuration)\*.lib $(SolutionD
     <ClInclude Include="network\SysNetwork.h" />
     <ClInclude Include="player\CompSave.h" />
     <ClInclude Include="player\PlayerSaveLoadD.h" />
-    <ClInclude Include="room\comp_joinroom.h" />
     <ClInclude Include="room\room_d.h" />
     <ClInclude Include="room\room_data.h" />
     <ClInclude Include="timeline\CompTimer.h" />
@@ -125,12 +132,18 @@ copy $(SolutionDir)\build_temp\$(ProjectName)_$(Configuration)\*.lib $(SolutionD
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="03.System\SysMovement.cpp" />
+    <ClCompile Include="battle\CollidingD.cpp" />
     <ClCompile Include="ECS.cpp" />
     <ClCompile Include="ecs_stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="hall\HallD.cpp" />
     <ClCompile Include="magicattr\MagicAttrD.cpp" />
+    <ClCompile Include="network\KClientHandler.cpp" />
+    <ClCompile Include="network\KGameCenterHandler.cpp" />
+    <ClCompile Include="network\KGoddessHandler.cpp" />
+    <ClCompile Include="network\KLoginHandler.cpp" />
     <ClCompile Include="network\KProtocolHandler.cpp" />
     <ClCompile Include="player\PlayerSaveLoadD.cpp" />
     <ClCompile Include="room\room_d.cpp" />

@@ -4,11 +4,8 @@
 #include "..\03.System\SystemBase.h"
 #include "..\02.Component\SerializeComponent.h"
 
-#define GET_COMPONENT_GROUP(COMPNAME, GROUP)\
-std::vector<COMPNAME *> GROUP;\
-Manager::GetInstance()->ComponentItr<COMPNAME>(GROUP);
-
 namespace ECS {
+#define TIME_SAVE_INTERVAL	(5 * 60)
 	class PlayerSaveLoadD : public TSystemBase<SYS_PLAYERSAVELOAD>
 	{
 	public:

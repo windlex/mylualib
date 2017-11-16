@@ -1,15 +1,22 @@
 #include "ecs_stdafx.h"
 #include "PlayerSaveLoadD.h"
 #include "engine\kglog.h"
+#include "..\timeline\TimelineD.h"
 
 namespace ECS {
 #define MAX_SAVE_SIZE	64 * 1024
+	PlayerSaveLoadD::PlayerSaveLoadD()
+	{
+
+	}
+
 	int PlayerSaveLoadD::FixedUpdate()
 	{
 		GET_COMPONENT_GROUP(CompSave, group);
 		for (CompSave *m : group)
 		{
-			if (now - m->m_uLastSave < interval)
+			uint32 now = TimelineD::GetInstance()->now();
+			if (now - m->m_uLastSave < TIME_SAVE_INTERVAL)
 				continue;
 			char szBuffer[MAX_SAVE_SIZE] = { 0 };
 			char *pData = szBuffer;
@@ -27,6 +34,7 @@ namespace ECS {
 				pData += nSize;
 			}
 		}
+			return TRUE;
 	}
 
 };

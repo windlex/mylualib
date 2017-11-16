@@ -8,9 +8,9 @@ namespace ECS {
 	Entity *CreatePlayer()
 	{
 		Entity *pEntity = Manager::GetInstance()->CreateEntity();
-		Vector3 pos = { -1, -1, -1 };
-		pEntity->AddComponent(CompPosition::Create(pos));
-
+		CompPosition *comp = pEntity->AddComponent<CompPosition>();
+		pEntity->AddComponent<CompMove>();
+		pEntity->AddComponent<CompCollider>();
 		return pEntity;
 	}
 }

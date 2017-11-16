@@ -14,9 +14,18 @@ namespace ECS {
 	
 	enum emSYSTEMS
 	{
-		SYS_MAGICATTR,
+		SYS_MOVEMENT,
+		SYS_NETWORK,
+		SYS_ROOM,
+		SYS_COLLIDING,
+
+		SYS_MAGICATTR = 10,
 		SYS_PLAYERSAVELOAD,
 		SYS_TIMELINE,
+		SYS_HALL,
+
+		SYS_TEST = 100,
+		SYS_FPS,
 	};
 
 	class SystemBase 
@@ -47,4 +56,10 @@ namespace ECS {
 			: SystemBase(SysID)
 		{}
 	};
+
+#define GET_COMPONENT_GROUP(COMPNAME, GROUP)\
+std::vector<COMPNAME *> GROUP;\
+Manager::GetInstance()->ComponentItr<COMPNAME>(GROUP);
+
+
 }

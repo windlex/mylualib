@@ -7,7 +7,7 @@
 
 namespace ECS
 {
-	class RoomD : public TSystemBase<4>, public TSingleton<RoomD>
+	class RoomD : public TSystemBase<SYS_ROOM>, public TSingleton<RoomD>
 	{
 	public:
 		RoomD(){}

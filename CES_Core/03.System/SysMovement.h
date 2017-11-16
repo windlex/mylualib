@@ -2,7 +2,7 @@
 #include "SystemBase.h"
 
 namespace ECS {
-	class SysMovement : public TSystemBase<1>
+	class SysMovement : public TSystemBase<SYS_MOVEMENT>
 	{
 	public:
 		SysMovement(){}

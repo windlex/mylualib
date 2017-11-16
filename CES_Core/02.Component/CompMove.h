@@ -55,33 +55,22 @@ namespace ECS {
 	struct CompPosition : public Component
 	{
 		CompPosition()
-			:bUpdate(0), pos({0,0,0})
+			:pos({ 0, 0, 0 }), ndir(0), moveX(0), moveZ(0), bUpdate(0)
 		{}
-		static CompPosition *Create(Vector3 &pos)
-		{
-			CompPosition *p = new CompPosition();
-			p->pos = pos;
-			return p;
-		}
+
 		Vector3		pos;
-		Vector3		dir;
 		int			ndir;
-		int			moveX;
-		int			moveZ;
 		int			bUpdate;	// 同步标记,改成comp?
 	};
 
 	struct CompMove : public Component
 	{
-		static CompMove *Create(Vector3 &v, Vector3 &a)
-		{
-			CompMove *p = new CompMove();
-			p->velocity = v;
-			p->acceleration = a;
-			return p;
-		}
-		Vector3		velocity;
-		Vector3		acceleration;
+		CompMove()
+			:moveX(0), moveZ(0)
+		{}
+
+		int			moveX;
+		int			moveZ;
 	};
 
 }

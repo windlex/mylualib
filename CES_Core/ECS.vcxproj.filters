@@ -34,11 +34,26 @@
     <Filter Include="s5.MagicAttr">
       <UniqueIdentifier>{568d9327-cca5-4bb4-a242-d1faae10fecd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="s5.Player">
-      <UniqueIdentifier>{2163e30f-1363-453e-9ad2-c15ccb59351d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="s10.Timeline">
       <UniqueIdentifier>{7fde7119-a895-426c-9240-ef99666c0aa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="s6.Player">
+      <UniqueIdentifier>{2163e30f-1363-453e-9ad2-c15ccb59351d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="s7.Hall">
+      <UniqueIdentifier>{67fd83a3-a519-4de0-a1eb-ad7a13258eaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="s2.Network\handler">
+      <UniqueIdentifier>{f03559fd-9c08-494b-b2a2-c5d1cf1ee06a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="s2.Network\prototcol">
+      <UniqueIdentifier>{bd86c8c2-18ef-4b65-828d-707a7e4b9396}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="u1.Entites">
+      <UniqueIdentifier>{8d55058c-30e4-4895-82fa-af51719242e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="s5.Battle">
+      <UniqueIdentifier>{5be3af87-0e45-4251-969d-3f9eee130634}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -55,9 +70,6 @@
       <Filter>s2.Network</Filter>
     </ClInclude>
     <ClInclude Include="network\SysNetwork.h">
-      <Filter>s2.Network</Filter>
-    </ClInclude>
-    <ClInclude Include="network\K_GSnC_Protocol.h">
       <Filter>s2.Network</Filter>
     </ClInclude>
     <ClInclude Include="network\KSession.h">
@@ -81,9 +93,6 @@
     <ClInclude Include="ecs_stdafx.h">
       <Filter>s0.Framework</Filter>
     </ClInclude>
-    <ClInclude Include="room\comp_joinroom.h">
-      <Filter>s3.room</Filter>
-    </ClInclude>
     <ClInclude Include="03.System\SysMovement.h">
       <Filter>s4.Unit</Filter>
     </ClInclude>
@@ -103,10 +112,10 @@
       <Filter>s5.MagicAttr</Filter>
     </ClInclude>
     <ClInclude Include="player\CompSave.h">
-      <Filter>s5.Player</Filter>
+      <Filter>s6.Player</Filter>
     </ClInclude>
     <ClInclude Include="player\PlayerSaveLoadD.h">
-      <Filter>s5.Player</Filter>
+      <Filter>s6.Player</Filter>
     </ClInclude>
     <ClInclude Include="02.Component\Component.h">
       <Filter>02.Component</Filter>
@@ -119,6 +128,33 @@
     </ClInclude>
     <ClInclude Include="timeline\TimelineD.h">
       <Filter>s10.Timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="hall\HallComp.h">
+      <Filter>s7.Hall</Filter>
+    </ClInclude>
+    <ClInclude Include="hall\HallD.h">
+      <Filter>s7.Hall</Filter>
+    </ClInclude>
+    <ClInclude Include="network\KLoginHandler.h">
+      <Filter>s2.Network\handler</Filter>
+    </ClInclude>
+    <ClInclude Include="network\KGoddessHandler.h">
+      <Filter>s2.Network\handler</Filter>
+    </ClInclude>
+    <ClInclude Include="network\KGameCenterHandler.h">
+      <Filter>s2.Network\handler</Filter>
+    </ClInclude>
+    <ClInclude Include="network\KClientHandler.h">
+      <Filter>s2.Network\handler</Filter>
+    </ClInclude>
+    <ClInclude Include="network\K_GSnC_Protocol.h">
+      <Filter>s2.Network\prototcol</Filter>
+    </ClInclude>
+    <ClInclude Include="battle\CollidingD.h">
+      <Filter>s5.Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="battle\CompCollider.h">
+      <Filter>s5.Battle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -153,10 +189,28 @@
       <Filter>s5.MagicAttr</Filter>
     </ClCompile>
     <ClCompile Include="player\PlayerSaveLoadD.cpp">
-      <Filter>s5.Player</Filter>
+      <Filter>s6.Player</Filter>
     </ClCompile>
     <ClCompile Include="timeline\TimelineD.cpp">
       <Filter>s10.Timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="hall\HallD.cpp">
+      <Filter>s7.Hall</Filter>
+    </ClCompile>
+    <ClCompile Include="network\KLoginHandler.cpp">
+      <Filter>s2.Network\handler</Filter>
+    </ClCompile>
+    <ClCompile Include="network\KGoddessHandler.cpp">
+      <Filter>s2.Network\handler</Filter>
+    </ClCompile>
+    <ClCompile Include="network\KGameCenterHandler.cpp">
+      <Filter>s2.Network\handler</Filter>
+    </ClCompile>
+    <ClCompile Include="network\KClientHandler.cpp">
+      <Filter>s2.Network\handler</Filter>
+    </ClCompile>
+    <ClCompile Include="battle\CollidingD.cpp">
+      <Filter>s5.Battle</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

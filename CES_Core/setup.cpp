@@ -9,56 +9,9 @@
 #include "room\room_d.h"
 #include "..\..\base\include\engine\kg_time.h"
 
-using namespace ECS;
-
-class Disp : public TSystemBase<2>
-{
-public:
-	Disp(){}
-	~Disp(){}
-
-	int FixedUpdate()
-	{
-		std::vector<CompPosition *> group;
-		Manager::GetInstance()->ComponentItr<CompPosition>(group);
-		for (CompPosition *p : group)
-		{
-			int eid = p->GetOwner()->GetUUID();
-			CompMove *m = p->Sibling<CompMove>();
-			printf("[%d] pos:{%d,%d}, v:{%d, %d}, a:{%d, %d}\n", eid,
-				p->pos.x, p->pos.y,
-				m->velocity.x, m->velocity.y,
-				m->acceleration.x, m->acceleration.y);
-		}
-		return TRUE;
-	}
-};
-int test()
-{
-	Manager *mgr = Manager::GetInstance();
-	mgr->AddSystem(new SysMovement());
-	mgr->AddSystem(new Disp());
-
-	for (int i = 0; i < 10; i++)
-	{
-		Entity *e = mgr->CreateEntity();
-		Vector3 pos = { Random(1, 5), Random(1, 5), 0 };
-		Vector3 v = { Random(1, 5), Random(1, 5), 0 };
-		Vector3 a = { Random(1, 5), Random(1, 5), 0 };
-		e->AddComponent(CompPosition::Create(pos));
-		e->AddComponent(CompMove::Create(v, a));
-	}
-
-	for (int i = 0; i < 100; i++)
-	{
-		mgr->FixedUpdate();
-	}
-	return true;
-}
-
 namespace ECS
 {
-	class FPSTest : public TSystemBase < 111 >
+	class FPSTest : public TSystemBase <SYS_FPS>
 	{
 	public:
 		int Update()

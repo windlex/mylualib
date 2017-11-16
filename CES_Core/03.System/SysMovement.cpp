@@ -11,8 +11,9 @@ namespace ECS {
 		for (CompMove *m : group)
 		{
 			CompPosition *p = m->Sibling<CompPosition>();
-			p->pos = p->pos + m->velocity;
-			m->velocity += m->acceleration;
+			p->pos.x += m->moveX;
+			p->pos.z += m->moveZ;
+			p->bUpdate = TRUE;
 		}
 		return TRUE;
 	}
