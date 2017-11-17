@@ -1,6 +1,6 @@
 #include "ecs_stdafx.h"
 #include "KGoddessHandler.h"
-#include "SysNetwork.h"
+#include "NetworkD.h"
 
 using namespace ECS;
 
@@ -18,7 +18,7 @@ int KGoddessHandler::Init()
 
 int KGoddessHandler::OnConnected(KSession *pSession)
 {
-	SessionCompnent *sc = new SessionCompnent();
+	CompSession *sc = new CompSession();
 	KGLOG_PROCESS_ERROR(sc);
 	sc->pSession = pSession;
 	pSession->SetSessionComponent(sc);
@@ -33,7 +33,7 @@ Exit0:
 
 int KGoddessHandler::OnDisconnect(KSession *pSession)
 {
-	SessionCompnent *sc = pSession->GetSessionComponent();
+	CompSession *sc = pSession->GetSessionComponent();
 	Manager::GetInstance()->DestroyEntity(sc->GetOwner()->GetUUID());
 	return FALSE;
 }

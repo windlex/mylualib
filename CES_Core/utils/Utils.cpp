@@ -3,6 +3,7 @@
 #include "..\02.Component\CompMove.h"
 #include "Utils.h"
 #include "..\02.Component\CompDef.h"
+#include "..\battle\CompCollider.h"
 
 namespace ECS {
 	Entity *CreatePlayer()

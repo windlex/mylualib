@@ -4,7 +4,7 @@
 #include <map>
 #include "Common/KG_Socket.h"
 #include "KGPublic.h"
-#include "SessionComponent.h"
+#include "CompSession.h"
 
 const int MAX_BUFFER_SIZE = 0xFFFF;
 
@@ -49,7 +49,7 @@ private:
 
 namespace ECS
 {
-	class SessionCompnent;
+	class CompSession;
 }
 
 class KSession
@@ -71,10 +71,10 @@ protected:
 	KProtocolHandler	*m_pHandler;
 
 public:
-	void SetSessionComponent(ECS::SessionCompnent *pComp);
-	ECS::SessionCompnent *GetSessionComponent(){ return m_pSessionComponent; }
+	void SetSessionComponent(ECS::CompSession *pComp);
+	ECS::CompSession *GetSessionComponent(){ return m_pSessionComponent; }
 protected:
-	ECS::SessionCompnent		*m_pSessionComponent;
+	ECS::CompSession		*m_pSessionComponent;
 };
 
 class KSessionMgr

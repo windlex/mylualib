@@ -66,12 +66,6 @@
     <ClInclude Include="03.System\SystemBase.h">
       <Filter>03.System|Processer</Filter>
     </ClInclude>
-    <ClInclude Include="network\SessionComponent.h">
-      <Filter>s2.Network</Filter>
-    </ClInclude>
-    <ClInclude Include="network\SysNetwork.h">
-      <Filter>s2.Network</Filter>
-    </ClInclude>
     <ClInclude Include="network\KSession.h">
       <Filter>s2.Network\base</Filter>
     </ClInclude>
@@ -84,17 +78,11 @@
     <ClInclude Include="02.Component\CompDef.h">
       <Filter>02.Component</Filter>
     </ClInclude>
-    <ClInclude Include="room\room_d.h">
-      <Filter>s3.room</Filter>
-    </ClInclude>
     <ClInclude Include="room\room_data.h">
       <Filter>s3.room</Filter>
     </ClInclude>
     <ClInclude Include="ecs_stdafx.h">
       <Filter>s0.Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="03.System\SysMovement.h">
-      <Filter>s4.Unit</Filter>
     </ClInclude>
     <ClInclude Include="02.Component\CompMove.h">
       <Filter>s4.Unit</Filter>
@@ -129,9 +117,6 @@
     <ClInclude Include="timeline\TimelineD.h">
       <Filter>s10.Timeline</Filter>
     </ClInclude>
-    <ClInclude Include="hall\HallComp.h">
-      <Filter>s7.Hall</Filter>
-    </ClInclude>
     <ClInclude Include="hall\HallD.h">
       <Filter>s7.Hall</Filter>
     </ClInclude>
@@ -156,13 +141,34 @@
     <ClInclude Include="battle\CompCollider.h">
       <Filter>s5.Battle</Filter>
     </ClInclude>
+    <ClInclude Include="room\region_data.h">
+      <Filter>s3.room</Filter>
+    </ClInclude>
+    <ClInclude Include="03.System\MovementD.h">
+      <Filter>s4.Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="network\NetworkD.h">
+      <Filter>s2.Network</Filter>
+    </ClInclude>
+    <ClInclude Include="room\RegionD.h">
+      <Filter>s3.room</Filter>
+    </ClInclude>
+    <ClInclude Include="room\RoomD.h">
+      <Filter>s3.room</Filter>
+    </ClInclude>
+    <ClInclude Include="network\CompSession.h">
+      <Filter>s2.Network</Filter>
+    </ClInclude>
+    <ClInclude Include="hall\CompHall.h">
+      <Filter>s7.Hall</Filter>
+    </ClInclude>
+    <ClInclude Include="LogD.h">
+      <Filter>s0.Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ECS.cpp">
       <Filter>00.Base</Filter>
-    </ClCompile>
-    <ClCompile Include="network\SysNetwork.cpp">
-      <Filter>s2.Network</Filter>
     </ClCompile>
     <ClCompile Include="setup.cpp">
       <Filter>s0.Framework</Filter>
@@ -176,14 +182,8 @@
     <ClCompile Include="utils\Utils.cpp">
       <Filter>04.Utils</Filter>
     </ClCompile>
-    <ClCompile Include="room\room_d.cpp">
-      <Filter>s3.room</Filter>
-    </ClCompile>
     <ClCompile Include="ecs_stdafx.cpp">
       <Filter>s0.Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="03.System\SysMovement.cpp">
-      <Filter>s4.Unit</Filter>
     </ClCompile>
     <ClCompile Include="magicattr\MagicAttrD.cpp">
       <Filter>s5.MagicAttr</Filter>
@@ -211,6 +211,21 @@
     </ClCompile>
     <ClCompile Include="battle\CollidingD.cpp">
       <Filter>s5.Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="03.System\MovementD.cpp">
+      <Filter>s4.Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="network\NetworkD.cpp">
+      <Filter>s2.Network</Filter>
+    </ClCompile>
+    <ClCompile Include="room\RegionD.cpp">
+      <Filter>s3.room</Filter>
+    </ClCompile>
+    <ClCompile Include="room\RoomD.cpp">
+      <Filter>s3.room</Filter>
+    </ClCompile>
+    <ClCompile Include="LogD.cpp">
+      <Filter>s0.Framework</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

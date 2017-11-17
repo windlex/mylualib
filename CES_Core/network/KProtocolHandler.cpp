@@ -33,7 +33,6 @@ int KProtocolMapHandler::ProcessMessage(KSession *pSession, char *szBuff, unsign
 			pHead->cProtocol, uSize);
 		return FALSE;
 	}
-	printf("[ProtocolMapHandler] [RECV] [Protocol=%d, Size=%d]\n",
-		pHead->cProtocol, uSize);
+	//printf("[ProtocolMapHandler] [RECV] [Protocol=%d, Size=%d]\n",	pHead->cProtocol, uSize);
 	return (this->*pFunc)(pSession, szBuff, uSize);
 }

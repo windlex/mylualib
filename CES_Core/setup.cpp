@@ -3,11 +3,11 @@
 #include "ECS.h"
 #include "01.Entity\Entity.h"
 #include "02.Component\CompMove.h"
-#include "03.System\SysMovement.h"
-#include "network\SysNetwork.h"
+#include "03.System\MovementD.h"
+#include "network\NetworkD.h"
 #include "utils\Utils.h"
-#include "room\room_d.h"
-#include "..\..\base\include\engine\kg_time.h"
+#include "room\RoomD.h"
+#include "engine\kg_time.h"
 
 namespace ECS
 {
@@ -55,8 +55,10 @@ namespace ECS
 	{
 		//test();
 		Manager *mgr = Manager::GetInstance();
-		mgr->AddSystem(new SysNetwork());
+		mgr->AddSystem(new NetworkD());
 		mgr->AddSystem(RoomD::GetInstance());
+		mgr->AddSystem(JoinRoomD::GetInstance());
+		mgr->AddSystem(SyncD::GetInstance());
 		mgr->AddSystem(new FPSTest());
 	}
 }

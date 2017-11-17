@@ -55,12 +55,17 @@ namespace ECS {
 	struct CompPosition : public Component
 	{
 		CompPosition()
-			:pos({ 0, 0, 0 }), ndir(0), moveX(0), moveZ(0), bUpdate(0)
+			:pos({ 0, 0, 0 }), ndir(0), bUpdate(0), 
+			m_nRoomId(0), m_nRegionId(0)
 		{}
+		~CompPosition();
 
 		Vector3		pos;
 		int			ndir;
 		int			bUpdate;	// 同步标记,改成comp?
+
+		int			m_nRoomId;
+		int			m_nRegionId;
 	};
 
 	struct CompMove : public Component

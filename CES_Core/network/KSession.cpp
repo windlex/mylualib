@@ -2,7 +2,7 @@
 #include "KSession.h"
 #include "Common\KG_Package.h"
 #include "KProtocolHandler.h"
-#include "SessionComponent.h"
+#include "CompSession.h"
 
 KSession::KSession(IKG_SocketStream *ps)
 : m_piSocketStream(ps), m_pBuffer(NULL), m_pHandler(NULL)
@@ -41,7 +41,7 @@ int KSession::Send(char *szBuff, unsigned int uSize)
 	KG_PROCESS_ERROR(piBuffer);
 	void *pData = piBuffer->GetData();
 	memcpy(pData, szBuff, uSize);
-	printf("[KSession:Send] [Proto=%d, Size=%d]\n", *(uint8*)pData, uSize);
+	//printf("[KSession:Send] [Proto=%d, Size=%d]\n", *(uint8*)pData, uSize);
 	nResult = m_piSocketStream->Send(piBuffer);
 Exit0:
 	KG_COM_RELEASE(piBuffer);
@@ -81,7 +81,7 @@ Exit0:
 	return m_pHandler->OnDisconnect(this);
 }
 
-void KSession::SetSessionComponent(ECS::SessionCompnent *pComp)
+void KSession::SetSessionComponent(ECS::CompSession *pComp)
 {
 	m_pSessionComponent = pComp;
 }

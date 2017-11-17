@@ -93,4 +93,6 @@ namespace ECS {
 		ComponentList	m_ComponentList;
 	};
 
+	typedef std::vector<Entity *>	EntityList;
+
 }

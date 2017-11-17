@@ -1,6 +1,6 @@
 #include "ecs_stdafx.h"
 #include "KLoginHandler.h"
-#include "SysNetwork.h"
+#include "NetworkD.h"
 
 using namespace ECS;
 
@@ -18,7 +18,7 @@ int KLoginHandler::Init()
 
 int KLoginHandler::OnConnected(KSession *pSession)
 {
-	SessionCompnent *sc = new SessionCompnent();
+	CompSession *sc = new CompSession();
 	KGLOG_PROCESS_ERROR(sc);
 	sc->pSession = pSession;
 	pSession->SetSessionComponent(sc);
@@ -33,7 +33,7 @@ Exit0:
 
 int KLoginHandler::OnDisconnect(KSession *pSession)
 {
-	SessionCompnent *sc = pSession->GetSessionComponent();
+	CompSession *sc = pSession->GetSessionComponent();
 	Manager::GetInstance()->DestroyEntity(sc->GetOwner()->GetUUID());
 	return FALSE;
 }

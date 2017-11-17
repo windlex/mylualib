@@ -8,4 +8,20 @@ namespace ECS {
 		CompCollider(){}
 
 	};
+	struct CompCollider_Bullet : CompCollider
+	{
+
+	};
+	struct CompCollider_Tank : CompCollider
+	{
+
+	};
+	struct CompCollider_Building : CompCollider
+	{
+
+	};
+	struct CompCollider_Food : CompCollider
+	{
+
+	};
 }

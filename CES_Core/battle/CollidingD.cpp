@@ -5,8 +5,19 @@
 namespace ECS {
 	int CollidingD::FixedUpdate()
 	{
-		GET_COMPONENT_GROUP(CompCollider, group);
-		for (CompCollider *m : group)
+		/*
+			groupBullet <---> groupBullet
+			groupBullet <---> groupTank
+			groupBullet <---> groupBuilding
+			groupTank	<---> groupTank
+			groupTank	<---> groupBuilding
+			groupTank	<---> groupFood
+		*/
+		GET_COMPONENT_GROUP(CompCollider_Bullet,	groupBullet);
+		GET_COMPONENT_GROUP(CompCollider_Tank,		groupTank);
+		GET_COMPONENT_GROUP(CompCollider_Building,	groupBuilding);
+		GET_COMPONENT_GROUP(CompCollider_Food,		groupFood);
+		for (CompCollider *m : groupBullet)
 		{
 		}
 		return TRUE;

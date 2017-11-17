@@ -103,14 +103,15 @@ copy $(SolutionDir)\build_temp\$(ProjectName)_$(Configuration)\*.lib $(SolutionD
     <ClInclude Include="02.Component\CompDisp.h" />
     <ClInclude Include="02.Component\Component.h" />
     <ClInclude Include="02.Component\SerializeComponent.h" />
-    <ClInclude Include="03.System\SysMovement.h" />
+    <ClInclude Include="03.System\MovementD.h" />
     <ClInclude Include="03.System\SystemBase.h" />
     <ClInclude Include="battle\CollidingD.h" />
     <ClInclude Include="battle\CompCollider.h" />
     <ClInclude Include="ECS.h" />
     <ClInclude Include="ecs_stdafx.h" />
-    <ClInclude Include="hall\HallComp.h" />
+    <ClInclude Include="hall\CompHall.h" />
     <ClInclude Include="hall\HallD.h" />
+    <ClInclude Include="LogD.h" />
     <ClInclude Include="magicattr\CompMagicAttr.h" />
     <ClInclude Include="magicattr\MagicAttrD.h" />
     <ClInclude Include="network\KClientHandler.h" />
@@ -120,18 +121,20 @@ copy $(SolutionDir)\build_temp\$(ProjectName)_$(Configuration)\*.lib $(SolutionD
     <ClInclude Include="network\KProtocolHandler.h" />
     <ClInclude Include="network\KSession.h" />
     <ClInclude Include="network\K_GSnC_Protocol.h" />
-    <ClInclude Include="network\SessionComponent.h" />
-    <ClInclude Include="network\SysNetwork.h" />
+    <ClInclude Include="network\CompSession.h" />
+    <ClInclude Include="network\NetworkD.h" />
     <ClInclude Include="player\CompSave.h" />
     <ClInclude Include="player\PlayerSaveLoadD.h" />
-    <ClInclude Include="room\room_d.h" />
+    <ClInclude Include="room\RegionD.h" />
+    <ClInclude Include="room\region_data.h" />
+    <ClInclude Include="room\RoomD.h" />
     <ClInclude Include="room\room_data.h" />
     <ClInclude Include="timeline\CompTimer.h" />
     <ClInclude Include="timeline\TimelineD.h" />
     <ClInclude Include="utils\Utils.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="03.System\SysMovement.cpp" />
+    <ClCompile Include="03.System\MovementD.cpp" />
     <ClCompile Include="battle\CollidingD.cpp" />
     <ClCompile Include="ECS.cpp" />
     <ClCompile Include="ecs_stdafx.cpp">
@@ -139,6 +142,7 @@ copy $(SolutionDir)\build_temp\$(ProjectName)_$(Configuration)\*.lib $(SolutionD
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="hall\HallD.cpp" />
+    <ClCompile Include="LogD.cpp" />
     <ClCompile Include="magicattr\MagicAttrD.cpp" />
     <ClCompile Include="network\KClientHandler.cpp" />
     <ClCompile Include="network\KGameCenterHandler.cpp" />
@@ -146,12 +150,13 @@ copy $(SolutionDir)\build_temp\$(ProjectName)_$(Configuration)\*.lib $(SolutionD
     <ClCompile Include="network\KLoginHandler.cpp" />
     <ClCompile Include="network\KProtocolHandler.cpp" />
     <ClCompile Include="player\PlayerSaveLoadD.cpp" />
-    <ClCompile Include="room\room_d.cpp" />
+    <ClCompile Include="room\RegionD.cpp" />
+    <ClCompile Include="room\RoomD.cpp" />
     <ClCompile Include="setup.cpp" />
     <ClCompile Include="network\KSession.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="network\SysNetwork.cpp" />
+    <ClCompile Include="network\NetworkD.cpp" />
     <ClCompile Include="timeline\TimelineD.cpp" />
     <ClCompile Include="utils\Utils.cpp" />
   </ItemGroup>
