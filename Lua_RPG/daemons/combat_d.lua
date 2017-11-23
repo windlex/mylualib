@@ -60,13 +60,6 @@ function combat_d:Attack(A, B)
 	local msg = action.actionmsg;
 	msg = msg:gsub("#A", A.name)
 		:gsub("#B", B.name)
-		:gsub("#HIR#", "<color=red>")
-		:gsub("#HIC#", "<color=pink>")
-		:gsub("#HIG#", "<color=green>")
-		:gsub("#HIB#", "<color=blue>")
-		:gsub("#HIW#", "<color=yellow>")
-		:gsub("#HIY#", "<color=yellow>")
-		:gsub("#NOR#", "</color>")
 	pl(msg);
 	
 	-- 闪避，招架，命中 轮盘

@@ -29,7 +29,11 @@ function world_d:move(actor, room)
 	if type(room) == 'string' then
 		room = self:loadRoom(room);
 	end
-	print("move to ", Val2Str(room))
+	if not room then 
+
+		return
+	end
+	--print("move to ", Val2Str(room))
 	local place = actor:GetComponent("place");
 	if place.env then
 		place.env:removeActor(actor)
@@ -47,8 +51,12 @@ function world_d:loadRoom(roomPath)
 		return self.rooms[roomPath]
 	end
 	local template = self.room_templates[roomPath];
+	if not template then
+		print("no room named "..roomPath)
+		return
+	end
 	local room = PERFAB_D:spawnPerfab("std_room")
-
+	room.template = template;
 	self:setup(room, template)
 	self.rooms[roomPath] = room;
 	return room;
@@ -69,13 +77,11 @@ function world_d:look(actor)
 	ppt(room);
 
 	local msg = "[" .. room.name .. ']';
-	msg = msg .. "\n".. (room.desc or "");
+	msg = msg .. "\n".. (room.desc or room.template.desc or "");
 
 	--msg = msg .. self.placement:onLook();
 	msg = msg.."\n这里有:\n"
 	for k, char in pairs(env.objects) do
-		print(k, Val2Str(char))
-		print(k, Val2Str(getmetatable(char)))
 		msg = msg .. self:link(char).. ", "
 	end
 
@@ -102,9 +108,18 @@ function world_d:link(char)
 end
 
 function world_d.showmap()
-	print("showmap")
 	local msg = require ("world.xiangyang")
 	print(msg)
+end
+
+function world_d:onMap(mapname)
+	local place = player:GetComponent("place");
+	local env = place.env;
+	local room = env.actor;
+	ppt(room);
+	local area = gsub(room.template.path, "%.(.+)", "")
+	ppt(area)
+	self:move(player, area..'.'..mapname)
 end
 
 return world_d;

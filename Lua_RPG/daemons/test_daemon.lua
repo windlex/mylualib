@@ -7,7 +7,7 @@ function daemon:Init()
 	local a = PERFAB_D:spawnPerfab("std_npc", "A");
 	local b = PERFAB_D:spawnPerfab("std_npc", "B");
 	
-	COMBAT_D:MakeEnemy(a, b);
+	--COMBAT_D:MakeEnemy(a, b);
 end
 function daemon:UnInit()
 	print("test_Daemon UnInit  ")

@@ -12,6 +12,7 @@ function Manager:OnStart()
 	Manager:AddDaemon("world_d")
 	Manager:AddDaemon("test_daemon")
 	Manager:AddDaemon("combat_d")
+	Manager:AddDaemon("story_d")
 end
 function Manager:AddDaemon(name)
 	self.inst:AddScriptDaemon(name);

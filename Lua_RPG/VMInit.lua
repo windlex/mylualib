@@ -26,6 +26,15 @@ VM = {
 	Manager = CS.Manager.Instance;
 	Convert = CS.MyUtils.Convert
 }
+function VM.strcolor(str)
+	return str:gsub("#HIR#", "<color=red>")
+		:gsub("#HIC#", "<color=pink>")
+		:gsub("#HIG#", "<color=green>")
+		:gsub("#HIB#", "<color=blue>")
+		:gsub("#HIW#", "<color=yellow>")
+		:gsub("#HIY#", "<color=yellow>")
+		:gsub("#NOR#", "</color>")
+end
 
 function VM.pl(...)
 	local arg = table.pack(...)
@@ -33,6 +42,7 @@ function VM.pl(...)
 	for k,v in ipairs(arg) do
 		str = str .. tostring(v) .. "\t" ;
 	end
+	str = VM.strcolor(str)
 	VM.Logic:AddText(str);
 end
 function VM.cmd(str, cb, ...)
@@ -79,8 +89,9 @@ function OnUpdate()
 	--SystemMgr:update();
 end
 function OnStart()
-	print("OnStart");
+	print("OnStar111t");
 	--Manager:OnStart();
+	STORY_D:playStory("第一章_乱世废帝（介绍）")
 end
 function OnCommand(cmdtype, cmdparam)
 	local cmd = player:GetComponent("command");
