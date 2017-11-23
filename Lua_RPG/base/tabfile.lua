@@ -4,16 +4,13 @@
 g_TabFiles = {
 }
 
-openfile = io.open
-close = io.close
-read = io.read
-tinsert = table.insert
 
 TabFile = {}
 function TabFile.open(filename, spe)
 	--local filename1 = __DBGLIB:getBasePath().."\\服务端配置文件\\GameSvr"..filename;
 	--local filename2 = __DBGLIB:getBasePath().."\\设定文件"..filename;
 	spe = spe or "\t"
+	print("Open "..filename)
 	local newFile = openfile(filename, "r") or openfile(filename1, "r") or openfile(filename2, "r");
 	if not newFile then
 		print("------------------------------- [file] openfile error", filename1);

@@ -40,9 +40,9 @@ function story_d:loadStory()
 end
 
 function story_d:playStory(storyname)
-	start(story_d.playStory,story_d,storyname)
+	start(story_d._playStory,story_d,storyname)
 end
-function story_d:playStory(storyname)
+function story_d:_playStory(storyname)
 	local story = self.storys[storyname];
 	if not story then
 		return notify_fail("no story named ".. storyname);

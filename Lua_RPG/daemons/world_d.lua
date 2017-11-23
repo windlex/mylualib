@@ -8,7 +8,7 @@ function world_d:Init( )
 end
 function world_d:loadAllRooms()
 	local room_templates = {}
-	ff_GetTabFileTableEx("settings\\rooms.csv", 2, {
+	ff_GetTabFileTableEx("settings/rooms.csv", 2, {
 		tonumber,-- id	
 		nil,-- path	
 		nil,-- name	

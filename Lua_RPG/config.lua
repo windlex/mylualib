@@ -6,6 +6,7 @@ SKILL_DIR 		= "std.skill"
 
 STARTROOM		= "xiangyang.gate"
 
+require "object.daemon_base"
 COMBAT_D		= require "daemons.combat_d"
 PERFAB_D		= require "daemons.perfab_d"
 SKILL_D			= require "daemons.skill_d"

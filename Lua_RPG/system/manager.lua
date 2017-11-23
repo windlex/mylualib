@@ -15,7 +15,9 @@ function Manager:OnStart()
 	Manager:AddDaemon("story_d")
 end
 function Manager:AddDaemon(name)
+	print("AddDaemon",name)
 	self.inst:AddScriptDaemon(name);
+	CallDaemonInit(name )
 end
 
 function Manager:SpawnPerfab(name)

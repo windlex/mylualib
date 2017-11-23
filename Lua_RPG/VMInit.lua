@@ -98,14 +98,17 @@ function OnCommand(cmdtype, cmdparam)
 	CmdSys:addCommand(cmd,cmdtype,cmdparam)
 end
 function CallDaemonInit(daemonName)
+--	print("CallDaemonInit", daemonName);
 	local daemon = require("daemons."..daemonName)
 	daemon:Init();
 end
 function CallDaemonUnInit(daemonName)
+--print("CallDaemonInit", daemonName);
 	local daemon = require("daemons." .. daemonName)
 	daemon:UnInit();
 end
 function CallDaemonFixedUpdate(daemonName)
+--print("CallDaemonFixedUpdate ", daemonName);
 	local daemon = require("daemons." .. daemonName)
 	daemon:FixedUpdate ();
 end
@@ -115,6 +118,18 @@ function CallDaemonUpdate(daemonName)
 end
  
 -------------------------------------------------------
+function openfile(file, ...)
+	if WIN then
+		file = gsub(file, "/", "\\");
+	else --if IOS then
+		file = gsub(file, "\\", "/");
+	end
+	return io.open(file, ...);
+end
+close = io.close
+read = io.read
+tinsert = table.insert
+
 pl = VM.pl
 cmd = VM.cmd
 start = VM.start
