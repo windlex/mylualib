@@ -4,7 +4,7 @@
 FEATURE_DIR 	= "feature"
 SKILL_DIR 		= "std.skill"
 
-STARTROOM		= "xiangyang.gate"
+STARTROOM		= "world.汴京府东"
 
 require "object.daemon_base"
 COMBAT_D		= require "daemons.combat_d"

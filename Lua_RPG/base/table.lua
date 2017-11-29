@@ -22,7 +22,6 @@ end
 function table.combine(...)
 	local t, arg = {}, table.pack(...)
 	for i = 1, #arg do
-		print(arg[i])
 		for k, v in ipairs(arg[i]) do
 			table.insert(t, v);
 		end

@@ -19,9 +19,16 @@ function world_d:loadAllRooms()
 	}, function (tLine)
 		if tLine.name ~= "" then
 			room_templates[tLine.path] = tLine;
+			local strexits, exits = tLine.exits, {};
+			local tstr = string.split(strexits, "|")
+			for k, v in pairs(tstr) do
+				local exit = string.split(v, "#")
+				tinsert(exits, {exit[1], exit[2]});
+			end
+			tLine.exits = exits;
 		end
 	end, ',')
-	ppt(room_templates)
+	--ppt(room_templates)
 	self.room_templates = room_templates;
 end
 
@@ -40,7 +47,7 @@ function world_d:move(actor, room)
 	end
 	place:leaveEnv();
 	local env = room:GetComponent("room_env");
-	ppt(getmetatable(env))
+	--ppt(getmetatable(env))
 	place:enterEnv(env);
 	env:addActor(actor)
 	self:look(actor)
@@ -69,12 +76,11 @@ end
 function world_d:look(actor)
 	local place = actor:GetComponent("place");
 	local env = place.env;
-	ppt(env);
 	if not env.actor then
 		return print("你周围雾蒙蒙的,什么也看不清!");
 	end
 	local room = env.actor;
-	ppt(room);
+	-- ppt(room);
 
 	local msg = "[" .. room.name .. ']';
 	msg = msg .. "\n".. (room.desc or room.template.desc or "");
@@ -86,12 +92,15 @@ function world_d:look(actor)
 	end
 
 	--msg = msg .."\n" .. self:lookExits();
-	if not self.exits then 
+	if not room.template.exits then 
 		msg = msg.. "这里没有明显的出口..." 
 	else
 		local msg = msg .. "这里的出口有:"
-		for exit, path in pairs(self.exits) do
-			msg = msg .. link(exit, format("placement_onExit('%s')", exit)) .. ","
+		--print(room.template.exits)
+		for _, exit in pairs(room.template.exits) do
+			--msg = msg .. link(exit, format("placement_onExit('%s')", exit)) .. ","
+			--ppt(exit)
+			cmd(exit[1], callback(self.onExit, self, actor, room, _, exit))
 		end
 	end
 
@@ -103,12 +112,26 @@ function world_d:look(actor)
 	return msg;
 end
 
+function world_d:onExit(actor, room, id, exit)
+	print("world_d:onExit")
+	--ppt(actor, room, exit)
+	local exit = room.template.exits[id];
+	self:move(actor, exit[2]);
+end
+
 function world_d:link(char)
 	return link(char.name, format("Char_onTalk(%d)", char:getID()))
 end
 
 function world_d.showmap()
-	local msg = require ("world.xiangyang")
+	print("world_d:showmap")
+	local place = player:GetComponent("place");
+	local env = place.env;
+	local room = env.actor;
+	--ppt(room);
+	local area = gsub(room.template.path, "%.(.+)", "")
+	--ppt(area)
+	local msg = AREA_D:loadArea(area)
 	print(msg)
 end
 
@@ -116,9 +139,9 @@ function world_d:onMap(mapname)
 	local place = player:GetComponent("place");
 	local env = place.env;
 	local room = env.actor;
-	ppt(room);
+	--ppt(room);
 	local area = gsub(room.template.path, "%.(.+)", "")
-	ppt(area)
+	--ppt(area)
 	self:move(player, area..'.'..mapname)
 end
 

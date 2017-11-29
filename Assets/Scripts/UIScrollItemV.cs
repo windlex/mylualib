@@ -7,6 +7,8 @@ public class UIScrollItemV : MonoBehaviour
 {
     public delegate void cbOnClick();
 
+	public bool bAutoHide;
+
     private GameObject goContent;
     private GameObject goBtnPrefab;
 
@@ -23,10 +25,14 @@ public class UIScrollItemV : MonoBehaviour
 
     public void Clear()
     {
+		if (!goContent)
+			return;
         for (int i = goContent.transform.childCount - 1; i >= 0; i-- )
         {
             Destroy(goContent.transform.GetChild(i).gameObject);
         }
+		if (bAutoHide)
+			gameObject.SetActive(false);
     }
 
     public void AddButton(string strBtn, UnityEngine.Events.UnityAction onClick)

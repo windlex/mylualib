@@ -56,6 +56,17 @@ function VM.cmd(str, cb, ...)
 		print("[Error Cmd]", str, cb);
 	end
 end
+function VM.select(str, cb, ...)
+	if type(cb) == 'string' then
+		VM.Logic:AddSelect(str, cb)
+	elseif type(cb) == 'function' then
+		VM.Logic:AddSelect(str, callback(VM.start, cb, ...))
+	--elseif type(cb) == 'table' then
+	--	VM.Logic:AddSelect(str, callback(VM.start, 
+	else
+		print("[Error select]", str, cb);
+	end
+end
 
 function VM.wait()
 	self = VM;
@@ -91,7 +102,7 @@ end
 function OnStart()
 	print("OnStar111t");
 	--Manager:OnStart();
-	STORY_D:playStory("第一章_乱世废帝（介绍）")
+	--STORY_D:playStory("第一章_乱世废帝（介绍）")
 end
 function OnCommand(cmdtype, cmdparam)
 	local cmd = player:GetComponent("command");
@@ -132,6 +143,7 @@ tinsert = table.insert
 
 pl = VM.pl
 cmd = VM.cmd
+select = VM.select;
 start = VM.start
 cls = VM.cls
 wait = VM.wait

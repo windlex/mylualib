@@ -8,6 +8,8 @@ public class Logic : MonoBehaviour {
 
     public UIScrollItemV cmdList;
     public UIScrollText textList;
+	public UIScrollItemV selectList;
+
     public static XLua.LuaEnv L;
 
 	// Use this for initialization
@@ -52,7 +54,19 @@ public class Logic : MonoBehaviour {
     public void ClearCommand()
     {
         cmdList.Clear();
-    }
+		if (selectList)
+			selectList.Clear();
+	}
+	public void AddSelect(string cmd, UnityEngine.Events.UnityAction onCmd)
+	{
+		selectList.gameObject.SetActive(true);
+		selectList.AddButton(cmd, onCmd);
+	}
+	public void AddSelect(string label, string cmd)
+	{
+		selectList.gameObject.SetActive(true);
+		selectList.AddButton(label, () => L.DoString(string.Format("start({0})", cmd)));
+	}
 
 	public void ClearText()
 	{
@@ -82,6 +96,7 @@ public class Logic : MonoBehaviour {
 		Manager.Instance.RemoveAllDaemon ();
         ClearCommand();
 		ClearText();
+		L.GC();
 		L.Dispose();
 		L = new XLua.LuaEnv();
 		L.DoString("require ('Main')");
