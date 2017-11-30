@@ -26,3 +26,9 @@ Componentor = {
 		Manager:onRemoveComponent(self, key);
 	end,
 }
+
+function Sibling(comp, key)
+	local actor = comp.actor;
+	local anotherComp = actor:GetComponent(key);
+	return anotherComp;
+end

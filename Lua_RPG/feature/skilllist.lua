@@ -1,8 +1,19 @@
-skilllist = class {}
+skilllist = class {
+	skills = {},
+}
 
 function skilllist:_ctor(actor)
 	self.skills = {}
+	self.activeSkills = {}
+	self.curSkill = 1
 end
+
+
+
+
+
+
+
 
 function skilllist:improve(skillname, nExp)
 	local skill = self.skills[skillname];
@@ -30,8 +41,9 @@ end
 function skilllist:queryAction(skillname)
 	local skill = self.skills[skillname];
 	if not skill.actions then return end
-	local action = table.random(skill.actions];
+	local action = table.random(skill.actions);
 	--print(Val2Str(action))
 	return action;
 end
 
+return skilllist;

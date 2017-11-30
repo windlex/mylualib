@@ -15,6 +15,7 @@ function std_npc:create(actor, name)
 	local fighting = actor:AddComponent("fighting");
 	fighting:setAction({"unarmed"})
 	actor:AddComponent("place")
+	actor:AddComponent("skilllist")
 	return actor;
 end
 

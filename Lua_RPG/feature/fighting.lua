@@ -1,4 +1,4 @@
-fighting = class({
+fighting = class ({
 	_ctor = function(self, actor, enemys)
 		self.actor = actor;
 		self.enemys = enemys or {};

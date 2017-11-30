@@ -13,11 +13,12 @@ function Manager:OnStart()
 	Manager:AddDaemon("test_daemon")
 	Manager:AddDaemon("combat_d")
 	Manager:AddDaemon("story_d")
+	Manager:AddDaemon("skill_d")
 end
 function Manager:AddDaemon(name)
 	print("AddDaemon",name)
 	self.inst:AddScriptDaemon(name);
-	CallDaemonInit(name )
+	--CallDaemonInit(name )
 end
 
 function Manager:SpawnPerfab(name)

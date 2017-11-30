@@ -27,12 +27,12 @@ end
 function combat_d:dofight(fighting)
 	local me = fighting.actor;
 	local target, loop = nil, 0;
-	while not target do
-		loop = loop + 1;
-		if loop > 100 then
-			print("overflow!!!")
-			return
-		end
+	-- while not target do
+	-- 	loop = loop + 1;
+	-- 	if loop > 100 then
+	-- 		print("overflow!!!")
+	-- 		return
+	-- 	end
 		if not fighting.enemys or #fighting.enemys == 0 then
 			self:endfight(fighting.actor);
 			return
@@ -44,9 +44,11 @@ function combat_d:dofight(fighting)
 		if target:GetComponent("health").health_cur < 0 then
 			fighting:removeEnemy(target);
 			target = nil
+			
+		else
+			self:Attack(me, target);
 		end
-	end
-	self:Attack(me, target);
+	-- end
 end
 
 -- A攻击B 1次
@@ -82,13 +84,14 @@ function combat_d:Attack(A, B)
 end
 
 function combat_d:queryAttackAction(fa, fb)
-	-- --local weapon = self.inventory["weapon"];
-	-- local using_skill = "unarmed";
-	-- if weapon then
-	-- 	using_skill = weapon:querySkill();
-	-- end
-	-- return me.skill_list:queryAction(using_skill);
-	local skill = SKILL_D:loadSkill("unarmed");
+	local skilllist = Sibling(fa, "skilllist")
+	local curskill = skilllist.curSkill;
+	curskill = curskill + 1;
+	if curskill > #skilllist.activeSkills then
+		curskill = 1;
+	end
+	skilllist.curSkill = curskill;
+	local skill = SKILL_D:querySkill(skilllist.activeSkills[curskill]);
 	return table.random(skill.actions)
 end
 
