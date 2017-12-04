@@ -6,7 +6,7 @@ using System.Text;
 
 public class Manager : SingletonMono<Manager>
 {
-	public bool Activate = true;
+	public bool bUpdate = true;
 	public List<Daemon> m_DaemonList = new List<Daemon>();
 	public void AddDaemon(Daemon daemon)
 	{
@@ -22,6 +22,7 @@ public class Manager : SingletonMono<Manager>
 	public Daemon AddScriptDaemon(string daemonName)
 	{
 		Daemon daemon = new ScriptDaemon(daemonName);
+		Debug.Log("AddScriptDaemon " + daemonName);
 		AddDaemon(daemon);
 		return daemon;
 	}
@@ -42,7 +43,7 @@ public class Manager : SingletonMono<Manager>
 	}
 	public void FixedUpdate()
 	{
-		if (!Activate)
+		if (!bUpdate)
 			return;
 		foreach (Daemon d in m_DaemonList)
 		{
@@ -51,7 +52,7 @@ public class Manager : SingletonMono<Manager>
 	}
 
 
-	public Dictionary<int, Entity> entityMap = new Dictionary<int,Entity>();
+	public Dictionary<int, Entity> entityMap = new Dictionary<int, Entity>();
 	static int entityIdSeed = 1234;
 	public Entity CreateEntity()
 	{
@@ -60,7 +61,7 @@ public class Manager : SingletonMono<Manager>
 		entityMap.Add(entity.uuid, entity);
 		return entity;
 	}
-	public void DestoryEntity(int uuid)
+	public void DestroyEntity(int uuid)
 	{
 		entityMap.Remove(uuid);
 	}

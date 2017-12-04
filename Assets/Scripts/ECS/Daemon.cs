@@ -21,6 +21,7 @@ public class Daemon
 	}
 }
 
+[System.Serializable]
 public class ScriptDaemon : Daemon
 {
     public static XLua.LuaEnv L = Logic.L;
@@ -42,6 +43,7 @@ public class ScriptDaemon : Daemon
 	}
 	public override int FixedUpdate()
 	{
+		//Debug.Log (string.Format ("CallDaemonFixedUpdate('{0}')", daemonName));
 		Logic.L.DoString(string.Format("CallDaemonFixedUpdate('{0}')", daemonName));
 		// todo: get return
 		return 1;
