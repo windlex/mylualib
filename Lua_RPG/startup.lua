@@ -29,6 +29,20 @@ require "config"
 require "system.manager"
 
 player = PERFAB_D:spawnPerfab("player", "player");
+local skilllist = player:GetComponent("skilllist")
+skilllist.activeSkills = {"基本拳脚"}
+
+local fa = {player}
+local a = PERFAB_D:spawnPerfab("std_npc", "A");
+local skilllist = a:GetComponent("skilllist")
+skilllist.activeSkills = {"基本拳脚"}
+local b = PERFAB_D:spawnPerfab("std_npc", "B");
+local skilllist = b:GetComponent("skilllist")
+skilllist.activeSkills = {"基本拳脚"}
+local fb = {a, b}
+
+BATTLE_D:doBattle(fa, fb, battleArea)
+--ppt(Manager)
 ppt(string.split("离开#world.汴京|进入#daocaoyuan.大路", "#|"))
 
 -- function printa()
@@ -44,6 +58,7 @@ ppt(string.split("离开#world.汴京|进入#daocaoyuan.大路", "#|"))
 -- end
 -- select("d", d)
 -- --ppt(Manager)
+
 --ppt(player)
 WORLD_D:move(player, STARTROOM)
 --print(AREA_D:loadArea("jingduwai"))

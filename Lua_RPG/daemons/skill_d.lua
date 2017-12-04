@@ -25,6 +25,20 @@ function skill_d:loadSkills()
 	self.skills = skills;
 	ppt(self);
 end
-
+function skill_d:querySkill(skillname)
+	--return self.skills[skillname];
+	return require("skills.unarmed")
+end
+function skill_d:queryAction(actor)
+	local skilllist = actor:GetComponent("skilllist")
+	local curskill = skilllist.curSkill;
+	local skill = SKILL_D:querySkill(skilllist.activeSkills[curskill]);
+	curskill = curskill + 1;
+	if curskill > #skilllist.activeSkills then
+		curskill = 1;
+	end
+	skilllist.curSkill = curskill;
+	return table.random(skill.actions)
+end
 
 return skill_d;

@@ -14,6 +14,7 @@ function Manager:OnStart()
 	Manager:AddDaemon("combat_d")
 	Manager:AddDaemon("story_d")
 	Manager:AddDaemon("skill_d")
+	Manager:AddDaemon("battle_d")
 end
 function Manager:AddDaemon(name)
 	print("AddDaemon",name)

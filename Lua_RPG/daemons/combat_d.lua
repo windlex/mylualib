@@ -52,9 +52,9 @@ function combat_d:dofight(fighting)
 end
 
 -- A攻击B 1次
-function combat_d:Attack(A, B)
+function combat_d:Attack(A, B, action)
 	local fa, fb = A:GetComponent("fighting"), B:GetComponent("fighting")
-	local action = self:queryAttackAction(A, B);
+	--local action = self:queryAttackAction(A, B);
 	if not action then
 		return print("No Action", A);
 	end
@@ -83,15 +83,15 @@ function combat_d:Attack(A, B)
 	end
 end
 
-function combat_d:queryAttackAction(fa, fb)
-	local skilllist = Sibling(fa, "skilllist")
+function combat_d:queryAttackAction(A, B)
+	local skilllist = A:GetComponent("skilllist")
 	local curskill = skilllist.curSkill;
+	local skill = SKILL_D:querySkill(skilllist.activeSkills[curskill]);
 	curskill = curskill + 1;
 	if curskill > #skilllist.activeSkills then
 		curskill = 1;
 	end
 	skilllist.curSkill = curskill;
-	local skill = SKILL_D:querySkill(skilllist.activeSkills[curskill]);
 	return table.random(skill.actions)
 end
 
