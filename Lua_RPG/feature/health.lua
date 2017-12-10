@@ -37,6 +37,7 @@ end
 function health:die()
 	pl(format("%s 死掉了!", self.actor.name));
 	COMBAT_D:removeAllEnemy(self.actor);
+	BATTLE_D:onActorDie(self.actor);
 end
 
 return health;

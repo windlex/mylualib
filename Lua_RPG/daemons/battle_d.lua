@@ -30,7 +30,10 @@ function battle_d:runRound(battle)
 end
 
 function battle_d:checkEnd(battle)
-	return false; -- todo:windle
+	if #battle.campA == 0 or #battle.campB == 0 then
+		return true;
+	end
+	return false;
 end
 function battle_d:beforeRound(battle)
 	print(string.format("Round (%d) Start!", battle.round))
@@ -76,7 +79,8 @@ function battle_d:doBattle(formationA, formationB, battleArea)
 		battleArea = battleArea,
 		round = 1,
 		maxRound = 5,
-		actionList = {},
+		actionList = {},	-- 行动队列，每Round Actor排序后根据队列行动
+		death = {{}, {}},	-- 分camp记录已死亡的Actors 
 	}
 	for i = 1, #formationA do
 		local actor = formationA[i];
@@ -93,4 +97,17 @@ function battle_d:doBattle(formationA, formationB, battleArea)
 	table.insert(self.battles, battle);
 end
 
+function battle_d:onActorDie(actor)
+	local fa = actor:GetComponent("fighting");
+	local battle = fa.battle;
+
+	local camp;
+	if fa.camp == 1 then 
+		camp = campA;
+	else
+		camp = campB;
+	end
+	table.erase(actor);
+	table.insert(battle.death[fa.comp], actor);
+end 
 return battle_d;
