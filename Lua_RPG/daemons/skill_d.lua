@@ -20,6 +20,7 @@ function skill_d:loadSkills()
 		nil, 		-- SkillName, 
 		tonumber, 	-- SkillType
 	}, function (tLine)
+		print(Val2Str(tLine))
 		skills[tLine.SkillName] = tLine;
 	end, ",")
 	self.skills = skills;

@@ -96,6 +96,10 @@ function link(name, cmd)
 	--print(name, cmd)
 	return format("<quad act=%s a=[%s] width=%d />", cmd, name, #name);
 end
+function slink(name, cmd)
+	--print(name, cmd)
+	return format("<quad act=%s a=%s width=%d />", cmd, name, #name);
+end
 function OnUpdate()
 	--SystemMgr:update();
 end
