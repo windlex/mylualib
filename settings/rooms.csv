@@ -1,4 +1,4 @@
-id,path,大路,exits,npcs,objects,actions,desc,comment
+id,path,name,exits,npcs,objects,actions,desc,comment
 1,world.汴京,汴京,进入#bianjing.城门,,,,这里不错,东北区汴京相关
 2,bianjing.城门,城门,离开#world.汴京,卫兵,,,这里不错,东北区汴京相关
 3,bianjing.衙门,衙门,,捕头|赵普|捕快,,,这里不错,东北区汴京相关
