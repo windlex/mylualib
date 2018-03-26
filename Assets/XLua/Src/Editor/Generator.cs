@@ -133,7 +133,7 @@ namespace CSObjectWrapEditor
             {
                 if (filepath == "TemplateCommon")
                 {
-                    return Encoding.UTF8.GetBytes(templateRef.TemplateCommon.text);
+					return XLua.LuaDLL.Lua.LuaEncode.GetBytes(templateRef.TemplateCommon.text);
                 }
                 else
                 {
@@ -448,7 +448,7 @@ namespace CSObjectWrapEditor
         static void GenEnumWrap(IEnumerable<Type> types, string save_path)
         {
             string filePath = save_path + "EnumWrap.cs";
-            StreamWriter textWriter = new StreamWriter(filePath, false, Encoding.UTF8);
+			StreamWriter textWriter = new StreamWriter(filePath, false, XLua.LuaDLL.Lua.LuaEncode);
             
             GenOne(null, (type, type_info) =>
             {
@@ -466,7 +466,7 @@ namespace CSObjectWrapEditor
 
                 string filePath = save_path + wrap_type.ToString().Replace("+", "").Replace(".", "")
                     .Replace("`", "").Replace("&", "").Replace("[", "").Replace("]", "").Replace(",", "") + "Bridge.cs";
-                StreamWriter textWriter = new StreamWriter(filePath, false, Encoding.UTF8);
+				StreamWriter textWriter = new StreamWriter(filePath, false, XLua.LuaDLL.Lua.LuaEncode);
                 GenOne(wrap_type, (type, type_info) =>
                 {
                     getInterfaceInfo(type, type_info);
@@ -668,7 +668,7 @@ namespace CSObjectWrapEditor
         static void GenDelegateBridge(IEnumerable<Type> types, string save_path, IEnumerable<Type> hotfix_check_types)
         {
             string filePath = save_path + "DelegatesGensBridge.cs";
-            StreamWriter textWriter = new StreamWriter(filePath, false, Encoding.UTF8);
+			StreamWriter textWriter = new StreamWriter(filePath, false, XLua.LuaDLL.Lua.LuaEncode);
             types = types.Where(type => !type.GetMethod("Invoke").GetParameters().Any(paramInfo => paramInfo.ParameterType.IsGenericParameter));
             var hotfxDelegates = new List<MethodInfoSimulation>();
             foreach (var type in (from type in hotfix_check_types where type.IsDefined(typeof(HotfixAttribute), false) select type))
@@ -710,7 +710,7 @@ namespace CSObjectWrapEditor
         static void GenWrapPusher(IEnumerable<Type> types, string save_path)
         {
             string filePath = save_path + "WrapPusher.cs";
-            StreamWriter textWriter = new StreamWriter(filePath, false, Encoding.UTF8);
+			StreamWriter textWriter = new StreamWriter(filePath, false, XLua.LuaDLL.Lua.LuaEncode);
             GenOne(typeof(ObjectTranslator), (type, type_info) =>
             {
                 type_info.Set("purevaluetypes", types
@@ -736,7 +736,7 @@ namespace CSObjectWrapEditor
             {
                 string filePath = save_path + wrap_type.ToString().Replace("+", "").Replace(".", "")
                     .Replace("`", "").Replace("&", "").Replace("[", "").Replace("]", "").Replace(",", "") + "Wrap.cs";
-                StreamWriter textWriter = new StreamWriter(filePath, false, Encoding.UTF8);
+				StreamWriter textWriter = new StreamWriter(filePath, false, XLua.LuaDLL.Lua.LuaEncode);
                 if (wrap_type.IsEnum)
                 {
                     GenOne(wrap_type, (type, type_info) =>
@@ -837,7 +837,7 @@ namespace CSObjectWrapEditor
             var itf_bridges = CSharpCallLua.Where(t => t.IsInterface);
 
             string filePath = GeneratorConfig.common_path + "XLuaGenAutoRegister.cs";
-            StreamWriter textWriter = new StreamWriter(filePath, false, Encoding.UTF8);
+			StreamWriter textWriter = new StreamWriter(filePath, false, XLua.LuaDLL.Lua.LuaEncode);
             var extension_methods = from t in ReflectionUse
                                     where t.IsDefined(typeof(ExtensionAttribute), false)
                                     from method in t.GetMethods(BindingFlags.Static | BindingFlags.Public)
@@ -895,7 +895,7 @@ namespace CSObjectWrapEditor
             }
 
             string filePath = save_path + "PackUnpack.cs";
-            StreamWriter textWriter = new StreamWriter(filePath, false, Encoding.UTF8);
+			StreamWriter textWriter = new StreamWriter(filePath, false, XLua.LuaDLL.Lua.LuaEncode);
             GenOne(typeof(CopyByValue), (type, type_info) =>
             {
                 type_info.Set("type_infos", all_types.Distinct().Select(t =>

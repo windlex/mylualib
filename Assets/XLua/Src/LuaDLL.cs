@@ -18,7 +18,7 @@ namespace XLua.LuaDLL
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 #endif
     public delegate int lua_CSFunction(IntPtr L);
-	
+
 	public partial class Lua
 	{
         public static int LUA_MULTRET = -1;
@@ -27,6 +27,7 @@ namespace XLua.LuaDLL
 #else
         const string LUADLL = "xlua";
 #endif
+		public static Encoding LuaEncode = Encoding.UTF8;//Encoding.Default;//
 
         [DllImport(LUADLL, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr lua_tothread(IntPtr L, int index);
@@ -237,7 +238,7 @@ namespace XLua.LuaDLL
                 int len = strlen.ToInt32();
                 byte[] buffer = new byte[len];
                 Marshal.Copy(str, buffer, 0, len);
-                return Encoding.UTF8.GetString(buffer);
+                return LuaEncode.GetString(buffer);
 #else
                 string ret = Marshal.PtrToStringAnsi(str, strlen.ToInt32());
                 if (ret == null)
@@ -245,7 +246,7 @@ namespace XLua.LuaDLL
                     int len = strlen.ToInt32();
                     byte[] buffer = new byte[len];
                     Marshal.Copy(str, buffer, 0, len);
-                    return Encoding.UTF8.GetString(buffer);
+                    return LuaEncode.GetString(buffer);
                 }
                 return ret;
 #endif
@@ -279,14 +280,14 @@ namespace XLua.LuaDLL
             }
             else
             {
-                if (Encoding.UTF8.GetByteCount(str) > str_buff.Length)
+                if (LuaEncode.GetByteCount(str) > str_buff.Length)
                 {
-                    byte[] bytes = Encoding.UTF8.GetBytes(str);
+                    byte[] bytes = LuaEncode.GetBytes(str);
                     xlua_pushlstring(L, bytes, bytes.Length);
                 }
                 else
                 {
-                    int bytes_len = Encoding.UTF8.GetBytes(str, 0, str.Length, str_buff, 0);
+                    int bytes_len = LuaEncode.GetBytes(str, 0, str.Length, str_buff, 0);
                     xlua_pushlstring(L, str_buff, bytes_len);
                 }
             }
@@ -311,7 +312,7 @@ namespace XLua.LuaDLL
                     str_buff = new byte[str_len];
                 }
 
-                int bytes_len = Encoding.UTF8.GetBytes(str, 0, str_len, str_buff, 0);
+                int bytes_len = LuaEncode.GetBytes(str, 0, str_len, str_buff, 0);
                 xlua_pushlstring(L, str_buff, bytes_len);
             }
         }
@@ -365,7 +366,7 @@ namespace XLua.LuaDLL
 
         public static int luaL_loadbuffer(IntPtr L, string buff, string name)//[-0, +1, m]
         {
-            byte[] bytes = Encoding.UTF8.GetBytes(buff);
+            byte[] bytes = LuaEncode.GetBytes(buff);
             return xluaL_loadbuffer(L, bytes, bytes.Length, name);
         }
 

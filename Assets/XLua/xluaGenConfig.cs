@@ -90,5 +90,9 @@ public static class xLuaGenConfig
         typeof(UIScrollItemV),
         typeof(UIScrollText),
         typeof(AutoTileMap),
+		typeof(GameMgr),
+		typeof(RpgMapHelper),
+		typeof(Manager),
+		typeof(MyUtils),
     };
 }
