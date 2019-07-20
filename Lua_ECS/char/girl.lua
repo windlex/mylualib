@@ -1,4 +1,4 @@
-require "Lua.std.char"
+require "std.char"
 
 local girl = Char("girl");
 

@@ -81,6 +81,13 @@ function OnCommand(cmdtype, cmdparam)
 	local cmd = player:GetComponent("command");
 	CmdSys:addCommand(cmd,cmdtype,cmdparam)
 end
+function CallDaemonInit(daemonName)
+end
+function CallDaemonUnInit(daemonName)
+end
+function CallDaemonFixedUpdate(daemonName)
+end
+ 
 -------------------------------------------------------
 pl = VM.pl
 cmd = VM.cmd

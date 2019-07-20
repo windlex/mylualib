@@ -1,4 +1,4 @@
-require "Lua.ECSBase.system_mgr"
+require "ECSBase.system_mgr"
 
 MoveSys = System("移动系统")
 

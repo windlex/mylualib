@@ -1,4 +1,4 @@
-require "Lua.std.entity"
+require "std.entity"
 
 --------------------------------------------------------------------
 Actor = class(Entity, {

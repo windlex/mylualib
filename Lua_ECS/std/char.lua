@@ -1,4 +1,4 @@
-require "Lua.std.actor"
+require "std.actor"
 
 Char = class(Actor, {
 	name = "Char",

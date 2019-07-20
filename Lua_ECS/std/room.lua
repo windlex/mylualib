@@ -1,4 +1,4 @@
-require "Lua.ECSBase.entity"
+require "ECSBase.entity"
 
 Room = class(Entity, {
 	name = "room",
@@ -45,7 +45,7 @@ function Room:queryAction()
 end
 
 function Room:addFacility(name)
-	local facility = require("Lua.feature.room."..name);
+	local facility = require("feature.room."..name);
 	self.facilitys[name] = facility();
 end
 function Room:getFacility(name)

@@ -1,5 +1,5 @@
-require "Lua.base.class"
-require "Lua.ECSBase.entity"
+require "base.class"
+require "ECSBase.entity"
 
 System = class({
 	name = "System",
@@ -28,12 +28,12 @@ function SystemMgr:getComponentGroup(key)
 end
 
 function SystemMgr:addSystem(syspath)
-	local sys = require("Lua.system." .. syspath)
+	local sys = require("system." .. syspath)
 	table.insert(self._systems, sys);
 end
 
 function SystemMgr:start()
-	--require "Lua.startup"
+	--require "startup"
 	self:Perload();
 
 	player = Entity();

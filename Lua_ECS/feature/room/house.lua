@@ -1,4 +1,4 @@
-require "Lua.std.room"
+require "std.room"
 
 local house = class(Room, {
 	_ctor = function (self)
