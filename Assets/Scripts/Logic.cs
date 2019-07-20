@@ -9,7 +9,14 @@ public class Logic : MonoBehaviour {
     public UIScrollItemV cmdList;
     public UIScrollText textList;
 	public UIScrollItemV selectList;
-
+	public UIScrollText	textInfo;
+	public UIScrollText textInv;
+	public UIScrollText textStatus;
+	public UIScrollText	textLog;
+	public UIScrollText textMap;
+	public GameObject uiStory;
+	public GameObject uiCombat;
+	
     public static XLua.LuaEnv L;
 
 	// Use this for initialization
@@ -23,6 +30,9 @@ public class Logic : MonoBehaviour {
             L.DoString("require ('Main')");
 			L.DoString("OnStart()");
 		}
+		ECSUtils.Setup ();
+
+
 	}
 
     void OnDestroy()
@@ -77,6 +87,29 @@ public class Logic : MonoBehaviour {
         textList.AppendText(text);
     }
 
+	UIScrollText Name2Pad(string pad)
+	{
+		if (pad == "textInfo") return textInfo;
+		else if (pad == "textInv") return textInv;
+		else if (pad == "textStatus") return textStatus;
+		else if (pad == "textLog") return textLog;
+		else if (pad == "textMap") return textMap;
+		return null;
+	}
+	public void AddTextEx(string pad, string text)
+	{
+		UIScrollText txtPanel = Name2Pad(pad);
+		if (!txtPanel)
+			return;
+		txtPanel.AppendText(text);
+	}
+	public void ClearEx(string pad)
+	{
+		UIScrollText txtPanel = Name2Pad(pad);
+		if (!txtPanel)
+			return;
+		txtPanel.Clear();
+	}
 	public void Wait()
 	{
 
@@ -96,6 +129,7 @@ public class Logic : MonoBehaviour {
 		Manager.Instance.RemoveAllDaemon ();
         ClearCommand();
 		ClearText();
+		selectList.Clear();
 		L.GC();
 		L.Dispose();
 		L = new XLua.LuaEnv();
