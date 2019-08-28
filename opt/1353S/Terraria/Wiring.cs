@@ -20,7 +20,7 @@ namespace Terraria
 			{
 				return false;
 			}
-			if ((tile.type != 226 || (double)j <= Main.worldSurface || NPC.downedPlantBoss) && ((double)j <= Main.worldSurface || NPC.downedGolemBoss || Main.tile[i, j - 1].type != 237))
+            if ((tile.type != 226 || (double)j <= Main.worldSurface || NpcMgr.downedPlantBoss) && ((double)j <= Main.worldSurface || NpcMgr.downedGolemBoss || Main.tile[i, j - 1].type != 237))
 			{
 				if (tile.inActive())
 				{
@@ -38,7 +38,7 @@ namespace Terraria
 		public static void ActuateForced(int i, int j)
 		{
 			Tile tile = Main.tile[i, j];
-			if (tile.type != 226 || (double)j <= Main.worldSurface || NPC.downedPlantBoss)
+			if (tile.type != 226 || (double)j <= Main.worldSurface || NpcMgr.downedPlantBoss)
 			{
 				if (tile.inActive())
 				{
@@ -995,7 +995,7 @@ namespace Terraria
 										else if (type == 235)
 										{
 											int num72 = i - (int)(tile.frameX / 18);
-											if (tile.wall != 87 || (double)j <= Main.worldSurface || NPC.downedPlantBoss)
+											if (tile.wall != 87 || (double)j <= Main.worldSurface || NpcMgr.downedPlantBoss)
 											{
 												if (Wiring._teleport[0].X == -1f)
 												{

@@ -600,27 +600,27 @@ namespace Terraria.IO
 			Main.dungeonX = reader.ReadInt32();
 			Main.dungeonY = reader.ReadInt32();
 			WorldGen.crimson = reader.ReadBoolean();
-			NPC.downedBoss1 = reader.ReadBoolean();
-			NPC.downedBoss2 = reader.ReadBoolean();
-			NPC.downedBoss3 = reader.ReadBoolean();
-			NPC.downedQueenBee = reader.ReadBoolean();
-			NPC.downedMechBoss1 = reader.ReadBoolean();
-			NPC.downedMechBoss2 = reader.ReadBoolean();
-			NPC.downedMechBoss3 = reader.ReadBoolean();
-			NPC.downedMechBossAny = reader.ReadBoolean();
-			NPC.downedPlantBoss = reader.ReadBoolean();
-			NPC.downedGolemBoss = reader.ReadBoolean();
+			NpcMgr.downedBoss1 = reader.ReadBoolean();
+			NpcMgr.downedBoss2 = reader.ReadBoolean();
+			NpcMgr.downedBoss3 = reader.ReadBoolean();
+			NpcMgr.downedQueenBee = reader.ReadBoolean();
+			NpcMgr.downedMechBoss1 = reader.ReadBoolean();
+			NpcMgr.downedMechBoss2 = reader.ReadBoolean();
+			NpcMgr.downedMechBoss3 = reader.ReadBoolean();
+			NpcMgr.downedMechBossAny = reader.ReadBoolean();
+			NpcMgr.downedPlantBoss = reader.ReadBoolean();
+			NpcMgr.downedGolemBoss = reader.ReadBoolean();
 			if (num >= 118)
 			{
-				NPC.downedSlimeKing = reader.ReadBoolean();
+				NpcMgr.downedSlimeKing = reader.ReadBoolean();
 			}
-			NPC.savedGoblin = reader.ReadBoolean();
-			NPC.savedWizard = reader.ReadBoolean();
-			NPC.savedMech = reader.ReadBoolean();
-			NPC.downedGoblins = reader.ReadBoolean();
-			NPC.downedClown = reader.ReadBoolean();
-			NPC.downedFrost = reader.ReadBoolean();
-			NPC.downedPirates = reader.ReadBoolean();
+            NpcMgr.savedGoblin = reader.ReadBoolean();
+            NpcMgr.savedWizard = reader.ReadBoolean();
+            NpcMgr.savedMech = reader.ReadBoolean();
+			NpcMgr.downedGoblins = reader.ReadBoolean();
+			NpcMgr.downedClown = reader.ReadBoolean();
+			NpcMgr.downedFrost = reader.ReadBoolean();
+			NpcMgr.downedPirates = reader.ReadBoolean();
 			WorldGen.shadowOrbSmashed = reader.ReadBoolean();
 			WorldGen.spawnMeteor = reader.ReadBoolean();
 			WorldGen.shadowOrbCount = (int)reader.ReadByte();
@@ -671,7 +671,7 @@ namespace Terraria.IO
 			{
 				return;
 			}
-			NPC.savedAngler = reader.ReadBoolean();
+			NpcMgr.savedAngler = reader.ReadBoolean();
 			if (num < 101)
 			{
 				return;
@@ -681,10 +681,10 @@ namespace Terraria.IO
 			{
 				return;
 			}
-			NPC.savedStylist = reader.ReadBoolean();
+			NpcMgr.savedStylist = reader.ReadBoolean();
 			if (num >= 129)
 			{
-				NPC.savedTaxCollector = reader.ReadBoolean();
+				NpcMgr.savedTaxCollector = reader.ReadBoolean();
 			}
 			if (num < 107)
 			{
@@ -731,43 +731,43 @@ namespace Terraria.IO
 			{
 				return;
 			}
-			NPC.downedFishron = reader.ReadBoolean();
-			NPC.downedMartians = reader.ReadBoolean();
-			NPC.downedAncientCultist = reader.ReadBoolean();
-			NPC.downedMoonlord = reader.ReadBoolean();
-			NPC.downedHalloweenKing = reader.ReadBoolean();
-			NPC.downedHalloweenTree = reader.ReadBoolean();
-			NPC.downedChristmasIceQueen = reader.ReadBoolean();
-			NPC.downedChristmasSantank = reader.ReadBoolean();
-			NPC.downedChristmasTree = reader.ReadBoolean();
+			NpcMgr.downedFishron = reader.ReadBoolean();
+			NpcMgr.downedMartians = reader.ReadBoolean();
+			NpcMgr.downedAncientCultist = reader.ReadBoolean();
+			NpcMgr.downedMoonlord = reader.ReadBoolean();
+			NpcMgr.downedHalloweenKing = reader.ReadBoolean();
+			NpcMgr.downedHalloweenTree = reader.ReadBoolean();
+			NpcMgr.downedChristmasIceQueen = reader.ReadBoolean();
+			NpcMgr.downedChristmasSantank = reader.ReadBoolean();
+			NpcMgr.downedChristmasTree = reader.ReadBoolean();
 			if (num < 140)
 			{
 				return;
 			}
-			NPC.downedTowerSolar = reader.ReadBoolean();
-			NPC.downedTowerVortex = reader.ReadBoolean();
-			NPC.downedTowerNebula = reader.ReadBoolean();
-			NPC.downedTowerStardust = reader.ReadBoolean();
-			NPC.TowerActiveSolar = reader.ReadBoolean();
-			NPC.TowerActiveVortex = reader.ReadBoolean();
-			NPC.TowerActiveNebula = reader.ReadBoolean();
-			NPC.TowerActiveStardust = reader.ReadBoolean();
+			NpcMgr.downedTowerSolar = reader.ReadBoolean();
+			NpcMgr.downedTowerVortex = reader.ReadBoolean();
+			NpcMgr.downedTowerNebula = reader.ReadBoolean();
+			NpcMgr.downedTowerStardust = reader.ReadBoolean();
+			NpcMgr.TowerActiveSolar = reader.ReadBoolean();
+			NpcMgr.TowerActiveVortex = reader.ReadBoolean();
+			NpcMgr.TowerActiveNebula = reader.ReadBoolean();
+			NpcMgr.TowerActiveStardust = reader.ReadBoolean();
 			NPC.LunarApocalypseIsUp = reader.ReadBoolean();
-			if (NPC.TowerActiveSolar)
+			if (NpcMgr.TowerActiveSolar)
 			{
-				NPC.ShieldStrengthTowerSolar = NPC.ShieldStrengthTowerMax;
+				NpcMgr.ShieldStrengthTowerSolar = NpcMgr.ShieldStrengthTowerMax;
 			}
-			if (NPC.TowerActiveVortex)
+			if (NpcMgr.TowerActiveVortex)
 			{
-				NPC.ShieldStrengthTowerVortex = NPC.ShieldStrengthTowerMax;
+				NpcMgr.ShieldStrengthTowerVortex = NpcMgr.ShieldStrengthTowerMax;
 			}
-			if (NPC.TowerActiveNebula)
+			if (NpcMgr.TowerActiveNebula)
 			{
-				NPC.ShieldStrengthTowerNebula = NPC.ShieldStrengthTowerMax;
+				NpcMgr.ShieldStrengthTowerNebula = NpcMgr.ShieldStrengthTowerMax;
 			}
-			if (NPC.TowerActiveStardust)
+			if (NpcMgr.TowerActiveStardust)
 			{
-				NPC.ShieldStrengthTowerStardust = NPC.ShieldStrengthTowerMax;
+				NpcMgr.ShieldStrengthTowerStardust = NpcMgr.ShieldStrengthTowerMax;
 			}
 			if (num < 170)
 			{
@@ -1391,54 +1391,54 @@ namespace Terraria.IO
 			{
 				WorldGen.crimson = false;
 			}
-			NPC.downedBoss1 = fileIO.ReadBoolean();
-			NPC.downedBoss2 = fileIO.ReadBoolean();
-			NPC.downedBoss3 = fileIO.ReadBoolean();
+			NpcMgr.downedBoss1 = fileIO.ReadBoolean();
+			NpcMgr.downedBoss2 = fileIO.ReadBoolean();
+			NpcMgr.downedBoss3 = fileIO.ReadBoolean();
 			if (num >= 66)
 			{
-				NPC.downedQueenBee = fileIO.ReadBoolean();
+				NpcMgr.downedQueenBee = fileIO.ReadBoolean();
 			}
 			if (num >= 44)
 			{
-				NPC.downedMechBoss1 = fileIO.ReadBoolean();
-				NPC.downedMechBoss2 = fileIO.ReadBoolean();
-				NPC.downedMechBoss3 = fileIO.ReadBoolean();
-				NPC.downedMechBossAny = fileIO.ReadBoolean();
+				NpcMgr.downedMechBoss1 = fileIO.ReadBoolean();
+				NpcMgr.downedMechBoss2 = fileIO.ReadBoolean();
+				NpcMgr.downedMechBoss3 = fileIO.ReadBoolean();
+				NpcMgr.downedMechBossAny = fileIO.ReadBoolean();
 			}
 			if (num >= 64)
 			{
-				NPC.downedPlantBoss = fileIO.ReadBoolean();
-				NPC.downedGolemBoss = fileIO.ReadBoolean();
+				NpcMgr.downedPlantBoss = fileIO.ReadBoolean();
+				NpcMgr.downedGolemBoss = fileIO.ReadBoolean();
 			}
 			if (num >= 29)
 			{
-				NPC.savedGoblin = fileIO.ReadBoolean();
-				NPC.savedWizard = fileIO.ReadBoolean();
+				NpcMgr.savedGoblin = fileIO.ReadBoolean();
+				NpcMgr.savedWizard = fileIO.ReadBoolean();
 				if (num >= 34)
 				{
-					NPC.savedMech = fileIO.ReadBoolean();
+					NpcMgr.savedMech = fileIO.ReadBoolean();
 					if (num >= 80)
 					{
-						NPC.savedStylist = fileIO.ReadBoolean();
+						NpcMgr.savedStylist = fileIO.ReadBoolean();
 					}
 				}
 				if (num >= 129)
 				{
-					NPC.savedTaxCollector = fileIO.ReadBoolean();
+					NpcMgr.savedTaxCollector = fileIO.ReadBoolean();
 				}
-				NPC.downedGoblins = fileIO.ReadBoolean();
+				NpcMgr.downedGoblins = fileIO.ReadBoolean();
 			}
 			if (num >= 32)
 			{
-				NPC.downedClown = fileIO.ReadBoolean();
+				NpcMgr.downedClown = fileIO.ReadBoolean();
 			}
 			if (num >= 37)
 			{
-				NPC.downedFrost = fileIO.ReadBoolean();
+				NpcMgr.downedFrost = fileIO.ReadBoolean();
 			}
 			if (num >= 56)
 			{
-				NPC.downedPirates = fileIO.ReadBoolean();
+				NpcMgr.downedPirates = fileIO.ReadBoolean();
 			}
 			WorldGen.shadowOrbSmashed = fileIO.ReadBoolean();
 			WorldGen.spawnMeteor = fileIO.ReadBoolean();
@@ -2359,24 +2359,24 @@ namespace Terraria.IO
 			writer.Write(Main.dungeonX);
 			writer.Write(Main.dungeonY);
 			writer.Write(WorldGen.crimson);
-			writer.Write(NPC.downedBoss1);
-			writer.Write(NPC.downedBoss2);
-			writer.Write(NPC.downedBoss3);
-			writer.Write(NPC.downedQueenBee);
-			writer.Write(NPC.downedMechBoss1);
-			writer.Write(NPC.downedMechBoss2);
-			writer.Write(NPC.downedMechBoss3);
-			writer.Write(NPC.downedMechBossAny);
-			writer.Write(NPC.downedPlantBoss);
-			writer.Write(NPC.downedGolemBoss);
-			writer.Write(NPC.downedSlimeKing);
-			writer.Write(NPC.savedGoblin);
-			writer.Write(NPC.savedWizard);
-			writer.Write(NPC.savedMech);
-			writer.Write(NPC.downedGoblins);
-			writer.Write(NPC.downedClown);
-			writer.Write(NPC.downedFrost);
-			writer.Write(NPC.downedPirates);
+			writer.Write(NpcMgr.downedBoss1);
+			writer.Write(NpcMgr.downedBoss2);
+			writer.Write(NpcMgr.downedBoss3);
+			writer.Write(NpcMgr.downedQueenBee);
+			writer.Write(NpcMgr.downedMechBoss1);
+			writer.Write(NpcMgr.downedMechBoss2);
+			writer.Write(NpcMgr.downedMechBoss3);
+			writer.Write(NpcMgr.downedMechBossAny);
+			writer.Write(NpcMgr.downedPlantBoss);
+			writer.Write(NpcMgr.downedGolemBoss);
+			writer.Write(NpcMgr.downedSlimeKing);
+			writer.Write(NpcMgr.savedGoblin);
+			writer.Write(NpcMgr.savedWizard);
+			writer.Write(NpcMgr.savedMech);
+			writer.Write(NpcMgr.downedGoblins);
+			writer.Write(NpcMgr.downedClown);
+			writer.Write(NpcMgr.downedFrost);
+			writer.Write(NpcMgr.downedPirates);
 			writer.Write(WorldGen.shadowOrbSmashed);
 			writer.Write(WorldGen.spawnMeteor);
 			writer.Write((byte)WorldGen.shadowOrbCount);
@@ -2410,10 +2410,10 @@ namespace Terraria.IO
 			{
 				writer.Write(Main.anglerWhoFinishedToday[i]);
 			}
-			writer.Write(NPC.savedAngler);
+			writer.Write(NpcMgr.savedAngler);
 			writer.Write(Main.anglerQuest);
-			writer.Write(NPC.savedStylist);
-			writer.Write(NPC.savedTaxCollector);
+			writer.Write(NpcMgr.savedStylist);
+			writer.Write(NpcMgr.savedTaxCollector);
 			writer.Write(Main.invasionSizeStart);
 			writer.Write(WorldFile.tempCultistDelay);
 			writer.Write(580);
@@ -2422,23 +2422,23 @@ namespace Terraria.IO
 				writer.Write(NPC.killCount[j]);
 			}
 			writer.Write(Main.fastForwardTime);
-			writer.Write(NPC.downedFishron);
-			writer.Write(NPC.downedMartians);
-			writer.Write(NPC.downedAncientCultist);
-			writer.Write(NPC.downedMoonlord);
-			writer.Write(NPC.downedHalloweenKing);
-			writer.Write(NPC.downedHalloweenTree);
-			writer.Write(NPC.downedChristmasIceQueen);
-			writer.Write(NPC.downedChristmasSantank);
-			writer.Write(NPC.downedChristmasTree);
-			writer.Write(NPC.downedTowerSolar);
-			writer.Write(NPC.downedTowerVortex);
-			writer.Write(NPC.downedTowerNebula);
-			writer.Write(NPC.downedTowerStardust);
-			writer.Write(NPC.TowerActiveSolar);
-			writer.Write(NPC.TowerActiveVortex);
-			writer.Write(NPC.TowerActiveNebula);
-			writer.Write(NPC.TowerActiveStardust);
+			writer.Write(NpcMgr.downedFishron);
+			writer.Write(NpcMgr.downedMartians);
+			writer.Write(NpcMgr.downedAncientCultist);
+			writer.Write(NpcMgr.downedMoonlord);
+			writer.Write(NpcMgr.downedHalloweenKing);
+			writer.Write(NpcMgr.downedHalloweenTree);
+			writer.Write(NpcMgr.downedChristmasIceQueen);
+			writer.Write(NpcMgr.downedChristmasSantank);
+			writer.Write(NpcMgr.downedChristmasTree);
+			writer.Write(NpcMgr.downedTowerSolar);
+			writer.Write(NpcMgr.downedTowerVortex);
+			writer.Write(NpcMgr.downedTowerNebula);
+			writer.Write(NpcMgr.downedTowerStardust);
+			writer.Write(NpcMgr.TowerActiveSolar);
+			writer.Write(NpcMgr.TowerActiveVortex);
+			writer.Write(NpcMgr.TowerActiveNebula);
+			writer.Write(NpcMgr.TowerActiveStardust);
 			writer.Write(NPC.LunarApocalypseIsUp);
 			writer.Write(WorldFile.tempPartyManual);
 			writer.Write(WorldFile.tempPartyGenuine);
@@ -2452,7 +2452,7 @@ namespace Terraria.IO
 			writer.Write(WorldFile.Temp_Sandstorm_TimeLeft);
 			writer.Write(WorldFile.Temp_Sandstorm_Severity);
 			writer.Write(WorldFile.Temp_Sandstorm_IntendedSeverity);
-			writer.Write(NPC.savedBartender);
+			writer.Write(NpcMgr.savedBartender);
 			DD2Event.Save(writer);
 			return (int)writer.BaseStream.Position;
 		}

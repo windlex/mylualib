@@ -497,7 +497,7 @@ namespace Terraria
 					this.item[num].SetDefaults(282, false);
 					num++;
 				}
-				if (NPC.downedBoss3)
+                if (NpcMgr.downedBoss3)
 				{
 					this.item[num].SetDefaults(346, false);
 					num++;
@@ -546,7 +546,7 @@ namespace Terraria
 					this.item[num].SetDefaults(278, false);
 					num++;
 				}
-				if ((NPC.downedBoss2 && !Main.dayTime) || Main.hardMode)
+				if ((NpcMgr.downedBoss2 && !Main.dayTime) || Main.hardMode)
 				{
 					this.item[num].SetDefaults(47, false);
 					num++;
@@ -665,22 +665,22 @@ namespace Terraria
 					this.item[num].SetDefaults(1854, false);
 					num++;
 				}
-				if (NPC.downedSlimeKing)
+				if (NpcMgr.downedSlimeKing)
 				{
 					this.item[num].SetDefaults(3215, false);
 					num++;
 				}
-				if (NPC.downedQueenBee)
+				if (NpcMgr.downedQueenBee)
 				{
 					this.item[num].SetDefaults(3216, false);
 					num++;
 				}
-				if (NPC.downedBoss1)
+				if (NpcMgr.downedBoss1)
 				{
 					this.item[num].SetDefaults(3219, false);
 					num++;
 				}
-				if (NPC.downedBoss2)
+				if (NpcMgr.downedBoss2)
 				{
 					if (WorldGen.crimson)
 					{
@@ -693,7 +693,7 @@ namespace Terraria
 						num++;
 					}
 				}
-				if (NPC.downedBoss3)
+				if (NpcMgr.downedBoss3)
 				{
 					this.item[num].SetDefaults(3220, false);
 					num++;
@@ -719,7 +719,7 @@ namespace Terraria
 					this.item[num].SetDefaults(265, false);
 					num++;
 				}
-				if (Main.hardMode && NPC.downedPlantBoss && NPC.downedPirates)
+				if (Main.hardMode && NpcMgr.downedPlantBoss && NpcMgr.downedPirates)
 				{
 					this.item[num].SetDefaults(937, false);
 					num++;
@@ -766,7 +766,7 @@ namespace Terraria
 				num++;
 				this.item[num].SetDefaults(271, false);
 				num++;
-				if (NPC.downedClown)
+				if (NpcMgr.downedClown)
 				{
 					this.item[num].SetDefaults(503, false);
 					num++;
@@ -785,7 +785,7 @@ namespace Terraria
 						this.item[num++].SetDefaults(3363, false);
 					}
 				}
-				if (NPC.downedAncientCultist)
+				if (NpcMgr.downedAncientCultist)
 				{
 					if (Main.dayTime)
 					{
@@ -838,7 +838,7 @@ namespace Terraria
 						num++;
 					}
 				}
-				if (NPC.downedFrost)
+				if (NpcMgr.downedFrost)
 				{
 					this.item[num].SetDefaults(1275, false);
 					num++;
@@ -966,7 +966,7 @@ namespace Terraria
 			}
 			else if (type == 10)
 			{
-				if (NPC.downedMechBossAny)
+				if (NpcMgr.downedMechBossAny)
 				{
 					this.item[num].SetDefaults(756, false);
 					num++;
@@ -975,7 +975,7 @@ namespace Terraria
 				}
 				this.item[num].SetDefaults(868, false);
 				num++;
-				if (NPC.downedPlantBoss)
+				if (NpcMgr.downedPlantBoss)
 				{
 					this.item[num].SetDefaults(1551, false);
 					num++;
@@ -1003,7 +1003,7 @@ namespace Terraria
 					this.item[num].SetDefaults(841, false);
 					num++;
 				}
-				if (NPC.downedGolemBoss)
+				if (NpcMgr.downedGolemBoss)
 				{
 					this.item[num].SetDefaults(948, false);
 					num++;
@@ -1022,7 +1022,7 @@ namespace Terraria
 				this.item[num++].SetDefaults(3610, false);
 				this.item[num].SetDefaults(995, false);
 				num++;
-				if (NPC.downedBoss1 && NPC.downedBoss2 && NPC.downedBoss3)
+				if (NpcMgr.downedBoss1 && NpcMgr.downedBoss2 && NpcMgr.downedBoss3)
 				{
 					this.item[num].SetDefaults(2203, false);
 					num++;
@@ -1193,7 +1193,7 @@ namespace Terraria
 					this.item[num].SetDefaults(1745, false);
 					num++;
 				}
-				if (NPC.downedMartians)
+				if (NpcMgr.downedMartians)
 				{
 					this.item[num++].SetDefaults(2862, false);
 					this.item[num++].SetDefaults(3109, false);
@@ -1334,7 +1334,7 @@ namespace Terraria
 				{
 					this.item[num++].SetDefaults(2999, false);
 				}
-				if (Main.hardMode && NPC.downedPlantBoss)
+				if (Main.hardMode && NpcMgr.downedPlantBoss)
 				{
 					if (Main.player[Main.myPlayer].HasItem(1157))
 					{
@@ -1420,7 +1420,7 @@ namespace Terraria
 					this.item[num].SetDefaults(1180, false);
 					num++;
 				}
-				if (Main.hardMode && NPC.downedMechBossAny && NPC.AnyNPCs(208))
+				if (Main.hardMode && NpcMgr.downedMechBossAny && NPC.AnyNPCs(208))
 				{
 					this.item[num].SetDefaults(1337, false);
 					num++;
@@ -1487,17 +1487,17 @@ namespace Terraria
 					this.item[num].SetDefaults(1984, false);
 					num++;
 				}
-				if (Main.hardMode && NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3)
+				if (Main.hardMode && NpcMgr.downedMechBoss1 && NpcMgr.downedMechBoss2 && NpcMgr.downedMechBoss3)
 				{
 					this.item[num].SetDefaults(1985, false);
 					num++;
 				}
-				if (Main.hardMode && NPC.downedMechBossAny)
+				if (Main.hardMode && NpcMgr.downedMechBossAny)
 				{
 					this.item[num].SetDefaults(1986, false);
 					num++;
 				}
-				if (Main.hardMode && NPC.downedMartians)
+				if (Main.hardMode && NpcMgr.downedMartians)
 				{
 					this.item[num].SetDefaults(2863, false);
 					num++;
@@ -1602,8 +1602,8 @@ namespace Terraria
 			}
 			else if (type == 21)
 			{
-				bool flag = Main.hardMode && NPC.downedMechBossAny;
-				object arg_27F8_0 = Main.hardMode && NPC.downedGolemBoss;
+				bool flag = Main.hardMode && NpcMgr.downedMechBossAny;
+				object arg_27F8_0 = Main.hardMode && NpcMgr.downedGolemBoss;
 				this.item[num].SetDefaults(353, false);
 				num++;
 				this.item[num].SetDefaults(3828, false);
@@ -1867,7 +1867,7 @@ namespace Terraria
 				{
 					num3 = 2271;
 				}
-				if (Main.rand.Next(array[3]) == 0 && Main.hardMode && NPC.downedPlantBoss)
+				if (Main.rand.Next(array[3]) == 0 && Main.hardMode && NpcMgr.downedPlantBoss)
 				{
 					num3 = 2223;
 				}
@@ -1931,27 +1931,27 @@ namespace Terraria
 				{
 					num3 = 2277;
 				}
-				if (Main.rand.Next(array[2]) == 0 && NPC.downedBoss1)
+				if (Main.rand.Next(array[2]) == 0 && NpcMgr.downedBoss1)
 				{
 					num3 = 3262;
 				}
-				if (Main.rand.Next(array[2]) == 0 && NPC.downedMechBossAny)
+				if (Main.rand.Next(array[2]) == 0 && NpcMgr.downedMechBossAny)
 				{
 					num3 = 3284;
 				}
-				if (Main.rand.Next(array[2]) == 0 && Main.hardMode && NPC.downedMoonlord)
+				if (Main.rand.Next(array[2]) == 0 && Main.hardMode && NpcMgr.downedMoonlord)
 				{
 					num3 = 3596;
 				}
-				if (Main.rand.Next(array[2]) == 0 && Main.hardMode && NPC.downedMartians)
+				if (Main.rand.Next(array[2]) == 0 && Main.hardMode && NpcMgr.downedMartians)
 				{
 					num3 = 2865;
 				}
-				if (Main.rand.Next(array[2]) == 0 && Main.hardMode && NPC.downedMartians)
+				if (Main.rand.Next(array[2]) == 0 && Main.hardMode && NpcMgr.downedMartians)
 				{
 					num3 = 2866;
 				}
-				if (Main.rand.Next(array[2]) == 0 && Main.hardMode && NPC.downedMartians)
+				if (Main.rand.Next(array[2]) == 0 && Main.hardMode && NpcMgr.downedMartians)
 				{
 					num3 = 2867;
 				}
@@ -2173,7 +2173,7 @@ namespace Terraria
 			}
 			else
 			{
-				if (!NPC.downedPlantBoss)
+				if (!NpcMgr.downedPlantBoss)
 				{
 					return false;
 				}

@@ -43217,7 +43217,7 @@ namespace Terraria
 											NetMessage.SendData(28, -1, -1, null, num17, 9999f, 10f, (float)(-(float)Main.npc[num17].direction), 0, 0, 0);
 										}
 										Main.npc[num17].StrikeNPCNoInteraction(9999, 10f, -Main.npc[num17].direction, false, false, false);
-										NPC.SpawnWOF(this.position);
+                                        NpcMgr.SpawnWOF(this.position);
 									}
 								}
 								NetMessage.SendData(21, -1, -1, null, i, 0f, 0f, 0f, 0, 0, 0);
@@ -43775,7 +43775,7 @@ namespace Terraria
 					{
 						num3 -= (float)Item.lifeGrabRange;
 					}
-					if (num3 < (float)NPC.sWidth && num3 < num2)
+					if (num3 < (float)NpcMgr.sWidth && num3 < num2)
 					{
 						num2 = num3;
 						this.owner = i;

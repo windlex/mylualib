@@ -64,7 +64,7 @@ namespace Terraria.GameContent.Events
 		// Token: 0x0600127D RID: 4733 RVA: 0x00417E48 File Offset: 0x00416048
 		private static bool CheckRitual(int x, int y)
 		{
-			if (CultistRitual.delay != 0 || !Main.hardMode || !NPC.downedGolemBoss || !NPC.downedBoss3)
+            if (CultistRitual.delay != 0 || !Main.hardMode || !NpcMgr.downedGolemBoss || !NpcMgr.downedBoss3)
 			{
 				return false;
 			}

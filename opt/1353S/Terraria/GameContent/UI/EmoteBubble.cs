@@ -272,15 +272,15 @@ namespace Terraria.GameContent.UI
 		private void ProbeBosses(List<int> list)
 		{
 			int num = 0;
-			if ((!NPC.downedBoss1 && !Main.dayTime) || NPC.downedBoss1)
+			if ((!NpcMgr.downedBoss1 && !Main.dayTime) || NpcMgr.downedBoss1)
 			{
 				num = 1;
 			}
-			if (NPC.downedBoss2)
+			if (NpcMgr.downedBoss2)
 			{
 				num = 2;
 			}
-			if (NPC.downedQueenBee || NPC.downedBoss3)
+			if (NpcMgr.downedQueenBee || NpcMgr.downedBoss3)
 			{
 				num = 3;
 			}
@@ -288,24 +288,24 @@ namespace Terraria.GameContent.UI
 			{
 				num = 4;
 			}
-			if (NPC.downedMechBossAny)
+			if (NpcMgr.downedMechBossAny)
 			{
 				num = 5;
 			}
-			if (NPC.downedPlantBoss)
+			if (NpcMgr.downedPlantBoss)
 			{
 				num = 6;
 			}
-			if (NPC.downedGolemBoss)
+			if (NpcMgr.downedGolemBoss)
 			{
 				num = 7;
 			}
-			if (NPC.downedAncientCultist)
+			if (NpcMgr.downedAncientCultist)
 			{
 				num = 8;
 			}
 			int maxValue = 10;
-			if (NPC.downedMoonlord)
+			if (NpcMgr.downedMoonlord)
 			{
 				maxValue = 1;
 			}
@@ -336,15 +336,15 @@ namespace Terraria.GameContent.UI
 			}
 			if ((num >= 5 && num <= 6) || (num >= 5 && Main.rand.Next(maxValue) == 0))
 			{
-				if (!NPC.downedMechBoss1)
+				if (!NpcMgr.downedMechBoss1)
 				{
 					list.Add(47);
 				}
-				if (!NPC.downedMechBoss2)
+				if (!NpcMgr.downedMechBoss2)
 				{
 					list.Add(45);
 				}
-				if (!NPC.downedMechBoss3)
+				if (!NpcMgr.downedMechBoss3)
 				{
 					list.Add(46);
 				}
@@ -367,31 +367,31 @@ namespace Terraria.GameContent.UI
 				list.Add(52);
 				list.Add(53);
 			}
-			if (NPC.downedPirates && Main.expertMode)
+			if (NpcMgr.downedPirates && Main.expertMode)
 			{
 				list.Add(59);
 			}
-			if (NPC.downedMartians)
+			if (NpcMgr.downedMartians)
 			{
 				list.Add(60);
 			}
-			if (NPC.downedChristmasIceQueen)
+			if (NpcMgr.downedChristmasIceQueen)
 			{
 				list.Add(57);
 			}
-			if (NPC.downedChristmasSantank)
+			if (NpcMgr.downedChristmasSantank)
 			{
 				list.Add(58);
 			}
-			if (NPC.downedChristmasTree)
+			if (NpcMgr.downedChristmasTree)
 			{
 				list.Add(56);
 			}
-			if (NPC.downedHalloweenKing)
+			if (NpcMgr.downedHalloweenKing)
 			{
 				list.Add(55);
 			}
-			if (NPC.downedHalloweenTree)
+			if (NpcMgr.downedHalloweenTree)
 			{
 				list.Add(54);
 			}
@@ -439,19 +439,19 @@ namespace Terraria.GameContent.UI
 				{
 					list.Add(61);
 				}
-				if (NPC.downedGoblins)
+				if (NpcMgr.downedGoblins)
 				{
 					list.Add(64);
 				}
-				if (NPC.downedFrost)
+				if (NpcMgr.downedFrost)
 				{
 					list.Add(66);
 				}
-				if (NPC.downedPirates)
+				if (NpcMgr.downedPirates)
 				{
 					list.Add(65);
 				}
-				if (NPC.downedMartians)
+				if (NpcMgr.downedMartians)
 				{
 					list.Add(71);
 				}
@@ -538,11 +538,11 @@ namespace Terraria.GameContent.UI
 			{
 				list.Add(99);
 			}
-			if (Main.pumpkinMoon || ((NPC.downedHalloweenKing || NPC.downedHalloweenTree) && !Main.dayTime))
+			if (Main.pumpkinMoon || ((NpcMgr.downedHalloweenKing || NpcMgr.downedHalloweenTree) && !Main.dayTime))
 			{
 				list.Add(20);
 			}
-			if (Main.snowMoon || ((NPC.downedChristmasIceQueen || NPC.downedChristmasSantank || NPC.downedChristmasTree) && !Main.dayTime))
+			if (Main.snowMoon || ((NpcMgr.downedChristmasIceQueen || NpcMgr.downedChristmasSantank || NpcMgr.downedChristmasTree) && !Main.dayTime))
 			{
 				list.Add(21);
 			}

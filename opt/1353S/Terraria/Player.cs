@@ -3825,26 +3825,26 @@ namespace Terraria
 				list.Add(3042);
 				list.Add(3533);
 				list.Add(3561);
-				if (NPC.downedMechBossAny)
+				if (NpcMgr.downedMechBossAny)
 				{
 					list.Add(2883);
 					list.Add(2869);
 					list.Add(2873);
 					list.Add(2870);
 				}
-				if (NPC.downedPlantBoss)
+				if (NpcMgr.downedPlantBoss)
 				{
 					list.Add(2878);
 					list.Add(2879);
 					list.Add(2884);
 					list.Add(2885);
 				}
-				if (NPC.downedMartians)
+				if (NpcMgr.downedMartians)
 				{
 					list.Add(2864);
 					list.Add(3556);
 				}
-				if (NPC.downedMoonlord)
+				if (NpcMgr.downedMoonlord)
 				{
 					list.Add(3024);
 				}
@@ -6161,7 +6161,7 @@ namespace Terraria
 										{
 											if (Main.netMode != 1)
 											{
-												NPC.SpawnOnPlayer(this.whoAmI, 370);
+												NpcMgr.SpawnOnPlayer(this.whoAmI, 370);
 											}
 											else
 											{
@@ -6366,7 +6366,7 @@ namespace Terraria
 				{
 					flag2 = false;
 				}
-				if (item.type == 3601 && (!NPC.downedGolemBoss || !Main.hardMode || NPC.AnyDanger() || NPC.AnyoneNearCultists()))
+				if (item.type == 3601 && (!NpcMgr.downedGolemBoss || !Main.hardMode || NPC.AnyDanger() || NPC.AnyoneNearCultists()))
 				{
 					flag2 = false;
 				}
@@ -9900,7 +9900,7 @@ namespace Terraria
 					{
 						int num275 = (int)(vector31.X / 16f);
 						int num276 = (int)(vector31.Y / 16f);
-						if ((Main.tile[num275, num276].wall != 87 || (double)num276 <= Main.worldSurface || NPC.downedPlantBoss) && !Collision.SolidCollision(vector31, this.width, this.height))
+						if ((Main.tile[num275, num276].wall != 87 || (double)num276 <= Main.worldSurface || NpcMgr.downedPlantBoss) && !Collision.SolidCollision(vector31, this.width, this.height))
 						{
 							this.Teleport(vector31, 1, 0);
 							NetMessage.SendData(65, -1, -1, null, 0, (float)this.whoAmI, vector31.X, vector31.Y, 1, 0, 0);
@@ -11003,7 +11003,7 @@ namespace Terraria
 						NetMessage.SendData(61, -1, -1, null, this.whoAmI, -6f, 0f, 0f, 0, 0, 0);
 					}
 				}
-				if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 3601 && NPC.downedGolemBoss && Main.hardMode && !NPC.AnyDanger() && !NPC.AnyoneNearCultists())
+				if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 3601 && NpcMgr.downedGolemBoss && Main.hardMode && !NPC.AnyDanger() && !NPC.AnyoneNearCultists())
 				{
 					Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
 					this.itemTime = item.useTime;
@@ -11050,7 +11050,7 @@ namespace Terraria
 						Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
 						if (Main.netMode != 1)
 						{
-							NPC.SpawnOnPlayer(i, 50);
+							NpcMgr.SpawnOnPlayer(i, 50);
 						}
 						else
 						{
@@ -11065,7 +11065,7 @@ namespace Terraria
 							Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
 							if (Main.netMode != 1)
 							{
-								NPC.SpawnOnPlayer(i, 4);
+								NpcMgr.SpawnOnPlayer(i, 4);
 							}
 							else
 							{
@@ -11081,7 +11081,7 @@ namespace Terraria
 							Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
 							if (Main.netMode != 1)
 							{
-								NPC.SpawnOnPlayer(i, 13);
+								NpcMgr.SpawnOnPlayer(i, 13);
 							}
 							else
 							{
@@ -11097,8 +11097,8 @@ namespace Terraria
 							Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
 							if (Main.netMode != 1)
 							{
-								NPC.SpawnOnPlayer(i, 125);
-								NPC.SpawnOnPlayer(i, 126);
+								NpcMgr.SpawnOnPlayer(i, 125);
+								NpcMgr.SpawnOnPlayer(i, 126);
 							}
 							else
 							{
@@ -11115,7 +11115,7 @@ namespace Terraria
 							Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
 							if (Main.netMode != 1)
 							{
-								NPC.SpawnOnPlayer(i, 134);
+								NpcMgr.SpawnOnPlayer(i, 134);
 							}
 							else
 							{
@@ -11131,7 +11131,7 @@ namespace Terraria
 							Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
 							if (Main.netMode != 1)
 							{
-								NPC.SpawnOnPlayer(i, 127);
+								NpcMgr.SpawnOnPlayer(i, 127);
 							}
 							else
 							{
@@ -11145,7 +11145,7 @@ namespace Terraria
 						Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
 						if (Main.netMode != 1)
 						{
-							NPC.SpawnOnPlayer(i, 222);
+							NpcMgr.SpawnOnPlayer(i, 222);
 						}
 						else
 						{
@@ -11158,7 +11158,7 @@ namespace Terraria
 						Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
 						if (Main.netMode != 1)
 						{
-							NPC.SpawnOnPlayer(i, 266);
+							NpcMgr.SpawnOnPlayer(i, 266);
 						}
 						else
 						{
@@ -25113,7 +25113,7 @@ namespace Terraria
 					{
 						Main.tile[num2, num3] = new Tile();
 					}
-					if ((Main.tile[num2, num3].wall != 87 || (double)num3 <= Main.worldSurface || NPC.downedPlantBoss) && (!Main.wallDungeon[(int)Main.tile[num2, num3].wall] || (double)num3 <= Main.worldSurface || NPC.downedBoss3))
+					if ((Main.tile[num2, num3].wall != 87 || (double)num3 <= Main.worldSurface || NpcMgr.downedPlantBoss) && (!Main.wallDungeon[(int)Main.tile[num2, num3].wall] || (double)num3 <= Main.worldSurface || NpcMgr.downedBoss3))
 					{
 						int i = 0;
 						while (i < 100)
@@ -26883,7 +26883,7 @@ namespace Terraria
 					{
 						flag2 = true;
 						bool flag8 = false;
-						if (!NPC.AnyNPCs(245) && Main.hardMode && NPC.downedPlantBoss)
+						if (!NPC.AnyNPCs(245) && Main.hardMode && NpcMgr.downedPlantBoss)
 						{
 							for (int num38 = 0; num38 < 58; num38++)
 							{
@@ -26904,7 +26904,7 @@ namespace Terraria
 							Main.PlaySound(15, (int)this.position.X, (int)this.position.Y, 0, 1f, 0f);
 							if (Main.netMode != 1)
 							{
-								NPC.SpawnOnPlayer(this.whoAmI, 245);
+								NpcMgr.SpawnOnPlayer(this.whoAmI, 245);
 							}
 							else
 							{

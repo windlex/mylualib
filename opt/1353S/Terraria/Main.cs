@@ -3958,7 +3958,7 @@ namespace Terraria
 			}
 			Main.anglerWhoFinishedToday.Clear();
 			Main.anglerQuestFinished = false;
-			bool flag = NPC.downedBoss1 || NPC.downedBoss2 || NPC.downedBoss3 || Main.hardMode || NPC.downedSlimeKing || NPC.downedQueenBee;
+			bool flag = NpcMgr.downedBoss1 || NpcMgr.downedBoss2 || NpcMgr.downedBoss3 || Main.hardMode || NpcMgr.downedSlimeKing || NpcMgr.downedQueenBee;
 			bool flag2 = true;
 			while (flag2)
 			{
@@ -9657,8 +9657,8 @@ namespace Terraria
 				Main.pumpkinMoon = false;
 				if (Main.netMode != 1)
 				{
-					NPC.waveKills = 0f;
-					NPC.waveNumber = 0;
+					NpcMgr.waveKills = 0f;
+					NpcMgr.waveNumber = 0;
 				}
 			}
 			if (Main.snowMoon)
@@ -9666,8 +9666,8 @@ namespace Terraria
 				Main.snowMoon = false;
 				if (Main.netMode != 1)
 				{
-					NPC.waveKills = 0f;
-					NPC.waveNumber = 0;
+					NpcMgr.waveKills = 0f;
+					NpcMgr.waveNumber = 0;
 				}
 			}
 		}
@@ -9679,8 +9679,8 @@ namespace Terraria
 			Main.bloodMoon = false;
 			if (Main.netMode != 1)
 			{
-				NPC.waveKills = 0f;
-				NPC.waveNumber = 1;
+				NpcMgr.waveKills = 0f;
+				NpcMgr.waveNumber = 1;
 				NetworkText invasionWaveText = Lang.GetInvasionWaveText(1, new short[]
 				{
 					305
@@ -9704,8 +9704,8 @@ namespace Terraria
 			Main.bloodMoon = false;
 			if (Main.netMode != 1)
 			{
-				NPC.waveKills = 0f;
-				NPC.waveNumber = 1;
+                NpcMgr.waveKills = 0f;
+                NpcMgr.waveNumber = 1;
 				NetworkText invasionWaveText = Lang.GetInvasionWaveText(1, new short[]
 				{
 					338,
@@ -10488,11 +10488,11 @@ namespace Terraria
 					}
 					Main.curMusic = this.newMusic;
 					float num8 = 1f;
-					if (NPC.MoonLordCountdown > 0)
+					if (NpcMgr.MoonLordCountdown > 0)
 					{
-						num8 = (float)NPC.MoonLordCountdown / 3600f;
+						num8 = (float)NpcMgr.MoonLordCountdown / 3600f;
 						num8 *= num8;
-						if (NPC.MoonLordCountdown > 720)
+						if (NpcMgr.MoonLordCountdown > 720)
 						{
 							num8 = MathHelper.Lerp(0f, 1f, num8);
 						}
@@ -10501,7 +10501,7 @@ namespace Terraria
 							num8 = 0f;
 							Main.curMusic = 0;
 						}
-						if (NPC.MoonLordCountdown == 1 && Main.curMusic >= 1 && Main.curMusic < 42)
+						if (NpcMgr.MoonLordCountdown == 1 && Main.curMusic >= 1 && Main.curMusic < 42)
 						{
 							Main.musicFade[Main.curMusic] = 0f;
 						}
@@ -13785,7 +13785,7 @@ namespace Terraria
 			{
 				try
 				{
-					NPC.SpawnNPC();
+                    NpcMgr.SpawnNPC();
 				}
 				catch
 				{
@@ -16173,7 +16173,7 @@ namespace Terraria
 				{
 					for (int j = 0; j < Main.HoverItem.ToolTip.Lines; j++)
 					{
-						if (j == 0 && Main.HoverItem.type >= 1533 && Main.HoverItem.type <= 1537 && !NPC.downedPlantBoss)
+						if (j == 0 && Main.HoverItem.type >= 1533 && Main.HoverItem.type <= 1537 && !NpcMgr.downedPlantBoss)
 						{
 							array[num4] = Lang.tip[59].Value;
 							num4++;
@@ -24442,13 +24442,13 @@ namespace Terraria
 							{
 								if (type == 493)
 								{
-									num134 = NPC.ShieldStrengthTowerStardust;
+                                    num134 = NpcMgr.ShieldStrengthTowerStardust;
 									key = "Stardust";
 								}
 							}
 							else
 							{
-								num134 = NPC.ShieldStrengthTowerVortex;
+                                num134 = NpcMgr.ShieldStrengthTowerVortex;
 								key = "Vortex";
 							}
 						}
@@ -24456,16 +24456,16 @@ namespace Terraria
 						{
 							if (type == 517)
 							{
-								num134 = NPC.ShieldStrengthTowerSolar;
+                                num134 = NpcMgr.ShieldStrengthTowerSolar;
 								key = "Solar";
 							}
 						}
 						else
 						{
-							num134 = NPC.ShieldStrengthTowerNebula;
+                            num134 = NpcMgr.ShieldStrengthTowerNebula;
 							key = "Nebula";
 						}
-						float num135 = (float)num134 / (float)NPC.ShieldStrengthTowerMax;
+						float num135 = (float)num134 / (float)NpcMgr.ShieldStrengthTowerMax;
 						if (num134 > 0)
 						{
 							Main.spriteBatch.End();
@@ -35362,11 +35362,11 @@ namespace Terraria
 				{
 					goto Block_71;
 				}
-				if (!flag15 && Main.helpText == 65 && NPC.downedBoss3)
+				if (!flag15 && Main.helpText == 65 && NpcMgr.downedBoss3)
 				{
 					goto Block_74;
 				}
-				if (!flag18 && Main.helpText == 66 && NPC.downedBoss3)
+				if (!flag18 && Main.helpText == 66 && NpcMgr.downedBoss3)
 				{
 					goto Block_77;
 				}
@@ -35374,7 +35374,7 @@ namespace Terraria
 				{
 					goto Block_79;
 				}
-				if (!flag17 && NPC.downedBoss2 && Main.helpText == 68)
+				if (!flag17 && NpcMgr.downedBoss2 && Main.helpText == 68)
 				{
 					goto Block_82;
 				}
@@ -35394,63 +35394,63 @@ namespace Terraria
 				{
 					goto Block_92;
 				}
-				if (!flag9 && Main.helpText == 201 && !Main.hardMode && !NPC.downedBoss3 && !NPC.downedBoss2)
+				if (!flag9 && Main.helpText == 201 && !Main.hardMode && !NpcMgr.downedBoss3 && !NpcMgr.downedBoss2)
 				{
 					goto Block_98;
 				}
-				if (Main.helpText == 1000 && !NPC.downedBoss1 && !NPC.downedBoss2)
+				if (Main.helpText == 1000 && !NpcMgr.downedBoss1 && !NpcMgr.downedBoss2)
 				{
 					goto Block_101;
 				}
-				if (Main.helpText == 1001 && !NPC.downedBoss1 && !NPC.downedBoss2)
+				if (Main.helpText == 1001 && !NpcMgr.downedBoss1 && !NpcMgr.downedBoss2)
 				{
 					goto Block_104;
 				}
-				if (Main.helpText == 1002 && !NPC.downedBoss2)
+				if (Main.helpText == 1002 && !NpcMgr.downedBoss2)
 				{
 					goto Block_106;
 				}
-				if (Main.helpText == 1050 && !NPC.downedBoss1 && Main.player[Main.myPlayer].statLifeMax < 200)
+				if (Main.helpText == 1050 && !NpcMgr.downedBoss1 && Main.player[Main.myPlayer].statLifeMax < 200)
 				{
 					goto Block_110;
 				}
-				if (Main.helpText == 1051 && !NPC.downedBoss1 && Main.player[Main.myPlayer].statDefense <= 10)
+				if (Main.helpText == 1051 && !NpcMgr.downedBoss1 && Main.player[Main.myPlayer].statDefense <= 10)
 				{
 					goto Block_113;
 				}
-				if (Main.helpText == 1052 && !NPC.downedBoss1 && Main.player[Main.myPlayer].statLifeMax >= 200 && Main.player[Main.myPlayer].statDefense > 10)
+				if (Main.helpText == 1052 && !NpcMgr.downedBoss1 && Main.player[Main.myPlayer].statLifeMax >= 200 && Main.player[Main.myPlayer].statDefense > 10)
 				{
 					goto Block_117;
 				}
-				if (Main.helpText == 1053 && NPC.downedBoss1 && !NPC.downedBoss2 && Main.player[Main.myPlayer].statLifeMax < 300)
+				if (Main.helpText == 1053 && NpcMgr.downedBoss1 && !NpcMgr.downedBoss2 && Main.player[Main.myPlayer].statLifeMax < 300)
 				{
 					goto Block_121;
 				}
-				if (Main.helpText == 1054 && NPC.downedBoss1 && !NPC.downedBoss2 && Main.player[Main.myPlayer].statLifeMax >= 300)
+				if (Main.helpText == 1054 && NpcMgr.downedBoss1 && !NpcMgr.downedBoss2 && Main.player[Main.myPlayer].statLifeMax >= 300)
 				{
 					goto Block_125;
 				}
-				if (Main.helpText == 1055 && NPC.downedBoss1 && !NPC.downedBoss2 && Main.player[Main.myPlayer].statLifeMax >= 300)
+				if (Main.helpText == 1055 && NpcMgr.downedBoss1 && !NpcMgr.downedBoss2 && Main.player[Main.myPlayer].statLifeMax >= 300)
 				{
 					goto Block_129;
 				}
-				if (Main.helpText == 1056 && NPC.downedBoss1 && NPC.downedBoss2 && !NPC.downedBoss3)
+				if (Main.helpText == 1056 && NpcMgr.downedBoss1 && NpcMgr.downedBoss2 && !NpcMgr.downedBoss3)
 				{
 					goto Block_133;
 				}
-				if (Main.helpText == 1057 && NPC.downedBoss1 && NPC.downedBoss2 && NPC.downedBoss3 && !Main.hardMode && Main.player[Main.myPlayer].statLifeMax < 400)
+				if (Main.helpText == 1057 && NpcMgr.downedBoss1 && NpcMgr.downedBoss2 && NpcMgr.downedBoss3 && !Main.hardMode && Main.player[Main.myPlayer].statLifeMax < 400)
 				{
 					goto Block_139;
 				}
-				if (Main.helpText == 1058 && NPC.downedBoss1 && NPC.downedBoss2 && NPC.downedBoss3 && !Main.hardMode && Main.player[Main.myPlayer].statLifeMax >= 400)
+				if (Main.helpText == 1058 && NpcMgr.downedBoss1 && NpcMgr.downedBoss2 && NpcMgr.downedBoss3 && !Main.hardMode && Main.player[Main.myPlayer].statLifeMax >= 400)
 				{
 					goto Block_145;
 				}
-				if (Main.helpText == 1059 && NPC.downedBoss1 && NPC.downedBoss2 && NPC.downedBoss3 && !Main.hardMode && Main.player[Main.myPlayer].statLifeMax >= 400)
+				if (Main.helpText == 1059 && NpcMgr.downedBoss1 && NpcMgr.downedBoss2 && NpcMgr.downedBoss3 && !Main.hardMode && Main.player[Main.myPlayer].statLifeMax >= 400)
 				{
 					goto Block_151;
 				}
-				if (Main.helpText == 1060 && NPC.downedBoss1 && NPC.downedBoss2 && NPC.downedBoss3 && !Main.hardMode && Main.player[Main.myPlayer].statLifeMax >= 400)
+				if (Main.helpText == 1060 && NpcMgr.downedBoss1 && NpcMgr.downedBoss2 && NpcMgr.downedBoss3 && !Main.hardMode && Main.player[Main.myPlayer].statLifeMax >= 400)
 				{
 					goto Block_157;
 				}
@@ -36161,7 +36161,7 @@ namespace Terraria
 							{
 								if (Main.netMode == 0)
 								{
-									NPC.SpawnSkeletron();
+									NpcMgr.SpawnSkeletron();
 								}
 								else
 								{
@@ -39777,11 +39777,11 @@ namespace Terraria
 		public static int UnlockedMaxHair()
 		{
 			int num = 123;
-			if (NPC.downedMartians)
+			if (NpcMgr.downedMartians)
 			{
 				num += 10;
 			}
-			if (NPC.downedMartians && NPC.downedMoonlord)
+			if (NpcMgr.downedMartians && NpcMgr.downedMoonlord)
 			{
 				num++;
 			}
@@ -43726,7 +43726,7 @@ namespace Terraria
 			Main.invasionProgressNearInvasion = flag;
 			if (flag && Main.invasionProgressIcon == 0)
 			{
-				int waveNumber = NPC.waveNumber;
+                int waveNumber = NpcMgr.waveNumber;
 				if (Main.snowMoon)
 				{
 					int progressMax = (new int[]
@@ -43753,7 +43753,7 @@ namespace Terraria
 						2000,
 						0
 					})[waveNumber];
-					Main.ReportInvasionProgress((int)NPC.waveKills, progressMax, 1, waveNumber);
+                    Main.ReportInvasionProgress((int)NpcMgr.waveKills, progressMax, 1, waveNumber);
 					return;
 				}
 				if (Main.pumpkinMoon)
@@ -43777,7 +43777,7 @@ namespace Terraria
 						675,
 						0
 					})[waveNumber];
-					Main.ReportInvasionProgress((int)NPC.waveKills, progressMax2, 2, waveNumber);
+					Main.ReportInvasionProgress((int)NpcMgr.waveKills, progressMax2, 2, waveNumber);
 					return;
 				}
 				if (DD2Event.Ongoing)
@@ -43796,7 +43796,7 @@ namespace Terraria
 
 		public static void SyncAnInvasion(int toWho)
 		{
-			int waveNumber = NPC.waveNumber;
+			int waveNumber = NpcMgr.waveNumber;
 			if (Main.snowMoon)
 			{
 				int num = (new int[]
@@ -43823,7 +43823,7 @@ namespace Terraria
 					2000,
 					0
 				})[waveNumber];
-				NetMessage.SendData(78, toWho, -1, null, (int)NPC.waveKills, (float)num, 1f, (float)waveNumber, 0, 0, 0);
+				NetMessage.SendData(78, toWho, -1, null, (int)NpcMgr.waveKills, (float)num, 1f, (float)waveNumber, 0, 0, 0);
 				return;
 			}
 			if (Main.pumpkinMoon)
@@ -43847,7 +43847,7 @@ namespace Terraria
 					675,
 					0
 				})[waveNumber];
-				NetMessage.SendData(78, toWho, -1, null, (int)NPC.waveKills, (float)num2, 2f, (float)waveNumber, 0, 0, 0);
+				NetMessage.SendData(78, toWho, -1, null, (int)NpcMgr.waveKills, (float)num2, 2f, (float)waveNumber, 0, 0, 0);
 				return;
 			}
 			if (DD2Event.Ongoing)
@@ -59916,7 +59916,7 @@ namespace Terraria
 				{
 					if (Main.invasionType == 1)
 					{
-						NPC.downedGoblins = true;
+						NpcMgr.downedGoblins = true;
 						if (Main.netMode == 2)
 						{
 							NetMessage.SendData(7, -1, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
@@ -59925,17 +59925,17 @@ namespace Terraria
 					}
 					else if (Main.invasionType == 2)
 					{
-						NPC.downedFrost = true;
+						NpcMgr.downedFrost = true;
 						AchievementsHelper.NotifyProgressionEvent(12);
 					}
 					else if (Main.invasionType == 3)
 					{
-						NPC.downedPirates = true;
+						NpcMgr.downedPirates = true;
 						AchievementsHelper.NotifyProgressionEvent(11);
 					}
 					else if (Main.invasionType == 4)
 					{
-						NPC.downedMartians = true;
+						NpcMgr.downedMartians = true;
 						AchievementsHelper.NotifyProgressionEvent(13);
 					}
 					Main.InvasionWarning();
@@ -60616,7 +60616,7 @@ namespace Terraria
 					if (!Main.raining && !NPC.BusyWithAnyInvasionOfSorts())
 					{
 						int num3 = (int)(1728000.0 / (double)Main.dayRate);
-						if (!NPC.downedSlimeKing)
+						if (!NpcMgr.downedSlimeKing)
 						{
 							num3 /= 2;
 						}
@@ -60657,10 +60657,10 @@ namespace Terraria
 			BirthdayParty.UpdateTime();
 			Sandstorm.UpdateTime();
 			DD2Event.UpdateTime();
-			if (NPC.MoonLordCountdown > 0)
+			if (NpcMgr.MoonLordCountdown > 0)
 			{
-				float num4 = MathHelper.Clamp((float)Math.Sin((double)((float)NPC.MoonLordCountdown / 60f * 0.5f)) * 2f, 0f, 1f);
-				num4 *= 0.75f - 0.5f * ((float)NPC.MoonLordCountdown / 3600f);
+				float num4 = MathHelper.Clamp((float)Math.Sin((double)((float)NpcMgr.MoonLordCountdown / 60f * 0.5f)) * 2f, 0f, 1f);
+				num4 *= 0.75f - 0.5f * ((float)NpcMgr.MoonLordCountdown / 3600f);
 				if (!Filters.Scene["MoonLordShake"].IsActive())
 				{
 					Filters.Scene.Activate("MoonLordShake", Main.player[Main.myPlayer].position, new object[0]);
@@ -60671,12 +60671,12 @@ namespace Terraria
 			{
 				Filters.Scene.Deactivate("MoonLordShake", new object[0]);
 			}
-			if (NPC.MoonLordCountdown > 0)
+			if (NpcMgr.MoonLordCountdown > 0)
 			{
-				NPC.MoonLordCountdown--;
-				if (NPC.MoonLordCountdown <= 0 && Main.netMode != 1)
+				NpcMgr.MoonLordCountdown--;
+				if (NpcMgr.MoonLordCountdown <= 0 && Main.netMode != 1)
 				{
-					NPC.SpawnOnPlayer((int)Player.FindClosest(new Vector2((float)(Main.maxTilesX / 2), (float)Main.worldSurface / 2f) * 16f, 0, 0), 398);
+					NpcMgr.SpawnOnPlayer((int)Player.FindClosest(new Vector2((float)(Main.maxTilesX / 2), (float)Main.worldSurface / 2f) * 16f, 0, 0), 398);
 				}
 			}
 			if (NPC.taxCollector && Main.netMode != 2 && !Main.gameMenu)
@@ -60716,7 +60716,7 @@ namespace Terraria
 			}
 			if (Main.netMode != 1)
 			{
-				if (NPC.travelNPC)
+                if (NpcMgr.travelNPC)
 				{
 					if (!Main.dayTime || Main.time > 48600.0)
 					{
@@ -60743,7 +60743,7 @@ namespace Terraria
 						}
 					}
 				}
-				NPC.travelNPC = false;
+                NpcMgr.travelNPC = false;
 			}
 			if (!Main.dayTime)
 			{
@@ -60756,7 +60756,7 @@ namespace Terraria
 						{
 							if (Main.player[k].active && !Main.player[k].dead && (double)Main.player[k].position.Y < Main.worldSurface * 16.0)
 							{
-								NPC.SpawnOnPlayer(k, 4);
+								NpcMgr.SpawnOnPlayer(k, 4);
 								WorldGen.spawnEye = false;
 								break;
 							}
@@ -60781,18 +60781,18 @@ namespace Terraria
 								{
 									if (WorldGen.spawnHardBoss == 1)
 									{
-										NPC.SpawnOnPlayer(m, 134);
+										NpcMgr.SpawnOnPlayer(m, 134);
 										break;
 									}
 									if (WorldGen.spawnHardBoss == 2)
 									{
-										NPC.SpawnOnPlayer(m, 125);
-										NPC.SpawnOnPlayer(m, 126);
+										NpcMgr.SpawnOnPlayer(m, 125);
+										NpcMgr.SpawnOnPlayer(m, 126);
 										break;
 									}
 									if (WorldGen.spawnHardBoss == 3)
 									{
-										NPC.SpawnOnPlayer(m, 127);
+										NpcMgr.SpawnOnPlayer(m, 127);
 										break;
 									}
 									break;
@@ -60848,7 +60848,7 @@ namespace Terraria
 					if (Main.netMode != 1)
 					{
 						AchievementsHelper.NotifyProgressionEvent(1);
-						if (Main.hardMode && NPC.downedMechBossAny && Main.rand.Next(20) == 0)
+						if (Main.hardMode && NpcMgr.downedMechBossAny && Main.rand.Next(20) == 0)
 						{
 							Main.eclipse = true;
 							AchievementsHelper.NotifyProgressionEvent(2);
@@ -60872,7 +60872,7 @@ namespace Terraria
 						{
 							if (WorldGen.shadowOrbSmashed)
 							{
-								if (!NPC.downedGoblins)
+								if (!NpcMgr.downedGoblins)
 								{
 									if (Main.rand.Next(3) == 0)
 									{
@@ -60884,7 +60884,7 @@ namespace Terraria
 									Main.StartInvasion(1);
 								}
 							}
-							if (Main.invasionType == 0 && Main.hardMode && WorldGen.altarCount > 0 && ((NPC.downedPirates && Main.rand.Next(50) == 0) || (!NPC.downedPirates && Main.rand.Next(30) == 0)))
+							if (Main.invasionType == 0 && Main.hardMode && WorldGen.altarCount > 0 && ((NpcMgr.downedPirates && Main.rand.Next(50) == 0) || (!NpcMgr.downedPirates && Main.rand.Next(30) == 0)))
 							{
 								Main.StartInvasion(3);
 							}
@@ -60923,7 +60923,7 @@ namespace Terraria
 					}
 					if (!Main.fastForwardTime)
 					{
-						if (!NPC.downedBoss1 && Main.netMode != 1)
+						if (!NpcMgr.downedBoss1 && Main.netMode != 1)
 						{
 							bool flag3 = false;
 							for (int n = 0; n < 255; n++)
@@ -60968,13 +60968,13 @@ namespace Terraria
 									flag4 = true;
 								}
 							}
-							if (!flag4 && (!NPC.downedMechBoss1 || !NPC.downedMechBoss2 || !NPC.downedMechBoss3))
+							if (!flag4 && (!NpcMgr.downedMechBoss1 || !NpcMgr.downedMechBoss2 || !NpcMgr.downedMechBoss3))
 							{
 								int num10 = 0;
 								while (num10 < 1000)
 								{
 									int num11 = Main.rand.Next(3) + 1;
-									if (num11 == 1 && !NPC.downedMechBoss1)
+									if (num11 == 1 && !NpcMgr.downedMechBoss1)
 									{
 										WorldGen.spawnHardBoss = num11;
 										if (Main.netMode == 0)
@@ -60989,7 +60989,7 @@ namespace Terraria
 										}
 										break;
 									}
-									else if (num11 == 2 && !NPC.downedMechBoss2)
+									else if (num11 == 2 && !NpcMgr.downedMechBoss2)
 									{
 										WorldGen.spawnHardBoss = num11;
 										if (Main.netMode == 0)
@@ -61004,7 +61004,7 @@ namespace Terraria
 										}
 										break;
 									}
-									else if (num11 == 3 && !NPC.downedMechBoss3)
+									else if (num11 == 3 && !NpcMgr.downedMechBoss3)
 									{
 										WorldGen.spawnHardBoss = num11;
 										if (Main.netMode == 0)
@@ -61288,7 +61288,7 @@ namespace Terraria
 							}
 						}
 					}
-					if (!NPC.downedBoss3 && num7 == 0)
+					if (!NpcMgr.downedBoss3 && num7 == 0)
 					{
 						int num30 = NPC.NewNPC(Main.dungeonX * 16 + 8, Main.dungeonY * 16, 37, 0, 0f, 0f, 0f, 0f, 255);
 						Main.npc[num30].homeless = false;
@@ -61316,7 +61316,7 @@ namespace Terraria
 					{
 						Main.townNPCCanSpawn[19] = true;
 					}
-					if ((NPC.downedBoss1 || NPC.downedBoss2 || NPC.downedBoss3) && num4 < 1)
+					if ((NpcMgr.downedBoss1 || NpcMgr.downedBoss2 || NpcMgr.downedBoss3) && num4 < 1)
 					{
 						Main.townNPCCanSpawn[20] = true;
 					}
@@ -61324,51 +61324,51 @@ namespace Terraria
 					{
 						Main.townNPCCanSpawn[38] = true;
 					}
-					if (NPC.savedStylist && num22 < 1)
+					if (NpcMgr.savedStylist && num22 < 1)
 					{
 						Main.townNPCCanSpawn[353] = true;
 					}
-					if (NPC.savedAngler && num23 < 1)
+					if (NpcMgr.savedAngler && num23 < 1)
 					{
 						Main.townNPCCanSpawn[369] = true;
 					}
-					if (NPC.downedBoss3 && num9 < 1)
+					if (NpcMgr.downedBoss3 && num9 < 1)
 					{
 						Main.townNPCCanSpawn[54] = true;
 					}
-					if (NPC.savedGoblin && num11 < 1)
+					if (NpcMgr.savedGoblin && num11 < 1)
 					{
 						Main.townNPCCanSpawn[107] = true;
 					}
-					if (NPC.savedTaxCollector && num24 < 1)
+					if (NpcMgr.savedTaxCollector && num24 < 1)
 					{
 						Main.townNPCCanSpawn[441] = true;
 					}
-					if (NPC.savedWizard && num10 < 1)
+					if (NpcMgr.savedWizard && num10 < 1)
 					{
 						Main.townNPCCanSpawn[108] = true;
 					}
-					if (NPC.savedMech && num12 < 1)
+					if (NpcMgr.savedMech && num12 < 1)
 					{
 						Main.townNPCCanSpawn[124] = true;
 					}
-					if (NPC.downedFrost && num13 < 1 && Main.xMas)
+					if (NpcMgr.downedFrost && num13 < 1 && Main.xMas)
 					{
 						Main.townNPCCanSpawn[142] = true;
 					}
-					if (NPC.downedMechBossAny && num15 < 1)
+					if (NpcMgr.downedMechBossAny && num15 < 1)
 					{
 						Main.townNPCCanSpawn[178] = true;
 					}
-					if (flag4 && num16 < 1 && ((NPC.downedBoss1 || NPC.downedBoss2 || NPC.downedBoss3) | flag5))
+					if (flag4 && num16 < 1 && ((NpcMgr.downedBoss1 || NpcMgr.downedBoss2 || NpcMgr.downedBoss3) | flag5))
 					{
 						Main.townNPCCanSpawn[207] = true;
 					}
-					if (NPC.downedQueenBee && num20 < 1)
+					if (NpcMgr.downedQueenBee && num20 < 1)
 					{
 						Main.townNPCCanSpawn[228] = true;
 					}
-					if (NPC.downedPirates && num21 < 1)
+					if (NpcMgr.downedPirates && num21 < 1)
 					{
 						Main.townNPCCanSpawn[229] = true;
 					}
@@ -61376,7 +61376,7 @@ namespace Terraria
 					{
 						Main.townNPCCanSpawn[160] = true;
 					}
-					if (Main.hardMode && NPC.downedPlantBoss && num18 < 1)
+					if (Main.hardMode && NpcMgr.downedPlantBoss && num18 < 1)
 					{
 						Main.townNPCCanSpawn[209] = true;
 					}
@@ -61388,7 +61388,7 @@ namespace Terraria
 					{
 						Main.townNPCCanSpawn[208] = true;
 					}
-					if (NPC.savedBartender && num25 < 1)
+					if (NpcMgr.savedBartender && num25 < 1)
 					{
 						Main.townNPCCanSpawn[550] = true;
 					}
@@ -61408,15 +61408,15 @@ namespace Terraria
 					{
 						WorldGen.prioritizedTownNPC = 19;
 					}
-					if (WorldGen.prioritizedTownNPC == 0 && NPC.savedGoblin && num11 < 1)
+					if (WorldGen.prioritizedTownNPC == 0 && NpcMgr.savedGoblin && num11 < 1)
 					{
 						WorldGen.prioritizedTownNPC = 107;
 					}
-					if (WorldGen.prioritizedTownNPC == 0 && NPC.savedTaxCollector && num24 < 1)
+					if (WorldGen.prioritizedTownNPC == 0 && NpcMgr.savedTaxCollector && num24 < 1)
 					{
 						WorldGen.prioritizedTownNPC = 441;
 					}
-					if (WorldGen.prioritizedTownNPC == 0 && NPC.savedWizard && num10 < 1)
+					if (WorldGen.prioritizedTownNPC == 0 && NpcMgr.savedWizard && num10 < 1)
 					{
 						WorldGen.prioritizedTownNPC = 108;
 					}
@@ -61424,7 +61424,7 @@ namespace Terraria
 					{
 						WorldGen.prioritizedTownNPC = 160;
 					}
-					if (WorldGen.prioritizedTownNPC == 0 && (NPC.downedBoss1 || NPC.downedBoss2 || NPC.downedBoss3) && num4 < 1)
+					if (WorldGen.prioritizedTownNPC == 0 && (NpcMgr.downedBoss1 || NpcMgr.downedBoss2 || NpcMgr.downedBoss3) && num4 < 1)
 					{
 						WorldGen.prioritizedTownNPC = 20;
 					}
@@ -61432,35 +61432,35 @@ namespace Terraria
 					{
 						WorldGen.prioritizedTownNPC = 38;
 					}
-					if (WorldGen.prioritizedTownNPC == 0 && NPC.downedQueenBee && num20 < 1)
+					if (WorldGen.prioritizedTownNPC == 0 && NpcMgr.downedQueenBee && num20 < 1)
 					{
 						WorldGen.prioritizedTownNPC = 228;
 					}
-					if (WorldGen.prioritizedTownNPC == 0 && NPC.downedMechBossAny && num15 < 1)
+					if (WorldGen.prioritizedTownNPC == 0 && NpcMgr.downedMechBossAny && num15 < 1)
 					{
 						WorldGen.prioritizedTownNPC = 178;
 					}
-					if (WorldGen.prioritizedTownNPC == 0 && NPC.savedMech && num12 < 1)
+					if (WorldGen.prioritizedTownNPC == 0 && NpcMgr.savedMech && num12 < 1)
 					{
 						WorldGen.prioritizedTownNPC = 124;
 					}
-					if (WorldGen.prioritizedTownNPC == 0 && NPC.savedAngler && num23 < 1)
+					if (WorldGen.prioritizedTownNPC == 0 && NpcMgr.savedAngler && num23 < 1)
 					{
 						WorldGen.prioritizedTownNPC = 369;
 					}
-					if (WorldGen.prioritizedTownNPC == 0 && Main.hardMode && NPC.downedPlantBoss && num18 < 1)
+					if (WorldGen.prioritizedTownNPC == 0 && Main.hardMode && NpcMgr.downedPlantBoss && num18 < 1)
 					{
 						WorldGen.prioritizedTownNPC = 209;
 					}
-					if (WorldGen.prioritizedTownNPC == 0 && NPC.downedPirates && num21 < 1)
+					if (WorldGen.prioritizedTownNPC == 0 && NpcMgr.downedPirates && num21 < 1)
 					{
 						WorldGen.prioritizedTownNPC = 229;
 					}
-					if (WorldGen.prioritizedTownNPC == 0 && NPC.downedBoss3 && num9 < 1)
+					if (WorldGen.prioritizedTownNPC == 0 && NpcMgr.downedBoss3 && num9 < 1)
 					{
 						WorldGen.prioritizedTownNPC = 54;
 					}
-					if (WorldGen.prioritizedTownNPC == 0 && NPC.savedStylist && num22 < 1)
+					if (WorldGen.prioritizedTownNPC == 0 && NpcMgr.savedStylist && num22 < 1)
 					{
 						WorldGen.prioritizedTownNPC = 353;
 					}
@@ -61476,11 +61476,11 @@ namespace Terraria
 					{
 						WorldGen.prioritizedTownNPC = 208;
 					}
-					if (WorldGen.prioritizedTownNPC == 0 && NPC.downedFrost && num13 < 1 && Main.xMas)
+					if (WorldGen.prioritizedTownNPC == 0 && NpcMgr.downedFrost && num13 < 1 && Main.xMas)
 					{
 						WorldGen.prioritizedTownNPC = 142;
 					}
-					if (WorldGen.prioritizedTownNPC == 0 && NPC.savedBartender && num25 < 1)
+					if (WorldGen.prioritizedTownNPC == 0 && NpcMgr.savedBartender && num25 < 1)
 					{
 						WorldGen.prioritizedTownNPC = 550;
 					}

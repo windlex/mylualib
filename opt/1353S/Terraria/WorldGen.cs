@@ -5820,7 +5820,7 @@ namespace Terraria
 							}
 						}
 					}
-					NPC.SpawnOnPlayer(plr, 222);
+					NpcMgr.SpawnOnPlayer(plr, 222);
 				}
 				WorldGen.destroyObject = false;
 				for (int num15 = k - 1; num15 < k + 4; num15++)
@@ -7684,7 +7684,7 @@ namespace Terraria
 						}
 						if (num6 / 16f < 50f)
 						{
-							NPC.SpawnOnPlayer(plr, 262);
+							NpcMgr.SpawnOnPlayer(plr, 262);
 						}
 					}
 					if (type == 236)
@@ -8166,11 +8166,11 @@ namespace Terraria
 							}
 							if (flag)
 							{
-								NPC.SpawnOnPlayer(plr, 266);
+								NpcMgr.SpawnOnPlayer(plr, 266);
 							}
 							else
 							{
-								NPC.SpawnOnPlayer(plr, 13);
+								NpcMgr.SpawnOnPlayer(plr, 13);
 							}
 						}
 						else
@@ -8834,51 +8834,51 @@ namespace Terraria
 								num13 *= 1.75f;
 							}
 							num13 *= num6;
-							if (NPC.downedBoss1)
+							if (NpcMgr.downedBoss1)
 							{
 								num13 *= 1.1f;
 							}
-							if (NPC.downedBoss2)
+							if (NpcMgr.downedBoss2)
 							{
 								num13 *= 1.1f;
 							}
-							if (NPC.downedBoss3)
+							if (NpcMgr.downedBoss3)
 							{
 								num13 *= 1.1f;
 							}
-							if (NPC.downedMechBoss1)
+							if (NpcMgr.downedMechBoss1)
 							{
 								num13 *= 1.1f;
 							}
-							if (NPC.downedMechBoss2)
+							if (NpcMgr.downedMechBoss2)
 							{
 								num13 *= 1.1f;
 							}
-							if (NPC.downedMechBoss3)
+							if (NpcMgr.downedMechBoss3)
 							{
 								num13 *= 1.1f;
 							}
-							if (NPC.downedPlantBoss)
+							if (NpcMgr.downedPlantBoss)
 							{
 								num13 *= 1.1f;
 							}
-							if (NPC.downedQueenBee)
+							if (NpcMgr.downedQueenBee)
 							{
 								num13 *= 1.1f;
 							}
-							if (NPC.downedGolemBoss)
+							if (NpcMgr.downedGolemBoss)
 							{
 								num13 *= 1.1f;
 							}
-							if (NPC.downedPirates)
+							if (NpcMgr.downedPirates)
 							{
 								num13 *= 1.1f;
 							}
-							if (NPC.downedGoblins)
+							if (NpcMgr.downedGoblins)
 							{
 								num13 *= 1.1f;
 							}
-							if (NPC.downedFrost)
+							if (NpcMgr.downedFrost)
 							{
 								num13 *= 1.1f;
 							}
@@ -10751,7 +10751,7 @@ namespace Terraria
 				}
 				Main.Map.Clear();
 			}
-			NPC.MoonLordCountdown = 0;
+			NpcMgr.MoonLordCountdown = 0;
 			Main.pumpkinMoon = false;
 			Main.clearMap = true;
 			Main.mapTime = 0;
@@ -10767,7 +10767,7 @@ namespace Terraria
 			Sandstorm.WorldClear();
 			Main.UpdateSundial();
 			Main.wof = -1;
-			NPC.waveKills = 0f;
+			NpcMgr.waveKills = 0f;
 			WorldGen.spawnHardBoss = 0;
 			WorldGen.totalSolid2 = 0;
 			WorldGen.totalGood2 = 0;
@@ -10798,39 +10798,39 @@ namespace Terraria
 			Main.BartenderHelpTextIndex = 0;
 			Main.dungeonX = 0;
 			Main.dungeonY = 0;
-			NPC.downedBoss1 = false;
-			NPC.downedBoss2 = false;
-			NPC.downedBoss3 = false;
-			NPC.downedQueenBee = false;
-			NPC.downedSlimeKing = false;
-			NPC.downedMechBossAny = false;
-			NPC.downedMechBoss1 = false;
-			NPC.downedMechBoss2 = false;
-			NPC.downedMechBoss3 = false;
-			NPC.downedFishron = false;
-			NPC.downedAncientCultist = false;
-			NPC.downedMoonlord = false;
-			NPC.downedHalloweenKing = false;
-			NPC.downedHalloweenTree = false;
-			NPC.downedChristmasIceQueen = false;
-			NPC.downedChristmasSantank = false;
-			NPC.downedChristmasTree = false;
-			NPC.downedPlantBoss = false;
-			NPC.downedGolemBoss = false;
-			NPC.savedStylist = false;
-			NPC.savedGoblin = false;
-			NPC.savedWizard = false;
-			NPC.savedMech = false;
-			NPC.savedTaxCollector = false;
-			NPC.savedAngler = false;
-			NPC.savedBartender = false;
-			NPC.downedGoblins = false;
-			NPC.downedClown = false;
-			NPC.downedFrost = false;
-			NPC.downedPirates = false;
-			NPC.downedMartians = false;
-			NPC.downedTowerSolar = (NPC.downedTowerVortex = (NPC.downedTowerNebula = (NPC.downedTowerStardust = (NPC.LunarApocalypseIsUp = false))));
-			NPC.TowerActiveSolar = (NPC.TowerActiveVortex = (NPC.TowerActiveNebula = (NPC.TowerActiveStardust = false)));
+			NpcMgr.downedBoss1 = false;
+			NpcMgr.downedBoss2 = false;
+			NpcMgr.downedBoss3 = false;
+			NpcMgr.downedQueenBee = false;
+			NpcMgr.downedSlimeKing = false;
+			NpcMgr.downedMechBossAny = false;
+			NpcMgr.downedMechBoss1 = false;
+			NpcMgr.downedMechBoss2 = false;
+			NpcMgr.downedMechBoss3 = false;
+			NpcMgr.downedFishron = false;
+			NpcMgr.downedAncientCultist = false;
+			NpcMgr.downedMoonlord = false;
+			NpcMgr.downedHalloweenKing = false;
+			NpcMgr.downedHalloweenTree = false;
+			NpcMgr.downedChristmasIceQueen = false;
+			NpcMgr.downedChristmasSantank = false;
+			NpcMgr.downedChristmasTree = false;
+			NpcMgr.downedPlantBoss = false;
+			NpcMgr.downedGolemBoss = false;
+            NpcMgr.savedStylist = false;
+            NpcMgr.savedGoblin = false;
+            NpcMgr.savedWizard = false;
+            NpcMgr.savedMech = false;
+            NpcMgr.savedTaxCollector = false;
+            NpcMgr.savedAngler = false;
+            NpcMgr.savedBartender = false;
+			NpcMgr.downedGoblins = false;
+			NpcMgr.downedClown = false;
+			NpcMgr.downedFrost = false;
+			NpcMgr.downedPirates = false;
+			NpcMgr.downedMartians = false;
+			NpcMgr.downedTowerSolar = (NpcMgr.downedTowerVortex = (NpcMgr.downedTowerNebula = (NpcMgr.downedTowerStardust = (NPC.LunarApocalypseIsUp = false))));
+            NpcMgr.TowerActiveSolar = (NpcMgr.TowerActiveVortex = (NpcMgr.TowerActiveNebula = (NpcMgr.TowerActiveStardust = false)));
 			DD2Event.ResetProgressEntirely();
 			NPC.ClearFoundActiveNPCs();
 			WorldGen.shadowOrbSmashed = false;
@@ -24168,7 +24168,7 @@ namespace Terraria
 						}
 					}
 				}
-				if (NPC.downedPlantBoss && WorldGen.genRand.Next(2) != 0)
+				if (NpcMgr.downedPlantBoss && WorldGen.genRand.Next(2) != 0)
 				{
 					return;
 				}
@@ -29990,11 +29990,11 @@ namespace Terraria
 				}
 				if (tile.wall > 0)
 				{
-					if (Main.wallDungeon[(int)tile.wall] && !NPC.downedBoss3)
+					if (Main.wallDungeon[(int)tile.wall] && !NpcMgr.downedBoss3)
 					{
 						fail = true;
 					}
-					if (tile.wall == 87 && !NPC.downedGolemBoss)
+					if (tile.wall == 87 && !NpcMgr.downedGolemBoss)
 					{
 						fail = true;
 					}
@@ -34297,19 +34297,19 @@ namespace Terraria
 				return;
 			}
 			int num = 0;
-			if (!NPC.TowerActiveSolar)
+			if (!NpcMgr.TowerActiveSolar)
 			{
 				num++;
 			}
-			if (!NPC.TowerActiveVortex)
+			if (!NpcMgr.TowerActiveVortex)
 			{
 				num++;
 			}
-			if (!NPC.TowerActiveNebula)
+			if (!NpcMgr.TowerActiveNebula)
 			{
 				num++;
 			}
-			if (!NPC.TowerActiveStardust)
+			if (!NpcMgr.TowerActiveStardust)
 			{
 				num++;
 			}
@@ -34333,7 +34333,7 @@ namespace Terraria
 			{
 				if (Main.player[k].active)
 				{
-					Rectangle value = new Rectangle((int)(Main.player[k].position.X + (float)(Main.player[k].width / 2) - (float)(NPC.sWidth / 2) - (float)NPC.safeRangeX), (int)(Main.player[k].position.Y + (float)(Main.player[k].height / 2) - (float)(NPC.sHeight / 2) - (float)NPC.safeRangeY), NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
+					Rectangle value = new Rectangle((int)(Main.player[k].position.X + (float)(Main.player[k].width / 2) - (float)(NpcMgr.sWidth / 2) - (float)NpcMgr.safeRangeX), (int)(Main.player[k].position.Y + (float)(Main.player[k].height / 2) - (float)(NpcMgr.sHeight / 2) - (float)NpcMgr.safeRangeY), NpcMgr.sWidth + NpcMgr.safeRangeX * 2, NpcMgr.sHeight + NpcMgr.safeRangeY * 2);
 					if (rectangle.Intersects(value))
 					{
 						return false;
@@ -40347,7 +40347,7 @@ namespace Terraria
 			{
 				if (Main.player[i].active)
 				{
-					Rectangle value = new Rectangle((int)((double)Main.player[i].position.X + (double)Main.player[i].width * 0.5 - (double)NPC.sWidth * 0.6), (int)((double)Main.player[i].position.Y + (double)Main.player[i].height * 0.5 - (double)NPC.sHeight * 0.6), (int)((double)NPC.sWidth * 1.2), (int)((double)NPC.sHeight * 1.2));
+					Rectangle value = new Rectangle((int)((double)Main.player[i].position.X + (double)Main.player[i].width * 0.5 - (double)NpcMgr.sWidth * 0.6), (int)((double)Main.player[i].position.Y + (double)Main.player[i].height * 0.5 - (double)NpcMgr.sHeight * 0.6), (int)((double)NpcMgr.sWidth * 1.2), (int)((double)NpcMgr.sHeight * 1.2));
 					if (rectangle.Intersects(value))
 					{
 						return true;
@@ -43097,7 +43097,7 @@ namespace Terraria
 				int num14 = Main.rand.Next(2) + 1;
 				for (int k = 0; k < num14; k++)
 				{
-					NPC.SpawnOnPlayer((int)Player.FindClosest(new Vector2((float)(i * 16), (float)(j * 16)), 16, 16), 82);
+					NpcMgr.SpawnOnPlayer((int)Player.FindClosest(new Vector2((float)(i * 16), (float)(j * 16)), 16, 16), 82);
 				}
 			}
 			WorldGen.altarCount++;
@@ -43480,7 +43480,7 @@ namespace Terraria
 				if (!flag2)
 				{
 					flag2 = true;
-					Rectangle value = new Rectangle(num3 * 16 + 8 - NPC.sWidth / 2 - NPC.safeRangeX, num4 * 16 + 8 - NPC.sHeight / 2 - NPC.safeRangeY, NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
+					Rectangle value = new Rectangle(num3 * 16 + 8 - NpcMgr.sWidth / 2 - NpcMgr.safeRangeX, num4 * 16 + 8 - NpcMgr.sHeight / 2 - NpcMgr.safeRangeY, NpcMgr.sWidth + NpcMgr.safeRangeX * 2, NpcMgr.sHeight + NpcMgr.safeRangeY * 2);
 					for (int k = 0; k < 255; k++)
 					{
 						if (Main.player[k].active)
@@ -43529,7 +43529,7 @@ namespace Terraria
 										if (!Collision.SolidTiles(num3 - 1, num3 + 1, num4 - 3, num4 - 1))
 										{
 											flag2 = true;
-											Rectangle value2 = new Rectangle(num3 * 16 + 8 - NPC.sWidth / 2 - NPC.safeRangeX, num4 * 16 + 8 - NPC.sHeight / 2 - NPC.safeRangeY, NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
+											Rectangle value2 = new Rectangle(num3 * 16 + 8 - NpcMgr.sWidth / 2 - NpcMgr.safeRangeX, num4 * 16 + 8 - NpcMgr.sHeight / 2 - NpcMgr.safeRangeY, NpcMgr.sWidth + NpcMgr.safeRangeX * 2, NpcMgr.sHeight + NpcMgr.safeRangeY * 2);
 											for (int n = 0; n < 255; n++)
 											{
 												if (Main.player[n].active)
@@ -43706,7 +43706,7 @@ namespace Terraria
 									if (Main.tile[num8, num9 - 3].liquid == 0 && Main.tile[num8, num9 - 2].liquid == 0 && Main.tile[num8, num9 - 1].liquid == 0 && !Collision.SolidTiles(num8 - 1, num8 + 1, num9 - 3, num9 - 1))
 									{
 										flag = true;
-										Rectangle value = new Rectangle(num8 * 16 + 8 - NPC.sWidth / 2 - NPC.safeRangeX, num9 * 16 + 8 - NPC.sHeight / 2 - NPC.safeRangeY, NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
+										Rectangle value = new Rectangle(num8 * 16 + 8 - NpcMgr.sWidth / 2 - NpcMgr.safeRangeX, num9 * 16 + 8 - NpcMgr.sHeight / 2 - NpcMgr.safeRangeY, NpcMgr.sWidth + NpcMgr.safeRangeX * 2, NpcMgr.sHeight + NpcMgr.safeRangeY * 2);
 										for (int n = 0; n < 255; n++)
 										{
 											if (Main.player[n].active)
@@ -44025,8 +44025,8 @@ namespace Terraria
 		public static void StartImpendingDoom()
 		{
 			NPC.LunarApocalypseIsUp = false;
-			NPC.MoonLordCountdown = 3600;
-			NetMessage.SendData(103, -1, -1, null, NPC.MoonLordCountdown, 0f, 0f, 0f, 0, 0, 0);
+			NpcMgr.MoonLordCountdown = 3600;
+			NetMessage.SendData(103, -1, -1, null, NpcMgr.MoonLordCountdown, 0f, 0f, 0f, 0, 0, 0);
 			WorldGen.BroadcastText(NetworkText.FromKey(Lang.misc[52].Key, new object[0]), 50, 255, 130);
 			if (Main.netMode != 1)
 			{
@@ -50336,9 +50336,9 @@ namespace Terraria
 					NPC.NewNPC(num3 * 16, (num2 - 40) * 16, array[j], 0, 0f, 0f, 0f, 0f, 255);
 				}
 			}
-			NPC.TowerActiveVortex = (NPC.TowerActiveNebula = (NPC.TowerActiveSolar = (NPC.TowerActiveStardust = true)));
+			NpcMgr.TowerActiveVortex = (NpcMgr.TowerActiveNebula = (NpcMgr.TowerActiveSolar = (NpcMgr.TowerActiveStardust = true)));
 			NPC.LunarApocalypseIsUp = true;
-			NPC.ShieldStrengthTowerSolar = (NPC.ShieldStrengthTowerVortex = (NPC.ShieldStrengthTowerNebula = (NPC.ShieldStrengthTowerStardust = NPC.ShieldStrengthTowerMax)));
+			NpcMgr.ShieldStrengthTowerSolar = (NpcMgr.ShieldStrengthTowerVortex = (NpcMgr.ShieldStrengthTowerNebula = (NpcMgr.ShieldStrengthTowerStardust = NpcMgr.ShieldStrengthTowerMax)));
 			NetMessage.SendData(101, -1, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
 			WorldGen.MessageLunarApocalypse();
 		}
@@ -50414,7 +50414,7 @@ namespace Terraria
 			int num2 = (int)(Main.npc[num].Center.X / 16f);
 			int num3 = (int)(Main.npc[num].Center.Y / 16f);
 			bool flag = true;
-			Rectangle value = new Rectangle(num2 * 16 + 8 - NPC.sWidth / 2 - NPC.safeRangeX, num3 * 16 + 8 - NPC.sHeight / 2 - NPC.safeRangeY, NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
+			Rectangle value = new Rectangle(num2 * 16 + 8 - NpcMgr.sWidth / 2 - NpcMgr.safeRangeX, num3 * 16 + 8 - NpcMgr.sHeight / 2 - NpcMgr.safeRangeY, NpcMgr.sWidth + NpcMgr.safeRangeX * 2, NpcMgr.sHeight + NpcMgr.safeRangeY * 2);
 			for (int j = 0; j < 255; j++)
 			{
 				if (Main.player[j].active)
@@ -50501,21 +50501,21 @@ namespace Terraria
 			}
 			if (!flag2)
 			{
-				NPC.TowerActiveSolar = false;
+				NpcMgr.TowerActiveSolar = false;
 			}
 			if (!flag3)
 			{
-				NPC.TowerActiveVortex = false;
+				NpcMgr.TowerActiveVortex = false;
 			}
 			if (!flag4)
 			{
-				NPC.TowerActiveNebula = false;
+				NpcMgr.TowerActiveNebula = false;
 			}
 			if (!flag5)
 			{
-				NPC.TowerActiveStardust = false;
+				NpcMgr.TowerActiveStardust = false;
 			}
-			if (!NPC.TowerActiveSolar && !NPC.TowerActiveVortex && !NPC.TowerActiveNebula && !NPC.TowerActiveStardust && !flag)
+			if (!NpcMgr.TowerActiveSolar && !NpcMgr.TowerActiveVortex && !NpcMgr.TowerActiveNebula && !NpcMgr.TowerActiveStardust && !flag)
 			{
 				WorldGen.StartImpendingDoom();
 			}
@@ -51564,7 +51564,7 @@ namespace Terraria
 								}
 								else if (WorldGen.genRand.Next(25) == 0 && Main.tile[num62, num66].liquid == 0)
 								{
-									if (Main.hardMode && NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && WorldGen.genRand.Next(60) == 0)
+									if (Main.hardMode && NpcMgr.downedMechBoss1 && NpcMgr.downedMechBoss2 && NpcMgr.downedMechBoss3 && WorldGen.genRand.Next(60) == 0)
 									{
 										bool flag18 = true;
 										int num80 = 150;
@@ -51590,7 +51590,7 @@ namespace Terraria
 											}
 										}
 									}
-									if (Main.hardMode && NPC.downedMechBossAny && WorldGen.genRand.Next(maxValue) == 0)
+									if (Main.hardMode && NpcMgr.downedMechBossAny && WorldGen.genRand.Next(maxValue) == 0)
 									{
 										bool flag19 = true;
 										int num83 = 60;

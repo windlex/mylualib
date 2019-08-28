@@ -438,18 +438,18 @@ namespace Terraria
 						Main.raining = (Main.maxRaining > 0f);
 						BitsByte bitsByte4 = this.reader.ReadByte();
 						WorldGen.shadowOrbSmashed = bitsByte4[0];
-						NPC.downedBoss1 = bitsByte4[1];
-						NPC.downedBoss2 = bitsByte4[2];
-						NPC.downedBoss3 = bitsByte4[3];
+						NpcMgr.downedBoss1 = bitsByte4[1];
+						NpcMgr.downedBoss2 = bitsByte4[2];
+						NpcMgr.downedBoss3 = bitsByte4[3];
 						Main.hardMode = bitsByte4[4];
-						NPC.downedClown = bitsByte4[5];
+						NpcMgr.downedClown = bitsByte4[5];
 						Main.ServerSideCharacter = bitsByte4[6];
-						NPC.downedPlantBoss = bitsByte4[7];
+						NpcMgr.downedPlantBoss = bitsByte4[7];
 						BitsByte bitsByte5 = this.reader.ReadByte();
-						NPC.downedMechBoss1 = bitsByte5[0];
-						NPC.downedMechBoss2 = bitsByte5[1];
-						NPC.downedMechBoss3 = bitsByte5[2];
-						NPC.downedMechBossAny = bitsByte5[3];
+						NpcMgr.downedMechBoss1 = bitsByte5[0];
+						NpcMgr.downedMechBoss2 = bitsByte5[1];
+						NpcMgr.downedMechBoss3 = bitsByte5[2];
+						NpcMgr.downedMechBossAny = bitsByte5[3];
 						Main.cloudBGActive = (float)(bitsByte5[4] ? 1 : 0);
 						WorldGen.crimson = bitsByte5[5];
 						Main.pumpkinMoon = bitsByte5[6];
@@ -459,24 +459,24 @@ namespace Terraria
 						Main.fastForwardTime = bitsByte6[1];
 						Main.UpdateSundial();
 						bool arg_1801_0 = bitsByte6[2];
-						NPC.downedSlimeKing = bitsByte6[3];
-						NPC.downedQueenBee = bitsByte6[4];
-						NPC.downedFishron = bitsByte6[5];
-						NPC.downedMartians = bitsByte6[6];
-						NPC.downedAncientCultist = bitsByte6[7];
+						NpcMgr.downedSlimeKing = bitsByte6[3];
+						NpcMgr.downedQueenBee = bitsByte6[4];
+						NpcMgr.downedFishron = bitsByte6[5];
+						NpcMgr.downedMartians = bitsByte6[6];
+						NpcMgr.downedAncientCultist = bitsByte6[7];
 						BitsByte bitsByte7 = this.reader.ReadByte();
-						NPC.downedMoonlord = bitsByte7[0];
-						NPC.downedHalloweenKing = bitsByte7[1];
-						NPC.downedHalloweenTree = bitsByte7[2];
-						NPC.downedChristmasIceQueen = bitsByte7[3];
-						NPC.downedChristmasSantank = bitsByte7[4];
-						NPC.downedChristmasTree = bitsByte7[5];
-						NPC.downedGolemBoss = bitsByte7[6];
+						NpcMgr.downedMoonlord = bitsByte7[0];
+						NpcMgr.downedHalloweenKing = bitsByte7[1];
+						NpcMgr.downedHalloweenTree = bitsByte7[2];
+						NpcMgr.downedChristmasIceQueen = bitsByte7[3];
+						NpcMgr.downedChristmasSantank = bitsByte7[4];
+						NpcMgr.downedChristmasTree = bitsByte7[5];
+						NpcMgr.downedGolemBoss = bitsByte7[6];
 						BirthdayParty.ManualParty = bitsByte7[7];
 						BitsByte bitsByte8 = this.reader.ReadByte();
-						NPC.downedPirates = bitsByte8[0];
-						NPC.downedFrost = bitsByte8[1];
-						NPC.downedGoblins = bitsByte8[2];
+						NpcMgr.downedPirates = bitsByte8[0];
+						NpcMgr.downedFrost = bitsByte8[1];
+						NpcMgr.downedGoblins = bitsByte8[2];
 						Sandstorm.Happening = bitsByte8[3];
 						DD2Event.Ongoing = bitsByte8[4];
 						DD2Event.DownedInvasionT1 = bitsByte8[5];
@@ -654,7 +654,7 @@ namespace Terraria
 						NetMessage.SendData(49, this.whoAmI, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
 						NetMessage.SendData(57, this.whoAmI, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
 						NetMessage.SendData(7, this.whoAmI, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
-						NetMessage.SendData(103, -1, -1, null, NPC.MoonLordCountdown, 0f, 0f, 0f, 0, 0, 0);
+						NetMessage.SendData(103, -1, -1, null, NpcMgr.MoonLordCountdown, 0f, 0f, 0f, 0, 0, 0);
 						NetMessage.SendData(101, this.whoAmI, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
 						return;
 					}
@@ -2105,7 +2105,7 @@ namespace Terraria
 						byte b10 = this.reader.ReadByte();
 						if (b10 == 1)
 						{
-							NPC.SpawnSkeletron();
+							NpcMgr.SpawnSkeletron();
 							return;
 						}
 						if (b10 == 2)
@@ -2332,7 +2332,7 @@ namespace Terraria
 						{
 							if (!NPC.AnyNPCs(num150))
 							{
-								NPC.SpawnOnPlayer(plr, num150);
+								NpcMgr.SpawnOnPlayer(plr, num150);
 								return;
 							}
 							return;
@@ -2384,7 +2384,7 @@ namespace Terraria
 							}
 							if (num150 == -8)
 							{
-								if (NPC.downedGolemBoss && Main.hardMode && !NPC.AnyDanger() && !NPC.AnyoneNearCultists())
+								if (NpcMgr.downedGolemBoss && Main.hardMode && !NPC.AnyDanger() && !NPC.AnyoneNearCultists())
 								{
 									WorldGen.StartImpendingDoom();
 									NetMessage.SendData(7, -1, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
@@ -3079,41 +3079,41 @@ namespace Terraria
 					{
 						return;
 					}
-					NPC.ShieldStrengthTowerSolar = (int)this.reader.ReadUInt16();
-					NPC.ShieldStrengthTowerVortex = (int)this.reader.ReadUInt16();
-					NPC.ShieldStrengthTowerNebula = (int)this.reader.ReadUInt16();
-					NPC.ShieldStrengthTowerStardust = (int)this.reader.ReadUInt16();
-					if (NPC.ShieldStrengthTowerSolar < 0)
+                    NpcMgr.ShieldStrengthTowerSolar = (int)this.reader.ReadUInt16();
+                    NpcMgr.ShieldStrengthTowerVortex = (int)this.reader.ReadUInt16();
+                    NpcMgr.ShieldStrengthTowerNebula = (int)this.reader.ReadUInt16();
+                    NpcMgr.ShieldStrengthTowerStardust = (int)this.reader.ReadUInt16();
+                    if (NpcMgr.ShieldStrengthTowerSolar < 0)
 					{
-						NPC.ShieldStrengthTowerSolar = 0;
+                        NpcMgr.ShieldStrengthTowerSolar = 0;
 					}
-					if (NPC.ShieldStrengthTowerVortex < 0)
+                    if (NpcMgr.ShieldStrengthTowerVortex < 0)
 					{
-						NPC.ShieldStrengthTowerVortex = 0;
+                        NpcMgr.ShieldStrengthTowerVortex = 0;
 					}
-					if (NPC.ShieldStrengthTowerNebula < 0)
+                    if (NpcMgr.ShieldStrengthTowerNebula < 0)
 					{
-						NPC.ShieldStrengthTowerNebula = 0;
+                        NpcMgr.ShieldStrengthTowerNebula = 0;
 					}
-					if (NPC.ShieldStrengthTowerStardust < 0)
+                    if (NpcMgr.ShieldStrengthTowerStardust < 0)
 					{
-						NPC.ShieldStrengthTowerStardust = 0;
+                        NpcMgr.ShieldStrengthTowerStardust = 0;
 					}
-					if (NPC.ShieldStrengthTowerSolar > NPC.LunarShieldPowerExpert)
+                    if (NpcMgr.ShieldStrengthTowerSolar > NPC.LunarShieldPowerExpert)
 					{
-						NPC.ShieldStrengthTowerSolar = NPC.LunarShieldPowerExpert;
+                        NpcMgr.ShieldStrengthTowerSolar = NPC.LunarShieldPowerExpert;
 					}
-					if (NPC.ShieldStrengthTowerVortex > NPC.LunarShieldPowerExpert)
+                    if (NpcMgr.ShieldStrengthTowerVortex > NPC.LunarShieldPowerExpert)
 					{
-						NPC.ShieldStrengthTowerVortex = NPC.LunarShieldPowerExpert;
+                        NpcMgr.ShieldStrengthTowerVortex = NPC.LunarShieldPowerExpert;
 					}
-					if (NPC.ShieldStrengthTowerNebula > NPC.LunarShieldPowerExpert)
+                    if (NpcMgr.ShieldStrengthTowerNebula > NPC.LunarShieldPowerExpert)
 					{
-						NPC.ShieldStrengthTowerNebula = NPC.LunarShieldPowerExpert;
+                        NpcMgr.ShieldStrengthTowerNebula = NPC.LunarShieldPowerExpert;
 					}
-					if (NPC.ShieldStrengthTowerStardust > NPC.LunarShieldPowerExpert)
+                    if (NpcMgr.ShieldStrengthTowerStardust > NPC.LunarShieldPowerExpert)
 					{
-						NPC.ShieldStrengthTowerStardust = NPC.LunarShieldPowerExpert;
+                        NpcMgr.ShieldStrengthTowerStardust = NPC.LunarShieldPowerExpert;
 						return;
 					}
 					return;
@@ -3184,7 +3184,7 @@ namespace Terraria
 				case 103:
 					if (Main.netMode == 1)
 					{
-						NPC.MoonLordCountdown = this.reader.ReadInt32();
+						NpcMgr.MoonLordCountdown = this.reader.ReadInt32();
 						return;
 					}
 					return;

@@ -610,7 +610,7 @@ namespace Terraria
 				WorldName = Main.ActiveWorldFileData.Name,
 				Day = Main.dayTime,
 				BloodMoon = Main.bloodMoon,
-				MoonLordDefeated = NPC.downedMoonlord,
+				MoonLordDefeated = NpcMgr.downedMoonlord,
 				HardMode = Main.hardMode,
 				Homeless = (npc != null && npc.homeless),
 				InventoryKey = Main.cInv,

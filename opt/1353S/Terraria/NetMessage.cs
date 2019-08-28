@@ -967,18 +967,18 @@ namespace Terraria
 							writer.Write(Main.maxRaining);
 							BitsByte bb4 = 0;
 							bb4[0] = WorldGen.shadowOrbSmashed;
-							bb4[1] = NPC.downedBoss1;
-							bb4[2] = NPC.downedBoss2;
-							bb4[3] = NPC.downedBoss3;
+							bb4[1] = NpcMgr.downedBoss1;
+							bb4[2] = NpcMgr.downedBoss2;
+							bb4[3] = NpcMgr.downedBoss3;
 							bb4[4] = Main.hardMode;
-							bb4[5] = NPC.downedClown;
-							bb4[7] = NPC.downedPlantBoss;
+							bb4[5] = NpcMgr.downedClown;
+							bb4[7] = NpcMgr.downedPlantBoss;
 							writer.Write(bb4);
 							BitsByte bb5 = 0;
-							bb5[0] = NPC.downedMechBoss1;
-							bb5[1] = NPC.downedMechBoss2;
-							bb5[2] = NPC.downedMechBoss3;
-							bb5[3] = NPC.downedMechBossAny;
+							bb5[0] = NpcMgr.downedMechBoss1;
+							bb5[1] = NpcMgr.downedMechBoss2;
+							bb5[2] = NpcMgr.downedMechBoss3;
+							bb5[3] = NpcMgr.downedMechBossAny;
 							bb5[4] = (Main.cloudBGActive >= 1f);
 							bb5[5] = WorldGen.crimson;
 							bb5[6] = Main.pumpkinMoon;
@@ -988,26 +988,26 @@ namespace Terraria
 							bb6[0] = Main.expertMode;
 							bb6[1] = Main.fastForwardTime;
 							bb6[2] = Main.slimeRain;
-							bb6[3] = NPC.downedSlimeKing;
-							bb6[4] = NPC.downedQueenBee;
-							bb6[5] = NPC.downedFishron;
-							bb6[6] = NPC.downedMartians;
-							bb6[7] = NPC.downedAncientCultist;
+							bb6[3] = NpcMgr.downedSlimeKing;
+							bb6[4] = NpcMgr.downedQueenBee;
+							bb6[5] = NpcMgr.downedFishron;
+							bb6[6] = NpcMgr.downedMartians;
+							bb6[7] = NpcMgr.downedAncientCultist;
 							writer.Write(bb6);
 							BitsByte bb7 = 0;
-							bb7[0] = NPC.downedMoonlord;
-							bb7[1] = NPC.downedHalloweenKing;
-							bb7[2] = NPC.downedHalloweenTree;
-							bb7[3] = NPC.downedChristmasIceQueen;
-							bb7[4] = NPC.downedChristmasSantank;
-							bb7[5] = NPC.downedChristmasTree;
-							bb7[6] = NPC.downedGolemBoss;
+							bb7[0] = NpcMgr.downedMoonlord;
+							bb7[1] = NpcMgr.downedHalloweenKing;
+							bb7[2] = NpcMgr.downedHalloweenTree;
+							bb7[3] = NpcMgr.downedChristmasIceQueen;
+							bb7[4] = NpcMgr.downedChristmasSantank;
+							bb7[5] = NpcMgr.downedChristmasTree;
+							bb7[6] = NpcMgr.downedGolemBoss;
 							bb7[7] = BirthdayParty.PartyIsUp;
 							writer.Write(bb7);
 							BitsByte bb8 = 0;
-							bb8[0] = NPC.downedPirates;
-							bb8[1] = NPC.downedFrost;
-							bb8[2] = NPC.downedGoblins;
+							bb8[0] = NpcMgr.downedPirates;
+							bb8[1] = NpcMgr.downedFrost;
+							bb8[2] = NpcMgr.downedGoblins;
 							bb8[3] = Sandstorm.Happening;
 							bb8[4] = DD2Event.Ongoing;
 							bb8[5] = DD2Event.DownedInvasionT1;
@@ -1809,10 +1809,10 @@ namespace Terraria
 							break;
 						}
 					case 101:
-						writer.Write((ushort)NPC.ShieldStrengthTowerSolar);
-						writer.Write((ushort)NPC.ShieldStrengthTowerVortex);
-						writer.Write((ushort)NPC.ShieldStrengthTowerNebula);
-						writer.Write((ushort)NPC.ShieldStrengthTowerStardust);
+                        writer.Write((ushort)NpcMgr.ShieldStrengthTowerSolar);
+                        writer.Write((ushort)NpcMgr.ShieldStrengthTowerVortex);
+                        writer.Write((ushort)NpcMgr.ShieldStrengthTowerNebula);
+                        writer.Write((ushort)NpcMgr.ShieldStrengthTowerStardust);
 						break;
 					case 102:
 						writer.Write((byte)number);
@@ -1821,7 +1821,7 @@ namespace Terraria
 						writer.Write(number4);
 						break;
 					case 103:
-						writer.Write(NPC.MoonLordCountdown);
+						writer.Write(NpcMgr.MoonLordCountdown);
 						break;
 					case 104:
 						writer.Write((byte)number);

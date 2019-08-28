@@ -33927,40 +33927,40 @@ namespace Terraria
 					{
 						if (num3 == 493)
 						{
-							if (NPC.ShieldStrengthTowerStardust != 0)
+                            if (NpcMgr.ShieldStrengthTowerStardust != 0)
 							{
 								Main.npc[(int)this.ai[0]].ai[3] = 1f;
 							}
-							NPC.ShieldStrengthTowerStardust = (int)MathHelper.Clamp((float)(NPC.ShieldStrengthTowerStardust - 1), 0f, (float)NPC.ShieldStrengthTowerMax);
+                            NpcMgr.ShieldStrengthTowerStardust = (int)MathHelper.Clamp((float)(NpcMgr.ShieldStrengthTowerStardust - 1), 0f, (float)NpcMgr.ShieldStrengthTowerMax);
 						}
 					}
 					else
 					{
-						if (NPC.ShieldStrengthTowerVortex != 0)
+                        if (NpcMgr.ShieldStrengthTowerVortex != 0)
 						{
 							Main.npc[(int)this.ai[0]].ai[3] = 1f;
 						}
-						NPC.ShieldStrengthTowerVortex = (int)MathHelper.Clamp((float)(NPC.ShieldStrengthTowerVortex - 1), 0f, (float)NPC.ShieldStrengthTowerMax);
+                        NpcMgr.ShieldStrengthTowerVortex = (int)MathHelper.Clamp((float)(NpcMgr.ShieldStrengthTowerVortex - 1), 0f, (float)NpcMgr.ShieldStrengthTowerMax);
 					}
 				}
 				else if (num3 != 507)
 				{
 					if (num3 == 517)
 					{
-						if (NPC.ShieldStrengthTowerSolar != 0)
+                        if (NpcMgr.ShieldStrengthTowerSolar != 0)
 						{
 							Main.npc[(int)this.ai[0]].ai[3] = 1f;
 						}
-						NPC.ShieldStrengthTowerSolar = (int)MathHelper.Clamp((float)(NPC.ShieldStrengthTowerSolar - 1), 0f, (float)NPC.ShieldStrengthTowerMax);
+                        NpcMgr.ShieldStrengthTowerSolar = (int)MathHelper.Clamp((float)(NpcMgr.ShieldStrengthTowerSolar - 1), 0f, (float)NpcMgr.ShieldStrengthTowerMax);
 					}
 				}
 				else
 				{
-					if (NPC.ShieldStrengthTowerNebula != 0)
+                    if (NpcMgr.ShieldStrengthTowerNebula != 0)
 					{
 						Main.npc[(int)this.ai[0]].ai[3] = 1f;
 					}
-					NPC.ShieldStrengthTowerNebula = (int)MathHelper.Clamp((float)(NPC.ShieldStrengthTowerNebula - 1), 0f, (float)NPC.ShieldStrengthTowerMax);
+                    NpcMgr.ShieldStrengthTowerNebula = (int)MathHelper.Clamp((float)(NpcMgr.ShieldStrengthTowerNebula - 1), 0f, (float)NpcMgr.ShieldStrengthTowerMax);
 				}
 				Main.npc[(int)this.ai[0]].netUpdate = true;
 				NetMessage.SendData(101, -1, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);

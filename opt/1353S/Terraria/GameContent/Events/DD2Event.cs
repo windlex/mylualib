@@ -18,7 +18,7 @@ namespace Terraria.GameContent.Events
 		{
 			get
 			{
-				return NPC.downedBoss2;
+                return NpcMgr.downedBoss2;
 			}
 		}
 
@@ -80,11 +80,11 @@ namespace Terraria.GameContent.Events
 		{
 			if (gameVersionNumber < 178)
 			{
-				NPC.savedBartender = false;
+                NpcMgr.savedBartender = false;
 				DD2Event.ResetProgressEntirely();
 				return;
 			}
-			NPC.savedBartender = reader.ReadBoolean();
+            NpcMgr.savedBartender = reader.ReadBoolean();
 			DD2Event.DownedInvasionT1 = reader.ReadBoolean();
 			DD2Event.DownedInvasionT2 = reader.ReadBoolean();
 			DD2Event.DownedInvasionT3 = reader.ReadBoolean();
@@ -202,8 +202,8 @@ namespace Terraria.GameContent.Events
 				DD2Event._spawnedBetsyT3 = false;
 				DD2Event.LostThisRun = false;
 				DD2Event.WonThisRun = false;
-				NPC.waveKills = 0f;
-				NPC.waveNumber = 1;
+				NpcMgr.waveKills = 0f;
+				NpcMgr.waveNumber = 1;
 				DD2Event.ClearAllTowersInGame();
 				WorldGen.BroadcastText(NetworkText.FromKey("DungeonDefenders2.InvasionStart", new object[0]), DD2Event.INFO_START_INVASION_COLOR);
 				NetMessage.SendData(7, -1, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
@@ -233,8 +233,8 @@ namespace Terraria.GameContent.Events
 				DD2Event._deadGoblinSpots.Clear();
 				if (Main.netMode != 1)
 				{
-					NPC.waveKills = 0f;
-					NPC.waveNumber = 0;
+					NpcMgr.waveKills = 0f;
+					NpcMgr.waveNumber = 0;
 					DD2Event.WipeEntities();
 					NetMessage.SendData(7, -1, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
 				}
@@ -277,7 +277,7 @@ namespace Terraria.GameContent.Events
 		{
 			get
 			{
-				return Main.hardMode && NPC.downedMechBossAny;
+				return Main.hardMode && NpcMgr.downedMechBossAny;
 			}
 		}
 
@@ -287,7 +287,7 @@ namespace Terraria.GameContent.Events
 		{
 			get
 			{
-				return Main.hardMode && NPC.downedGolemBoss;
+				return Main.hardMode && NpcMgr.downedGolemBoss;
 			}
 		}
 
@@ -329,15 +329,15 @@ namespace Terraria.GameContent.Events
 			int num3;
 			DD2Event.GetInvasionStatus(out num, out num2, out num3, false);
 			float num4 = (float)DD2Event.GetMonsterPointsWorth(slainMonsterID);
-			float waveKills = NPC.waveKills;
-			NPC.waveKills += num4;
+			float waveKills = NpcMgr.waveKills;
+			NpcMgr.waveKills += num4;
 			num3 += (int)num4;
 			bool flag = false;
 			int num5 = num;
-			if (NPC.waveKills >= (float)num2 && num2 != 0)
+			if (NpcMgr.waveKills >= (float)num2 && num2 != 0)
 			{
-				NPC.waveKills = 0f;
-				NPC.waveNumber++;
+				NpcMgr.waveKills = 0f;
+				NpcMgr.waveNumber++;
 				flag = true;
 				DD2Event.GetInvasionStatus(out num, out num2, out num3, true);
 				if (DD2Event.WonThisRun)
@@ -467,9 +467,9 @@ namespace Terraria.GameContent.Events
 		// Token: 0x06001238 RID: 4664 RVA: 0x00413C00 File Offset: 0x00411E00
 		private static void GetInvasionStatus(out int currentWave, out int requiredKillCount, out int currentKillCount, bool currentlyInCheckProgress = false)
 		{
-			currentWave = NPC.waveNumber;
+			currentWave = NpcMgr.waveNumber;
 			requiredKillCount = 10;
-			currentKillCount = (int)NPC.waveKills;
+			currentKillCount = (int)NpcMgr.waveKills;
 			int ongoingDifficulty = DD2Event.OngoingDifficulty;
 			if (ongoingDifficulty == 2)
 			{
@@ -896,7 +896,7 @@ namespace Terraria.GameContent.Events
 			{
 				center = Main.npc[num].Center;
 			}
-			NPC.SpawnOnPlayer((int)Player.FindClosest(center, 1, 1), 551);
+			NpcMgr.SpawnOnPlayer((int)Player.FindClosest(center, 1, 1), 551);
 			DD2Event._spawnedBetsyT3 = true;
 		}
 
@@ -1020,16 +1020,16 @@ namespace Terraria.GameContent.Events
 			int y = (int)gateBottom.Y;
 			int num = 50;
 			int num2 = 6;
-			if (NPC.waveNumber > 4)
+			if (NpcMgr.waveNumber > 4)
 			{
 				num2 = 12;
 			}
-			else if (NPC.waveNumber > 3)
+			else if (NpcMgr.waveNumber > 3)
 			{
 				num2 = 8;
 			}
 			int num3 = 6;
-			if (NPC.waveNumber > 4)
+			if (NpcMgr.waveNumber > 4)
 			{
 				num3 = 8;
 			}
@@ -1040,7 +1040,7 @@ namespace Terraria.GameContent.Events
 				num3 = (int)((double)num3 * 1.3);
 			}
 			int num4 = 200;
-			switch (NPC.waveNumber)
+			switch (NpcMgr.waveNumber)
 			{
 			case 1:
 				if (NPC.CountNPCS(552) + NPC.CountNPCS(555) < num)
@@ -1143,7 +1143,7 @@ namespace Terraria.GameContent.Events
 		// Token: 0x06001251 RID: 4689 RVA: 0x00414D7C File Offset: 0x00412F7C
 		private static int Difficulty_1_GetMonsterPointsWorth(int slainMonsterID)
 		{
-			if (NPC.waveNumber == 5 && NPC.waveKills >= 139f)
+			if (NpcMgr.waveNumber == 5 && NpcMgr.waveKills >= 139f)
 			{
 				if (slainMonsterID == 564 || slainMonsterID == 565)
 				{
@@ -1158,7 +1158,7 @@ namespace Terraria.GameContent.Events
 				{
 					return 0;
 				}
-				if (NPC.waveNumber == 5 && NPC.waveKills == 138f)
+				if (NpcMgr.waveNumber == 5 && NpcMgr.waveKills == 138f)
 				{
 					return 1;
 				}
@@ -1295,7 +1295,7 @@ namespace Terraria.GameContent.Events
 		// Token: 0x06001254 RID: 4692 RVA: 0x00414F74 File Offset: 0x00413174
 		private static int Difficulty_2_GetMonsterPointsWorth(int slainMonsterID)
 		{
-			if (NPC.waveNumber == 7 && NPC.waveKills >= 219f)
+			if (NpcMgr.waveNumber == 7 && NpcMgr.waveKills >= 219f)
 			{
 				if (slainMonsterID == 576 || slainMonsterID == 577)
 				{
@@ -1310,7 +1310,7 @@ namespace Terraria.GameContent.Events
 				{
 					return 0;
 				}
-				if (NPC.waveNumber == 7 && NPC.waveKills == 218f)
+				if (NpcMgr.waveNumber == 7 && NpcMgr.waveKills == 218f)
 				{
 					return 1;
 				}
@@ -1329,31 +1329,31 @@ namespace Terraria.GameContent.Events
 			int y = (int)gateBottom.Y;
 			int num = 50;
 			int num2 = 5;
-			if (NPC.waveNumber > 1)
+			if (NpcMgr.waveNumber > 1)
 			{
 				num2 = 8;
 			}
-			if (NPC.waveNumber > 3)
+			if (NpcMgr.waveNumber > 3)
 			{
 				num2 = 10;
 			}
-			if (NPC.waveNumber > 5)
+			if (NpcMgr.waveNumber > 5)
 			{
 				num2 = 12;
 			}
 			int num3 = 5;
-			if (NPC.waveNumber > 4)
+			if (NpcMgr.waveNumber > 4)
 			{
 				num3 = 7;
 			}
 			int num4 = 2;
 			int num5 = 8;
-			if (NPC.waveNumber > 3)
+			if (NpcMgr.waveNumber > 3)
 			{
 				num5 = 12;
 			}
 			int num6 = 3;
-			if (NPC.waveNumber > 5)
+			if (NpcMgr.waveNumber > 5)
 			{
 				num6 = 5;
 			}
@@ -1366,7 +1366,7 @@ namespace Terraria.GameContent.Events
 			}
 			int num7 = 200;
 			int num8 = 200;
-			switch (NPC.waveNumber)
+			switch (NpcMgr.waveNumber)
 			{
 			case 1:
 				if (Main.rand.Next(20) == 0 && NPC.CountNPCS(562) < num2)
@@ -1693,7 +1693,7 @@ namespace Terraria.GameContent.Events
 		// Token: 0x06001258 RID: 4696 RVA: 0x00415D1C File Offset: 0x00413F1C
 		private static int Difficulty_3_GetMonsterPointsWorth(int slainMonsterID)
 		{
-			if (NPC.waveNumber == 7)
+			if (NpcMgr.waveNumber == 7)
 			{
 				if (slainMonsterID == 551)
 				{
@@ -1722,35 +1722,35 @@ namespace Terraria.GameContent.Events
 			int y = (int)gateBottom.Y;
 			int num = 60;
 			int num2 = 7;
-			if (NPC.waveNumber > 1)
+			if (NpcMgr.waveNumber > 1)
 			{
 				num2 = 9;
 			}
-			if (NPC.waveNumber > 3)
+			if (NpcMgr.waveNumber > 3)
 			{
 				num2 = 12;
 			}
-			if (NPC.waveNumber > 5)
+			if (NpcMgr.waveNumber > 5)
 			{
 				num2 = 15;
 			}
 			int num3 = 7;
-			if (NPC.waveNumber > 4)
+			if (NpcMgr.waveNumber > 4)
 			{
 				num3 = 10;
 			}
 			int num4 = 2;
-			if (NPC.waveNumber > 5)
+			if (NpcMgr.waveNumber > 5)
 			{
 				num4 = 3;
 			}
 			int num5 = 12;
-			if (NPC.waveNumber > 3)
+			if (NpcMgr.waveNumber > 3)
 			{
 				num5 = 18;
 			}
 			int num6 = 4;
-			if (NPC.waveNumber > 5)
+			if (NpcMgr.waveNumber > 5)
 			{
 				num6 = 6;
 			}
@@ -1765,7 +1765,7 @@ namespace Terraria.GameContent.Events
 			}
 			int num8 = 200;
 			int num9 = 200;
-			switch (NPC.waveNumber)
+			switch (NpcMgr.waveNumber)
 			{
 			case 1:
 				if (Main.rand.Next(18) == 0 && NPC.CountNPCS(563) < num2)
