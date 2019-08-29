@@ -57,7 +57,9 @@ namespace Terraria
 {
 	public class Main : Game
 	{
-		public delegate void OnPlayerSelected(PlayerFileData player);
+        public XLua.LuaEnv L;
+
+        public delegate void OnPlayerSelected(PlayerFileData player);
 
 		public const int curRelease = 194;
 
@@ -8583,6 +8585,12 @@ namespace Terraria
 
 		private void ClientInitialize()
 		{
+            Konsole.Open();
+
+            L = new XLua.LuaEnv();
+            L.DoString("require 'main'; Main();");
+            XLua.LuaBind.Bind();
+
 			MessageBuffer.OnTileChangeReceived += new TileChangeReceivedEvent(this.OnTileChangeEvent);
 			Main.clientUUID = Guid.NewGuid().ToString();
 			FilterManager arg_2E_0 = Filters.Scene;

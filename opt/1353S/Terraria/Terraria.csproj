@@ -23,7 +23,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;XLUA_GENERAL</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -65,8 +65,35 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="00.Base\EventCenter.cs" />
     <Compile Include="03.NPC\NpcAI.cs" />
     <Compile Include="03.NPC\NpcMgr.cs" />
+    <Compile Include="0F.Debug\Debug.cs" />
+    <Compile Include="0F.Debug\Konsole.cs" />
+    <Compile Include="11.Lua\CodeEmit.cs" />
+    <Compile Include="11.Lua\CopyByValue.cs" />
+    <Compile Include="11.Lua\DelegateBridge.cs" />
+    <Compile Include="11.Lua\GenAttributes.cs" />
+    <Compile Include="11.Lua\GenericDelegateBridge.cs" />
+    <Compile Include="11.Lua\InternalGlobals.cs" />
+    <Compile Include="11.Lua\LuaBase.cs" />
+    <Compile Include="11.Lua\LuaBind.cs" />
+    <Compile Include="11.Lua\LuaDLL.cs" />
+    <Compile Include="11.Lua\LuaEnv.cs" />
+    <Compile Include="11.Lua\LuaException.cs" />
+    <Compile Include="11.Lua\LuaFunction.cs" />
+    <Compile Include="11.Lua\LuaTable.cs" />
+    <Compile Include="11.Lua\MethodWarpsCache.cs" />
+    <Compile Include="11.Lua\ObjectCasters.cs" />
+    <Compile Include="11.Lua\ObjectPool.cs" />
+    <Compile Include="11.Lua\ObjectTranslator.cs" />
+    <Compile Include="11.Lua\ObjectTranslatorPool.cs" />
+    <Compile Include="11.Lua\RawObject.cs" />
+    <Compile Include="11.Lua\SignatureLoader.cs" />
+    <Compile Include="11.Lua\StaticLuaCallbacks.cs" />
+    <Compile Include="11.Lua\TemplateEngine.cs" />
+    <Compile Include="11.Lua\TypeExtensions.cs" />
+    <Compile Include="11.Lua\Utils.cs" />
     <Compile Include="Achievements\Achievement.cs" />
     <Compile Include="Achievements\AchievementCategory.cs" />
     <Compile Include="Achievements\AchievementCondition.cs" />
@@ -579,7 +606,6 @@
     <Folder Include="05.Skill\" />
     <Folder Include="06.View\" />
     <Folder Include="10.Activity\" />
-    <Folder Include="11.Lua\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

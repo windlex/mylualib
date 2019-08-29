@@ -24333,7 +24333,7 @@ namespace Terraria
 				Main.screenPosition.X = this.position.X + (float)(this.width / 2) - (float)(Main.screenWidth / 2);
 				Main.screenPosition.Y = this.position.Y + (float)(this.height / 2) - (float)(Main.screenHeight / 2);
 			}
-		}
+        }
 
 		// Token: 0x060003E7 RID: 999 RVA: 0x0026C544 File Offset: 0x0026A744
 		public void SporeSac()
@@ -41714,7 +41714,10 @@ namespace Terraria
 				if (Player.Hooks.OnEnterWorld != null)
 				{
 					Player.Hooks.OnEnterWorld(Main.player[playerIndex]);
-				}
+                    Main.instance.L.DoString("OnEnterWorld()");
+                    Console.WriteLine(Main.player[playerIndex].name);
+                    XLua.LuaBind._OnEnterWorld(Main.player[playerIndex]);
+                }
 			}
 
 			// Token: 0x0600140D RID: 5133 RVA: 0x0041C1DF File Offset: 0x0041A3DF

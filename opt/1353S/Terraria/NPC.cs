@@ -23678,6 +23678,8 @@ namespace Terraria
 				Main.npc[num].ai[2] = ai2;
 				Main.npc[num].ai[3] = ai3;
 				Main.npc[num].target = Target;
+                Console.WriteLine("NewNPC {0}", Main.npc[num].GivenName);
+                Main.instance.L.DoString("OnNpcSpawn()");
 				if (Type == 50)
 				{
 					if (Main.netMode == 0)

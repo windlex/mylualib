@@ -885,22 +885,27 @@ namespace Terraria.GameInput
 					flag2 = true;
 				}
 			}
-			if (Main.blockKey != Keys.None.ToString())
-			{
-				bool flag3 = false;
-				for (int j = 0; j < pressedKeys.Length; j++)
-				{
-					if (pressedKeys[j].ToString() == Main.blockKey)
-					{
-						pressedKeys[j] = Keys.None;
-						flag3 = true;
-					}
-				}
-				if (!flag3)
-				{
-					Main.blockKey = Keys.None.ToString();
-				}
-			}
+            for (int k = (int)Keys.F1; k <= (int)Keys.F12; k++)
+            {
+                if (Main.keyState.IsKeyDown((Keys)k))
+                    EventCenter.FireKeyEvent(EventID.Key_Fn, k);
+            }
+            if (Main.blockKey != Keys.None.ToString())
+            {
+                bool flag3 = false;
+                for (int j = 0; j < pressedKeys.Length; j++)
+                {
+                    if (pressedKeys[j].ToString() == Main.blockKey)
+                    {
+                        pressedKeys[j] = Keys.None;
+                        flag3 = true;
+                    }
+                }
+                if (!flag3)
+                {
+                    Main.blockKey = Keys.None.ToString();
+                }
+            }
 			KeyConfiguration keyConfiguration = PlayerInput.CurrentProfile.InputModes[InputMode.Keyboard];
 			if (Main.gameMenu && !PlayerInput.WritingText)
 			{

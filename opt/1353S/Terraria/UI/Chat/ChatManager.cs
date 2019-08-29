@@ -16,6 +16,10 @@ namespace Terraria.UI.Chat
 		// Token: 0x06000C57 RID: 3159 RVA: 0x003D88B0 File Offset: 0x003D6AB0
 		public static bool AddChatText(DynamicSpriteFont font, string text, Vector2 baseScale)
 		{
+            Console.WriteLine("AddChatText+++++++++++++");
+            Console.WriteLine(font.ToString());
+            Console.WriteLine(text);
+            Console.WriteLine(baseScale.ToString());
 			int num = Main.screenWidth - 330;
 			if (ChatManager.GetStringSize(font, Main.chatText + text, baseScale, -1f).X > (float)num)
 			{
