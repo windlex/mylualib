@@ -25189,20 +25189,20 @@ namespace Terraria
 		}
 
 		// Token: 0x06000834 RID: 2100 RVA: 0x003A0124 File Offset: 0x0039E324
-		public static void IslandHouse(int i, int j)
+		public static void IslandHouse(int posX, int posY)
 		{
 			byte type = 202;
 			byte wall = 82;
-			Vector2 vector = new Vector2((float)i, (float)j);
+			Vector2 vector = new Vector2((float)posX, (float)posY);
 			int num = 1;
 			if (WorldGen.genRand.Next(2) == 0)
 			{
 				num = -1;
 			}
-			int num2 = WorldGen.genRand.Next(7, 12);
-			int num3 = WorldGen.genRand.Next(5, 7);
-			vector.X = (float)(i + (num2 + 2) * num);
-			for (int k = j - 15; k < j + 30; k++)
+			int _width = WorldGen.genRand.Next(7, 12);
+			int _height = WorldGen.genRand.Next(5, 7);
+			vector.X = (float)(posX + (_width + 2) * num);
+			for (int k = posY - 15; k < posY + 30; k++)
 			{
 				if (Main.tile[(int)vector.X, k].active())
 				{
@@ -25210,32 +25210,32 @@ namespace Terraria
 					break;
 				}
 			}
-			vector.X = (float)i;
-			int num4 = (int)(vector.X - (float)num2 - 1f);
-			int num5 = (int)(vector.X + (float)num2 + 1f);
-			int num6 = (int)(vector.Y - (float)num3 - 1f);
-			int num7 = (int)(vector.Y + 2f);
-			if (num4 < 0)
+			vector.X = (float)posX;
+			int left = (int)(vector.X - (float)_width - 1f);
+			int right = (int)(vector.X + (float)_width + 1f);
+			int bottom = (int)(vector.Y - (float)_height - 1f);
+			int top = (int)(vector.Y + 2f);
+			if (left < 0)
 			{
-				num4 = 0;
+				left = 0;
 			}
-			if (num5 > Main.maxTilesX)
+			if (right > Main.maxTilesX)
 			{
-				num5 = Main.maxTilesX;
+				right = Main.maxTilesX;
 			}
-			if (num6 < 0)
+			if (bottom < 0)
 			{
-				num6 = 0;
+				bottom = 0;
 			}
-			if (num7 > Main.maxTilesY)
+			if (top > Main.maxTilesY)
 			{
-				num7 = Main.maxTilesY;
+				top = Main.maxTilesY;
 			}
-			for (int l = num4; l <= num5; l++)
+			for (int l = left; l <= right; l++)
 			{
-				for (int m = num6 - 1; m < num7 + 1; m++)
+				for (int m = bottom - 1; m < top + 1; m++)
 				{
-					if (m != num6 - 1 || (l != num4 && l != num5))
+					if (m != bottom - 1 || (l != left && l != right))
 					{
 						Main.tile[l, m].active(true);
 						Main.tile[l, m].liquid = 0;
@@ -25246,38 +25246,38 @@ namespace Terraria
 					}
 				}
 			}
-			num4 = (int)(vector.X - (float)num2);
-			num5 = (int)(vector.X + (float)num2);
-			num6 = (int)(vector.Y - (float)num3);
-			num7 = (int)(vector.Y + 1f);
-			if (num4 < 0)
+			left = (int)(vector.X - (float)_width);
+			right = (int)(vector.X + (float)_width);
+			bottom = (int)(vector.Y - (float)_height);
+			top = (int)(vector.Y + 1f);
+			if (left < 0)
 			{
-				num4 = 0;
+				left = 0;
 			}
-			if (num5 > Main.maxTilesX)
+			if (right > Main.maxTilesX)
 			{
-				num5 = Main.maxTilesX;
+				right = Main.maxTilesX;
 			}
-			if (num6 < 0)
+			if (bottom < 0)
 			{
-				num6 = 0;
+				bottom = 0;
 			}
-			if (num7 > Main.maxTilesY)
+			if (top > Main.maxTilesY)
 			{
-				num7 = Main.maxTilesY;
+				top = Main.maxTilesY;
 			}
-			for (int n = num4; n <= num5; n++)
+			for (int n = left; n <= right; n++)
 			{
-				for (int num8 = num6; num8 < num7; num8++)
+				for (int num8 = bottom; num8 < top; num8++)
 				{
-					if ((num8 != num6 || (n != num4 && n != num5)) && Main.tile[n, num8].wall == 0)
+					if ((num8 != bottom || (n != left && n != right)) && Main.tile[n, num8].wall == 0)
 					{
 						Main.tile[n, num8].active(false);
 						Main.tile[n, num8].wall = wall;
 					}
 				}
 			}
-			int num9 = i + (num2 + 1) * num;
+			int num9 = posX + (_width + 1) * num;
 			int num10 = (int)vector.Y;
 			for (int num11 = num9 - 2; num11 <= num9 + 2; num11++)
 			{
@@ -25286,8 +25286,8 @@ namespace Terraria
 				Main.tile[num11, num10 - 2].active(false);
 			}
 			WorldGen.PlaceTile(num9, num10, 10, true, false, -1, 9);
-			num9 = i + (num2 + 1) * -num - num;
-			for (int num12 = num6; num12 <= num7 + 1; num12++)
+			num9 = posX + (_width + 1) * -num - num;
+			for (int num12 = bottom; num12 <= top + 1; num12++)
 			{
 				Main.tile[num9, num12].active(true);
 				Main.tile[num9, num12].liquid = 0;
@@ -25314,16 +25314,16 @@ namespace Terraria
 			{
 				contain = 158;
 			}
-			WorldGen.AddBuriedChest(i, num10 - 3, contain, false, 13);
+			WorldGen.AddBuriedChest(posX, num10 - 3, contain, false, 13);
 			WorldGen.houseCount++;
-			int num14 = i - num2 / 2 + 1;
-			int num15 = i + num2 / 2 - 1;
+			int num14 = posX - _width / 2 + 1;
+			int num15 = posX + _width / 2 - 1;
 			int num16 = 1;
-			if (num2 > 10)
+			if (_width > 10)
 			{
 				num16 = 2;
 			}
-			int num17 = (num6 + num7) / 2 - 1;
+			int num17 = (bottom + top) / 2 - 1;
 			for (int num18 = num14 - num16; num18 <= num14 + num16; num18++)
 			{
 				for (int num19 = num17 - 1; num19 <= num17 + 1; num19++)
@@ -25338,29 +25338,29 @@ namespace Terraria
 					Main.tile[num20, num21].wall = 21;
 				}
 			}
-			int num22 = i + (num2 / 2 + 1) * -num;
-			WorldGen.PlaceTile(num22, num7 - 1, 14, true, false, -1, 7);
-			WorldGen.PlaceTile(num22 - 2, num7 - 1, 15, true, false, 0, 10);
-			Tile expr_510 = Main.tile[num22 - 2, num7 - 1];
+			int num22 = posX + (_width / 2 + 1) * -num;
+			WorldGen.PlaceTile(num22, top - 1, 14, true, false, -1, 7);
+			WorldGen.PlaceTile(num22 - 2, top - 1, 15, true, false, 0, 10);
+			Tile expr_510 = Main.tile[num22 - 2, top - 1];
 			expr_510.frameX += 18;
-			Tile expr_531 = Main.tile[num22 - 2, num7 - 2];
+			Tile expr_531 = Main.tile[num22 - 2, top - 2];
 			expr_531.frameX += 18;
-			WorldGen.PlaceTile(num22 + 2, num7 - 1, 15, true, false, 0, 10);
-			int i2 = num4 + 1;
-			int j2 = num6;
+			WorldGen.PlaceTile(num22 + 2, top - 1, 15, true, false, 0, 10);
+			int i2 = left + 1;
+			int j2 = bottom;
 			WorldGen.PlaceTile(i2, j2, 91, true, false, -1, WorldGen.genRand.Next(7, 10));
-			i2 = num5 - 1;
-			j2 = num6;
+			i2 = right - 1;
+			j2 = bottom;
 			WorldGen.PlaceTile(i2, j2, 91, true, false, -1, WorldGen.genRand.Next(7, 10));
 			if (num > 0)
 			{
-				i2 = num4;
-				j2 = num6 + 1;
+				i2 = left;
+				j2 = bottom + 1;
 			}
 			else
 			{
-				i2 = num5;
-				j2 = num6 + 1;
+				i2 = right;
+				j2 = bottom + 1;
 			}
 			WorldGen.PlaceTile(i2, j2, 91, true, false, -1, WorldGen.genRand.Next(7, 10));
 		}
@@ -52298,12 +52298,6 @@ namespace Terraria
 		// Token: 0x04000C6D RID: 3181
 		public static int corruptBG = 0;
 
-		// Token: 0x04000CB3 RID: 3251
-		public static int[] countX = new int[WorldGen.maxTileCount];
-
-		// Token: 0x04000CB4 RID: 3252
-		public static int[] countY = new int[WorldGen.maxTileCount];
-
 		// Token: 0x04000C77 RID: 3191
 		public static bool crimson = false;
 
@@ -52348,30 +52342,6 @@ namespace Terraria
 
 		// Token: 0x04000CDB RID: 3291
 		private static int[] DPlatY = new int[300];
-
-		// Token: 0x04000CD4 RID: 3284
-		private static int[] dRoomB = new int[WorldGen.maxDRooms];
-
-		// Token: 0x04000CD1 RID: 3281
-		private static int[] dRoomL = new int[WorldGen.maxDRooms];
-
-		// Token: 0x04000CD2 RID: 3282
-		private static int[] dRoomR = new int[WorldGen.maxDRooms];
-
-		// Token: 0x04000CCF RID: 3279
-		public static int[] dRoomSize = new int[WorldGen.maxDRooms];
-
-		// Token: 0x04000CD3 RID: 3283
-		private static int[] dRoomT = new int[WorldGen.maxDRooms];
-
-		// Token: 0x04000CD0 RID: 3280
-		private static bool[] dRoomTreasure = new bool[WorldGen.maxDRooms];
-
-		// Token: 0x04000CCD RID: 3277
-		public static int[] dRoomX = new int[WorldGen.maxDRooms];
-
-		// Token: 0x04000CCE RID: 3278
-		public static int[] dRoomY = new int[WorldGen.maxDRooms];
 
 		// Token: 0x04000CE1 RID: 3297
 		public static bool dSurface = false;
@@ -52822,7 +52792,38 @@ namespace Terraria
 		// Token: 0x04000CAB RID: 3243
 		public static int _lastSeed;
 
-		// Token: 0x020001D9 RID: 473
+
+        // Token: 0x04000CD4 RID: 3284
+        private static int[] dRoomB = new int[WorldGen.maxDRooms];
+
+        // Token: 0x04000CD1 RID: 3281
+        private static int[] dRoomL = new int[WorldGen.maxDRooms];
+
+        // Token: 0x04000CD2 RID: 3282
+        private static int[] dRoomR = new int[WorldGen.maxDRooms];
+
+        // Token: 0x04000CCF RID: 3279
+        public static int[] dRoomSize = new int[WorldGen.maxDRooms];
+
+        // Token: 0x04000CD3 RID: 3283
+        private static int[] dRoomT = new int[WorldGen.maxDRooms];
+
+        // Token: 0x04000CD0 RID: 3280
+        private static bool[] dRoomTreasure = new bool[WorldGen.maxDRooms];
+
+        // Token: 0x04000CCD RID: 3277
+        public static int[] dRoomX = new int[WorldGen.maxDRooms];
+
+        // Token: 0x04000CCE RID: 3278
+        public static int[] dRoomY = new int[WorldGen.maxDRooms];
+
+        // Token: 0x04000CB3 RID: 3251
+        public static int[] countX = new int[WorldGen.maxTileCount];
+
+        // Token: 0x04000CB4 RID: 3252
+        public static int[] countY = new int[WorldGen.maxTileCount];
+
+        // Token: 0x020001D9 RID: 473
 		public class Hooks
 		{
 			// Token: 0x06001460 RID: 5216 RVA: 0x0041CC1C File Offset: 0x0041AE1C

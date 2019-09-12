@@ -45,17 +45,27 @@ function BuildHouse()
 	if not gPlayer then return end
 	local x,y = floor(gPlayer.position.X/16), floor(gPlayer.position.Y/16)
 	print(x,y)
-	print(IslandHouse)
-	IslandHouse(x,y)
+	--IslandHouse(x,y)
+	package.loaded["Lua.building"] = nil
+	local tBlueprint = require "Lua.building"
+	tBlueprint:place(x,y)
 end
 function Reload()
 	package.loaded['main'] = nil
 	require 'main'
 	print("Reloaded!!!!!")
 end
-
+function AddItem()
+	if not gPlayer then return end
+	local x,y = floor(gPlayer.position.X), floor(gPlayer.position.Y)
+	local itype = math.random(1, 3929);
+	print(x,y, gPlayer.width, gPlayer.height, itype, 1, false, 0, false, false)
+	T.Item.NewItem(x,y, gPlayer.width, gPlayer.height, itype, 1, false, 0, false, false);
+	lastKey = nil;
+end
 FnKey = {
 	[113] = BuildHouse,
+	[114] = AddItem,
 	[116] = Reload,
 }
 function OnKeyEvent(key)

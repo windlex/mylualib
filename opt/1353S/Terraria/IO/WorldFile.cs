@@ -48,7 +48,8 @@ namespace Terraria.IO
 			worldFileData.CreationTime = DateTime.Now;
 			worldFileData.Metadata = FileMetadata.FromCurrentSettings(FileType.World);
 			worldFileData.SetFavorite(false, true);
-			worldFileData.WorldGeneratorVersion = 833223655425uL;
+			// worldFileData.WorldGeneratorVersion = 833223655425uL;
+			worldFileData.WorldGeneratorVersion = 824633720833UL;
 			worldFileData.UniqueId = Guid.NewGuid();
 			if (Main.DefaultSeed == "")
 			{
